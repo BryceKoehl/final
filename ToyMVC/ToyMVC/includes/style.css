@@ -1,0 +1,31 @@
+/* 
+    Document   : style
+    Created on : Mar 30, 2015, 9:43:20 PM
+    Author     : Admin
+    Description:
+    Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body {
+    padding-top: 30px;
+    padding-left: 120px;
+    background-color: #618C9C;
+}
+table {
+    border: 0px solid #000;
+    padding: 20px;
+    background-color: #fff;
+}
+
+th, td {
+    border: 1px  dotted #333;
+    padding: 5px;
+}
+h2 {
+    color: white;
+}
