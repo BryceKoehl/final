@@ -68,6 +68,6 @@ $view->display($result);
 
 public function error($message) {
   $error = new UserError();
-  error->display($message)
+  error->display($message);
 }
 }
