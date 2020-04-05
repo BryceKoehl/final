@@ -1,10 +1,12 @@
 <?php
-
 /*
- * Author: your name
- * Date: today's date
+ * Author: Maimouna Diallo, Bryce Koehl, Ashley Nguyen, Christopher Schilling
+ * Date: 4/5/2020
  * Name: index.php
- * Description: short description about this file
+ * Description: The homepage of the application. It also contains script to dispatch requests. You need to add code
+ *  to retrieve the action (a query string variable) value and then invoke a proper method defined in the UserController
+ *  class with a UserController object. This file has been provided and needs to be completed. For security, data
+ *  retrieved from a form must be properly sanitized.
  */
 
 //include code in vendor/autoload.php file
