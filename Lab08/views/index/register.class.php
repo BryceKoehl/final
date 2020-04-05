@@ -8,7 +8,39 @@
  * hyperlinks accordingly.
  */
 
-class Register
+class Register extends View
 {
+  public function display(){
+      parent::header();
+      ?>
 
+      <!--HTML code starts here... we'll come back to this. Reference user_error + i have a pic :) -->
+
+      <!-- header -->
+      <div class="top-row">Create an account</div>
+
+      <!-- form elements -->
+      <div class = "middle-row">
+        <?php
+        if(!$register){
+          echo "<p>There has been an error</p>";
+        }else{
+          echo "<p> Your account has been successfully created. </p>";
+        }
+        ?>
+      </div>
+
+      <!-- links -->
+      <div class="bottom-row">
+        <span style = "float: left"> Already have an account? <a href = "index.php?action = login"> Login </a>
+        </span>
+        <?php
+          if(!$register){
+            echo '<span style = "float: right"> Don\'t have an account? <a href = "index.php"> Register </a> </span>';
+          }
+        ?>
+<?php
+parent::footer();
+    }
 }
+?>
