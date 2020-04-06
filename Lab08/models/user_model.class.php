@@ -46,7 +46,7 @@ class UserModel
         }
 
         return true;
-
+    }
 
 //function verify_user to verify a user's username and password when logging in
         public
@@ -80,8 +80,8 @@ class UserModel
         }
 
 
-        public
-        function logout()
+
+        public function logout()
         {
             if (isset($_COOKIE['username'])) {
                 setcookie("username", time() - 1234);
@@ -112,4 +112,4 @@ class UserModel
 
         }
     }
-}
+
