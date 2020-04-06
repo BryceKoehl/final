@@ -10,7 +10,7 @@
 
 class Register extends View
 {
-  public function display(){
+  public function display($register){
       parent::header();
       ?>
 
@@ -22,6 +22,7 @@ class Register extends View
       <!-- form elements -->
       <div class = "middle-row">
         <?php
+        //shows message depending on if registration was successful or failed
         if(!$register){
           echo "<p>There has been an error</p>";
         }else{

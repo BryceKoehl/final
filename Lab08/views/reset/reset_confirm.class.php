@@ -9,7 +9,7 @@
 
 class ResetConfirm extends View
 {
-    public function display(){
+    public function display($message, $reset){
         parent::header();
         ?>
 

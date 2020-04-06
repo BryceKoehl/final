@@ -8,7 +8,7 @@
 
 class Login extends View
 {
-  public function display(){
+  public function display($message){
       parent::header();
       ?>
 

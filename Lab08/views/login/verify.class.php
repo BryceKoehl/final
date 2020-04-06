@@ -10,7 +10,7 @@
 
 class Verify extends View
 {
-  public function display(){
+  public function display($message, $register){
       parent::header();
       ?>
 
