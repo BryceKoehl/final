@@ -8,7 +8,38 @@
  * accordingly.
  */
 
-class Verify
+class Verify extends View
 {
+  public function display(){
+      parent::header();
+      ?>
 
+      <!--HTML code starts here... we'll come back to this. Reference user_error-->
+
+      <div class="top-row">Confirmation</div>
+
+      <!-- middle row -->
+      <div class="middle-row">
+        <h3>Login Successful</h3>
+        <p><?= $message ?></p>
+        <?php
+          //if login failed, sign in again
+          //also update header! Login Success/Login Failed
+          if(!$register){
+            echo '<h3>Login Failed, please login again.</h3>';
+            echo '<p><?= $message ?></p>';
+          }
+          ?>
+      </div>
+
+      <!-- bottom row for links  -->
+      <div class="bottom-row">
+          <span style="float: left">Already have an account? <a href="index.php?action=login">Login</a></span>
+          <span style="float: right">Don't have an account? <a href="index.php">Register</a></span>
+      </div>
+
+<?php
+parent::footer();
+  }
 }
+?>

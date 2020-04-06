@@ -6,7 +6,30 @@
  * Description: Display a conformation message after the user has logged out.
  */
 
-class Logout
+class Logout extends View
 {
+  public function display(){
+      parent::header();
+      ?>
 
+      <!--HTML code starts here... we'll come back to this. Reference user_error-->
+      <!-- header -->
+      <div class="top-row">Logout page</div>
+
+      <!-- form elements -->
+      <div class = "middle-row">
+        <h3>Please log in.</h3>
+        <p><?= $message ?></p>
+      </div>
+
+      <!-- links -->
+      <div class="bottom-row">
+          <span style="float: left">Already have an account? <a href="index.php?action=login">Login</a></span>
+          <span style="float: right">Don't have an account? <a href="index.php">Register</a></span>
+      </div>
+
+<?php
+parent::footer();
+  }
 }
+?>

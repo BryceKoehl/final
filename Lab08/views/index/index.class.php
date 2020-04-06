@@ -20,7 +20,7 @@ class Index extends View
         parent::header();
         ?>
 
-        <!--HTML code starts here... we'll come back to this. Reference user_error + i have a pic :) -->
+        <!--HTML code starts here... we'll come back to this. Reference user_error-->
 
         <!-- header -->
         <div class="top-row">Create an account</div>
