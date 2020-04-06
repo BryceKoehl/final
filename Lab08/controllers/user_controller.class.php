@@ -30,7 +30,7 @@ public function register(){
 $bonk = $this->user_model->add_user();
 //display result
 $view = new Register();
-$view->display($bonk)
+$view->display($bonk);
 }
 
 //login function that handles a user's login activity
@@ -45,7 +45,7 @@ $verify = $this->user_model->verify_user();
 }
 
 public function logout(){
-$logout = $this->user_model->logout();
+$this->user_model->logout();
 $view = new logout();
 $view->display();
 }
@@ -55,19 +55,20 @@ if (!isset($_COOKIE['user'])) {
   $this->error("Please log in to reset your password");
 }else {
   $user = $_COOKIE['user'];
-  $view = display($user);
+  $view = new reset();
+  $view->display($user);
 }
 }
 
 public function do_reset(){
-$result = $this->user_model->reset_password();
+$reset = $this->user_model->reset_password();
 //
 $view = new ResetConfirm();
-$view->display($result);
+$view->display($reset);
 }
 
 public function error($message) {
   $error = new UserError();
-  error->display($message)
+  $error->display($message);
 }
 }

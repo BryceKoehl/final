@@ -13,15 +13,16 @@ class UserModel
 
     // constructor that initializes the two data members
     public function __construct(){
-        $this ->db = Database::getInstance();
+        $this->db = Database::getInstance();
         $this->dbConnection = $this->db->getConnection();
    }
 
     // function add_user that gets the user's data to add into the database
     public function add_user(){
     // to retreive user data
-    if(filter_has_var(INPUT_POST, 'username') && filter_has_var(INPUT_POST, 'password') && filter_has_var(INPUT_POST, 'email')
-    && filter_has_var(INPUT_POST, 'firstName') && filter_has_var(INPUT_POST, 'lastName'){
+    if (filter_has_var(INPUT_POST, 'username') && filter_has_var(INPUT_POST, 'password')
+        && filter_has_var(INPUT_POST, 'email') && filter_has_var(INPUT_POST, 'firstName')
+        && filter_has_var(INPUT_POST, 'lastName')){
       $username = trim(filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING));
       $password = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING));
       $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING));
@@ -39,7 +40,7 @@ class UserModel
     $query = $this->dbConnection->query($sql);
 
 if (!query) {
-  return false:
+  return false;
 }
 
 return true;
