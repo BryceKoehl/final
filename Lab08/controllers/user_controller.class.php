@@ -10,65 +10,74 @@
 
 class UserController
 {
-  //create an object of user model class
-private $user_model;
+    //create an object of user model class
+    private $user_model;
 
 //constructor to create an instance of UserModel
-public function __construct() {
-  $this->user_model = new UserModel();
-}
+    public function __construct()
+    {
+        $this->user_model = new UserModel();
+    }
 
 //index function to display the registration form
-public function index(){
-  $view = new Index();
-  $view->display();
-}
+    public function index()
+    {
+        $view = new Index();
+        $view->display();
+    }
 
 //register function that registers a user account
-public function register(){
+    public function register()
+    {
 
-$bonk = $this->user_model->add_user();
+        $bonk = $this->user_model->add_user();
 //display result
-$view = new Register();
-$view->display($bonk);
-}
+        $view = new Register();
+        $view->display($bonk);
+    }
 
 //login function that handles a user's login activity
-public function login(){
-  $view = new Index();
-  $view->display();
-}
+    public function login()
+    {
+        $view = new Index();
+        $view->display();
+    }
 
 //verify function
-public function verify(){
-$verify = $this->user_model->verify_user();
-}
+    public function verify()
+    {
+        $result = $this->user_model->verify_user();
 
-public function logout(){
-$this->user_model->logout();
-$view = new logout();
-$view->display();
-}
+//display the result
+        $view = new Verify();
+        $view->display($result);
+    }
 
-public function reset(){
-if (!isset($_COOKIE['user'])) {
-  $this->error("Please log in to reset your password");
-}else {
-  $user = $_COOKIE['user'];
-  $view = new reset();
-  $view->display($user);
-}
-}
+    public function logout()
+    {
+        $this->user_model->logout();
+        $view = new Logout();
+        $view->display();
+    }
 
-public function do_reset(){
-$reset = $this->user_model->reset_password();
+    public function reset()
+    {
+        $view = new Reset();
+        $view->display();
+    }
+
+
+    public function do_reset()
+    {
+        $reset = $this->user_model->reset_password();
 //
-$view = new ResetConfirm();
-$view->display($reset);
-}
+        $view = new ResetConfirm();
+        $view->display($reset);
+    }
 
-public function error($message) {
-  $error = new UserError();
-  $error->display($message);
-}
+    public function error($message)
+    {
+        $error = new UserError();
+        $error->display($message);
+    }
 }
