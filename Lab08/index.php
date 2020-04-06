@@ -36,7 +36,7 @@ switch ($action) {
         break;
     case "reset": $user_controller->reset();
         break;
-    case "execute_reset": $user_controller->execute_reset();
+    case "do_reset": $user_controller->do_reset();
         break;
     default : $user_controller->error("Invalid action was requested");
         break;
