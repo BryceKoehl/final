@@ -30,7 +30,7 @@ public function register(){
 $bonk = $this->user_model->add_user();
 //display result
 $view = new Register();
-$view->display($bonk)
+$view->display($bonk);
 }
 
 //login function that handles a user's login activity
@@ -68,6 +68,6 @@ $view->display($result);
 
 public function error($message) {
   $error = new UserError();
-  error->display($message);
+  $error->display($message);
 }
 }
