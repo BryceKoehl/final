@@ -8,7 +8,7 @@
 
 class Logout extends View
 {
-  public function display($message){
+  public function display(){
       parent::header();
       ?>
 
