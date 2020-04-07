@@ -16,24 +16,34 @@ class Verify extends View
 
       <!--HTML code starts here... we'll come back to this. Reference user_error-->
 
-      <div class="top-row">Confirmation</div>
+      <div class="top-row">Login</div>
 
       <!-- middle row -->
       <div class="middle-row">
-        <p>You have successfully logged in.</p>
         <?php
           //if login failed, sign in again
           //also update header! Login Success/Login Failed
           if(!$result){
-            echo '<h3>Login Failed, please login again.</h3>';
+            echo '<p>Your last attempt to login failed. Please try again.</p>';
+          }else{
+            echo '<p>You have successfully logged in.</p>';
           }
           ?>
       </div>
 
       <!-- bottom row for links  -->
       <div class="bottom-row">
-          <span style="float: left">Want to logout? <a href="index.php?action=logout">Logout</a></span>
-          <span style="float: right">Reset password? <a href="index.php?action=reset">Reset</a></span>
+          <?php
+          //if login failed, sign in again
+          //also update header! Login Success/Login Failed
+          if(!$result){
+              echo '<span style="float: left">Already have an account? <a href="index.php?action=login">Login</a></span>';
+              echo '<span style="float: right">Reset password? <a href="index.php?action=reset">Reset</a></span>';
+          }else{
+              echo '<span style="float: left">Want to logout? <a href="index.php?action=logout">Logout</a></span>';
+              echo '<span style="float: right">Reset password? <a href="index.php?action=reset">Reset</a></span>';
+          }
+          ?>
       </div>
 
 <?php
