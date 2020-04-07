@@ -33,7 +33,7 @@ class Verify extends View
       <!-- bottom row for links  -->
       <div class="bottom-row">
           <span style="float: left">Want to logout? <a href="index.php?action=logout">Logout</a></span>
-          <span style="float: right">Reset password? <a href="index.php">Reset</a></span>
+          <span style="float: right">Reset password? <a href="index.php?action=reset">Reset</a></span>
       </div>
 
 <?php

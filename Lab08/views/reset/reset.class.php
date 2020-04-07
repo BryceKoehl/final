@@ -15,7 +15,7 @@ class Reset extends View
     ?>
     <!-- HTML code starts here -->
     <!-- top row for page header -->
-    <div class = "top-row"> Reset Password </div>
+    <div class = "top-row">Reset Password</div>
 
     <!-- reset password form elements -->
     <div class == "middle-row">
@@ -31,7 +31,7 @@ class Reset extends View
 
       <!-- links -->
       <div class = "bottom-row">
-        <span style = "float: left"> Cancel password reset? <a href = "index.php?action=login"> Cancel Reset </a></span>
+        <span style = "float: left">Cancel password reset?<a href = "index.php?action=login"> Cancel Reset</a></span>
       </div>
 
     <?php
