@@ -20,22 +20,20 @@ class Verify extends View
 
       <!-- middle row -->
       <div class="middle-row">
-        <h3>Login Successful</h3>
-        <p><?= $message ?></p>
+        <p>You have successfully logged in.</p>
         <?php
           //if login failed, sign in again
           //also update header! Login Success/Login Failed
           if(!$register){
             echo '<h3>Login Failed, please login again.</h3>';
-            echo '<p><?= $message ?></p>';
           }
           ?>
       </div>
 
       <!-- bottom row for links  -->
       <div class="bottom-row">
-          <span style="float: left">Already have an account? <a href="index.php?action=login">Login</a></span>
-          <span style="float: right">Don't have an account? <a href="index.php">Register</a></span>
+          <span style="float: left">Want to logout? <a href="index.php?action=logout">Logout</a></span>
+          <span style="float: right">Reset password? <a href="index.php">Reset</a></span>
       </div>
 
 <?php

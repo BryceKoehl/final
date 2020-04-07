@@ -40,7 +40,7 @@ class Index extends View
         <!-- links -->
 
 <div class="bottom-row">
-  <span style="float: left">Already have an account?<a href="index.php?action=login">Login</a>
+  <span style="float: left">Already have an account?<a href="index.php?action=login"> Login</a>
   </span>
 </div>
 

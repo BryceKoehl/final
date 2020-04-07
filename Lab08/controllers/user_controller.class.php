@@ -39,7 +39,7 @@ class UserController
 //login function that handles a user's login activity
     public function login()
     {
-        $view = new Index();
+        $view = new Login();
         $view->display();
     }
 

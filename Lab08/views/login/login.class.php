@@ -18,15 +18,17 @@ class Login extends View
 
       <!-- middle row -->
       <div class="middle-row">
+          <p> Please enter your username and password. </p>
           <form action = "index.php?action=login"  method = "POST">
               <div> <input type="text" name="username" placeholder="Username" required style='width:99%'/></div>
               <div> <input type="password" name="password" placeholder="Password, 5 characters minimum" required minlength = "5" style = 'width:99%'/> </div>
+              <div> <input type="submit" name="Login" class = "button"/> </div>
           </form>
       </div>
 
       <!-- bottom row for links  -->
       <div class="bottom-row">
-          <span style="float: right">Don't have an account? <a href="index.php">Register</a></span>
+          <span style="float: right">Don't have an account?<a href="index.php"> Register</a></span>
       </div>
 
 

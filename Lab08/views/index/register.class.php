@@ -33,11 +33,11 @@ class Register extends View
 
       <!-- links -->
       <div class="bottom-row">
-        <span style = "float: left"> Already have an account? <a href = "index.php?action = login"> Login </a>
+        <span style = "float: left"> Already have an account? <a href = "index.php?action=login"> Login </a>
         </span>
         <?php
           if(!$register){
-            echo '<span style = "float: right"> Don\'t have an account? <a href = "index.php"> Register </a> </span>';
+            echo '<span style = "float: right"> Don\'t have an account? <a href="index.php"> Register </a> </span>';
           }
         ?>
 <?php
