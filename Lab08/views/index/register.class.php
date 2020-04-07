@@ -24,9 +24,9 @@ class Register extends View
         <?php
         //shows message depending on if registration was successful or failed
         if(!$register){
-          echo "<p>There has been an error</p>";
+          echo "<p>There has been an error.</p>";
         }else{
-          echo "<p> Your account has been successfully created. </p>";
+          echo "<p> Your account has been successfully created.</p>";
         }
         ?>
       </div>

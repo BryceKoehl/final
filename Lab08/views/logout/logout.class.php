@@ -14,12 +14,11 @@ class Logout extends View
 
       <!--HTML code starts here... we'll come back to this. Reference user_error-->
       <!-- header -->
-      <div class="top-row">Logout page</div>
+      <div class="top-row">Logout</div>
 
       <!-- form elements -->
       <div class = "middle-row">
-        <h3>Please log in.</h3>
-        <p><?= $message ?></p>
+        <p>You have successfully logged out.</p>
       </div>
 
       <!-- links -->
