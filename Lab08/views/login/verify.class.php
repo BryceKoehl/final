@@ -10,19 +10,19 @@
 
 class Verify extends View
 {
-  public function display($result){
-      parent::header();
+  public function display($result){ //display function takes in $result variable
+      parent::header(); //inherited from parent View class
       ?>
 
-      <!--HTML code starts here... we'll come back to this. Reference user_error-->
+      <!--HTML code starts here-->
 
       <div class="top-row">Login</div>
 
-      <!-- middle row -->
+      <!-- body to display message whether login is success/fail-->
       <div class="middle-row">
         <?php
           //if login failed, sign in again
-          //also update header! Login Success/Login Failed
+          //updates text to report whether Login Success/Login Failed
           if(!$result){
             echo '<p>Your last attempt to login failed. Please try again.</p>';
           }else{
@@ -31,15 +31,15 @@ class Verify extends View
           ?>
       </div>
 
-      <!-- bottom row for links  -->
+      <!-- links  -->
       <div class="bottom-row">
           <?php
           //if login failed, sign in again
-          //also update header! Login Success/Login Failed
-          if(!$result){
+          //also update text to report Login Success/Login Failed
+          if(!$result){ //if the login fails, direct to these links
               echo '<span style="float: left">Already have an account? <a href="index.php?action=login">Login</a></span>';
               echo '<span style="float: right">Reset password? <a href="index.php?action=reset">Reset</a></span>';
-          }else{
+          }else{ //when the login is successful, direct to these links
               echo '<span style="float: left">Want to logout? <a href="index.php?action=logout">Logout</a></span>';
               echo '<span style="float: right">Reset password? <a href="index.php?action=reset">Reset</a></span>';
           }
@@ -47,7 +47,7 @@ class Verify extends View
       </div>
 
 <?php
-parent::footer();
+parent::footer(); //inherited from parent View class
   }
 }
 ?>

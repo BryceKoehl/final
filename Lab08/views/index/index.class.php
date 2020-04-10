@@ -17,15 +17,15 @@
 class Index extends View
 {
     public function display(){
-        parent::header();
+        parent::header(); //inherited from parent View class
         ?>
 
-        <!--HTML code starts here... we'll come back to this. Reference user_error-->
+        <!--HTML code starts here-->
 
         <!-- header -->
         <div class="top-row">Create an account</div>
 
-        <!-- form elements -->
+        <!-- form body for new user home page -->
         <div class = "middle-row">
           <p> Please complete the entire form. All fields are required. </p>
           <form action = "index.php?action=register"  method = "POST">
@@ -45,7 +45,7 @@ class Index extends View
 </div>
 
 <?php
-parent::footer();
+parent::footer(); //inherited from parent View class
     }
 }
 ?>
