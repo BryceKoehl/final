@@ -10,7 +10,7 @@
 
 class Verify extends View
 {
-  public function display($message, $register){
+  public function display($result){
       parent::header();
       ?>
 
@@ -24,7 +24,7 @@ class Verify extends View
         <?php
           //if login failed, sign in again
           //also update header! Login Success/Login Failed
-          if(!$register){
+          if(!$result){
             echo '<h3>Login Failed, please login again.</h3>';
           }
           ?>

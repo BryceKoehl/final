@@ -9,14 +9,15 @@
 class Logout extends View
 {
   public function display(){
-      parent::header();
+      parent::header(); //inherited from parent View class
       ?>
 
-      <!--HTML code starts here... we'll come back to this. Reference user_error-->
+      <!--HTML code starts here-->
+
       <!-- header -->
       <div class="top-row">Logout</div>
 
-      <!-- form elements -->
+      <!-- update body message for logout -->
       <div class = "middle-row">
         <p>You have successfully logged out.</p>
       </div>
@@ -28,7 +29,7 @@ class Logout extends View
       </div>
 
 <?php
-parent::footer();
+parent::footer(); //inherited from parent View class
   }
 }
 ?>

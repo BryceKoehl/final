@@ -11,14 +11,15 @@
 class Reset extends View
 {
   public function display(){
-    parent::header();
+    parent::header(); //inherited from parent View class
     ?>
     <!-- HTML code starts here -->
+
     <!-- top row for page header -->
     <div class = "top-row">Reset Password</div>
 
     <!-- reset password form elements -->
-    <div class == "middle-row">
+    <div class = "middle-row">
       <p> Please enter a new password. Username is not changeable. </p>
       <form action = "index.php?action=do_reset" method="POST"><br>
         <p><input type = "text" name = "username" value = "<?php if(isset($_COOKIE['username']) &&
@@ -35,7 +36,7 @@ class Reset extends View
       </div>
 
     <?php
-    parent::footer();
+    parent::footer(); //inherited from parent View class
   }
 }
 ?>

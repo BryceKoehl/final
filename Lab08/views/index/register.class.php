@@ -10,16 +10,16 @@
 
 class Register extends View
 {
-  public function display($register){
-      parent::header();
+  public function display($register){ //display function takes in $register variable
+      parent::header(); //inherits header from parent View class
       ?>
 
-      <!--HTML code starts here... we'll come back to this. Reference user_error + i have a pic :) -->
+      <!--HTML code starts here -->
 
       <!-- header -->
       <div class="top-row">Create an account</div>
 
-      <!-- form elements -->
+      <!-- form body -->
       <div class = "middle-row">
         <?php
         //shows message depending on if registration was successful or failed
@@ -31,17 +31,17 @@ class Register extends View
         ?>
       </div>
 
-      <!-- links -->
+      <!-- displays links -->
       <div class="bottom-row">
         <span style = "float: left"> Already have an account? <a href = "index.php?action=login"> Login </a>
         </span>
         <?php
-          if(!$register){
+          if(!$register){ //directs user to create a new account
             echo '<span style = "float: right"> Don\'t have an account? <a href="index.php"> Register </a> </span>';
           }
         ?>
 <?php
-parent::footer();
+parent::footer(); //inherited from parent View class
     }
 }
 ?>
