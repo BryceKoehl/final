@@ -6,7 +6,7 @@
  * Description: the parent class for all view classes. The two functions display page header and footer.
  */
 
-class CelebrityIndexView {
+class IndexView {
 
     //this method displays the page header
     static public function displayHeader($page_title) {
