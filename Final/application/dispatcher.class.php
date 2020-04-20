@@ -6,8 +6,8 @@
  * Name: dispatcher.class.php
  * Description: application dispatcher responsible for dissecting in pieces the requested URI and
  * routing the request to the proper method of the matched controller.
- * A typical url looks like this: http://example.com/kungfupanda/movie/view/1.
- * In this url, movie is the controller, view is the method, and 1 is the parameter.
+ * A typical url looks like this: http://example.com/kungfupanda/celebrity/view/1.
+ * In this url, celebrity is the controller, view is the method, and 1 is the parameter.
  */
 
 class Dispatcher {
@@ -30,7 +30,7 @@ class Dispatcher {
             array_shift($url_array);
         }
 
-        //strip off index.php or index from the beginning of url if present 
+        //strip off index.php or index from the beginning of url if present
         if (count($url_array) > 0 && ($url_array[0] == "index.php" or $url_array[0] == "index")) {
             array_shift($url_array);
         }
@@ -38,7 +38,7 @@ class Dispatcher {
         //Now, the url_array contains controller name, followed by method name, and zero, one or more arguments
         //get controller name or assign the default controller "WelcomeController"
         $controllerName = !empty($url_array[0]) ? ucfirst($url_array[0]) . 'Controller' : 'WelcomeController';
-        
+
         //create controller instance
         if (!class_exists($controllerName)) {
             $message = "Controller '$controllerName' does not exist.";
@@ -46,7 +46,7 @@ class Dispatcher {
             exit();
         }
         $controller = new $controllerName();
-        
+
         //get method name or assign the default method "index"
         $method = !empty($url_array[1]) ? $url_array[1] : 'index';
 

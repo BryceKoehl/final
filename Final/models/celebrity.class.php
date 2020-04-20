@@ -3,8 +3,8 @@
 /*
  * Author: Louie Zhu
  * Date: Mar 6, 2016
- * Name: movie.class.php
- * Description: the Movie class models a real-world movie.
+ * Name: celebrity.class.php
+ * Description: the celebrity class models a real-world celebrity.
  */
 
 class Celebrity {

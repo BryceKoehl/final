@@ -5,7 +5,7 @@
  * Date:
  * File: config.php
  * Description: set application settings
- * 
+ *
  */
 
 //error reporting level: 0 to turn off all error reporting; E_ALL to report all
@@ -18,16 +18,16 @@ date_default_timezone_set('America/New_York');
 define("BASE_URL", "http://localhost/I211/Lab09");
 
 /*************************************************************************************
- *                       settings for movies                                         *
+ *                       settings for celebritys                                         *
  ************************************************************************************/
 
 //define default path for media images
-define("MOVIE_IMG", "www/img/movies/");
+define("celebrity_IMG", "www/img/celebrity/");
 
 
 /*************************************************************************************
- *                       settings for books                                         *
+ *                       settings for personalitys                                         *
  ************************************************************************************/
 
 //define default path for media images
-define("BOOK_IMG", "www/img/books/");
+define("personality_IMG", "www/img/personality/");
