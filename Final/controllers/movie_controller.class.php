@@ -3,60 +3,60 @@
 /*
  * Author: Ashley, Bryce, Chris, Maimouna
  * Date: April 19, 2020
- * File: user_controller.class.php
- * Description: the user controller
+ * File: personality_controller.class.php
+ * Description: the personality controller
  *
  */
 
-class UsersController {
+class PersonalityController {
 
-    private $user_model;
+    private $personality_model;
 
     //default constructor
     public function __construct() {
-        //create an instance of the UserModel class
-        $this->user_model = UserModel::getUserModel();
+        //create an instance of the personalityModel class
+        $this->personality_model = PersonalityModel::getPersonalityModel();
     }
 
-    //index action that displays all users
+    //index action that displays all personalitys
     public function index() {
-        //retrieve all users and store them in an array
-        $users = $this->user_model->list_user();
+        //retrieve all personalitys and store them in an array
+        $personalities = $this->personality_model->list_personality();
 
-        if (!$users) {
+        if (!$personalities) {
             //display an error
-            $message = "There was a problem displaying users.";
+            $message = "There was a problem displaying personality dimensions.";
             $this->error($message);
             return;
         }
 
-        // display all users
-        $view = new UserIndex();
-        $view->display($users);
+        // display all personalitys
+        $view = new PersonalityIndex();
+        $view->display($personalities);
     }
 
-    //show details of a user
-    public function detail($id) {
-        //retrieve the specific user
-        $user = $this->user_model->view_user($id);
+    //show details of a personality
+    public function detail($dim_id) {
+        //retrieve the specific personality
+        $personality = $this->personality_model->view_personality($dim_id);
 
-        if (!$user) {
+        if (!$personality) {
             //display an error
-            $message = "There was a problem displaying the user id='" . $id . "'.";
+            $message = "There was a problem displaying the personality dimension id='" . $dim_id . "'.";
             $this->error($message);
             return;
         }
 
-        //display user details
-        $view = new UserDetail();
-        $view->display($user);
+        //display personality details
+        $view = new PersonalityDetail();
+        $view->display($personality);
     }
 
 
     //handle an error
     public function error($message) {
         //create an object of the Error class
-        $error = new UsersError();
+        $error = new PersonalityError();
 
         //display the error page
         $error->display($message);

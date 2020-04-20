@@ -3,8 +3,8 @@
  * Author: Louie Zhu
  * Date: Mar 6, 2016
  * Name: error.php
- * Description: this script displays an error message. This script is globally available throughout the application. 
- *     The message to be displayed is passed to this script via variable $message. The dispatcher uses this to 
+ * Description: this script displays an error message. This script is globally available throughout the application.
+ *     The message to be displayed is passed to this script via variable $message. The dispatcher uses this to
  *     display an error message when the requested controller is not found.
  */
 
@@ -31,7 +31,7 @@ IndexView::displayHeader($page_title);
     </tr>
 </table>
 <br><br><br><br><hr>
-<a href="<?= BASE_URL ?>/movie/index">Back to movie list</a>
+<a href="<?= BASE_URL ?>/celebrity/index">Back to celebrity list</a>
 
 <?php
 //display footer

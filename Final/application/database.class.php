@@ -5,7 +5,7 @@
  * Date:
  * File: database,class.php
  * Description:
- * 
+ *
  */
 
 class Database
@@ -53,13 +53,13 @@ class Database
         return $this->objDBConnection;
     }
 
-    //returns the name of the table that stores movies
+    //returns the name of the table that stores celebrity
     public function getCelebrity()
     {
         return $this->param['celebrity'];
     }
 
-    //returns the name of the table that stores books
+    //returns the name of the table that stores celebritys
     public function getCelebrityDimension()
     {
         return $this->param['celebrity_dimension'];

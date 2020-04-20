@@ -9,14 +9,15 @@
 class Login extends View
 {
   public function display(){
-      parent::header(); //inherited from parent View class
+      parent::header();
       ?>
 
-      <!--HTML code starts here-->
+      <!--HTML code starts here... we'll come back to this. Reference user_error-->
 
       <div class="top-row">Login</div>
 
-      <!-- form body -->
+
+      <!-- middle row -->
       <div class="middle-row">
           <p> Please enter your username and password. </p>
           <form action = "index.php?action=verify"  method = "POST">
@@ -26,14 +27,14 @@ class Login extends View
           </form>
       </div>
 
-      <!-- links  -->
+      <!-- bottom row for links  -->
       <div class="bottom-row">
           <span style="float: right">Don't have an account?<a href="index.php"> Register</a></span>
       </div>
 
 
 <?php
-parent::footer(); //inherited from parent View class
+parent::footer();
   }
 }
 ?>
