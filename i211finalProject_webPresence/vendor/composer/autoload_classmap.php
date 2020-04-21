@@ -20,7 +20,7 @@ return array(
     'Dispatcher' => $baseDir . '/application/dispatcher.class.php',
     'IndexView' => $baseDir . '/views/index_view.class.php',
     'Movie' => $baseDir . '/models/movie.class.php',
-    'MovieController' => $baseDir . '/controllers/movie_controller.class.php',
+    'MovieController' => $baseDir . '/controllers/personality_controller.class.php',
     'MovieDetail' => $baseDir . '/views/movie/detail/movie_detail.class.php',
     'MovieEdit' => $baseDir . '/views/movie/edit/movie_edit.class.php',
     'MovieError' => $baseDir . '/views/movie/error/movie_error.class.php',

@@ -3,7 +3,7 @@
 /*
  * Author: Louie Zhu
  * Date: Mar 6, 2016
- * File: movie_controller.class.php
+ * File: personality_controller.class.php
  * Description: the movie controller
  *
  */

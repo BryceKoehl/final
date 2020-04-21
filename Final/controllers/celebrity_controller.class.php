@@ -83,7 +83,7 @@ class CelebrityController {
         $confirm = "The celebrity was successfully updated.";
         $celeb = $this->celebrity_model->view_celebrity($id);
 
-        $celeb = new CelebrityDetail();
+        $view = new CelebrityDetail();
         $view->display($celeb, $confirm);
     }
 

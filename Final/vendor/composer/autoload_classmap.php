@@ -22,7 +22,7 @@ return array(
     'MovieError' => $baseDir . '/views/celebrity/error/celebrity_error.class.php',
     'MovieSearch' => $baseDir . '/views/celebrity/search/celebrity_search.class.php',
     'Personality' => $baseDir . '/models/personality.class.php',
-    'PersonalityController' => $baseDir . '/controllers/movie_controller.class.php',
+    'PersonalityController' => $baseDir . '/controllers/personality_controller.class.php',
     'PersonalityDetail' => $baseDir . '/views/personality/detail/personality_detail.class.php',
     'PersonalityError' => $baseDir . '/views/personality/error/personality_error.class.php',
     'PersonalityIndex' => $baseDir . '/views/personality/index/personality_index.class.php',

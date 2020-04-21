@@ -6,7 +6,7 @@
  * Description: This class defines the method "display" that displays the home page.
  */
 
-class WelcomeIndex extends IndexView {
+class WelcomeIndex extends CelebrityIndexView {
 
     public function display() {
         //display page header

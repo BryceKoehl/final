@@ -9,8 +9,8 @@
 
 class CelebrityIndexView extends IndexView {
 
-    public static function displayHeader($first_name, $last_name) {
-        parent::displayHeader($first_name, $last_name)
+    public static function displayHeader($first_name) {
+        parent::displayHeader($first_name)
         ?>
         <script>
             //the media type

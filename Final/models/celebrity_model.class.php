@@ -16,7 +16,7 @@ class CelebrityModel {
     static private $_instance = NULL;
     private $celebrity;
     private $celebrity_dimension;
-    private $personality_dimension;
+    //private $personality_dimension;
 
     //To use singleton pattern, this constructor is made private. To get an instance of the class, the getCelebrityModel method must be called.
     private function __construct() {
@@ -24,7 +24,7 @@ class CelebrityModel {
         $this->dbConnection = $this->db->getConnection();
         $this->celebrity = $this->db->getCelebrity();
         $this->celebrity_dimension = $this->db->getCelebrityDimension();
-        $this->$personality_dimension = $this->db->getPersonalityDimension();
+        //$this->$personality_dimension = $this->db->getPersonalityDimension();
 
         //Escapes special characters in a string for use in an SQL statement. This stops SQL inject in POST vars.
         foreach ($_POST as $key => $value) {
@@ -37,9 +37,9 @@ class CelebrityModel {
         }
 
         //initialize celebrity personality demension
-        //if (!isset($_SESSION['_personalitydemensions'])) {
-        //    $personalitydemensions = $this->get_celebrity_personalitydemensions();
-        //    $_SESSION['celebrity_personalitydemensions'] = $personalitydemensions;
+        if (!isset($_SESSION['_celebrity'])) {
+          $celebrity = $this->get_celebrity();
+           $_SESSION['celebrity'] = $celebrity;
         }
     }
 

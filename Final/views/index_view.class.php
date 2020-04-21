@@ -9,12 +9,12 @@
 class IndexView {
 
     //this method displays the page header
-    static public function displayHeader($page_title) {
+    static public function displayHeader($first_name) {
         ?>
         <!DOCTYPE html>
         <html>
             <head>
-                <title> <?php echo $page_title ?> </title>
+                <title> <?php echo $first_name ?> </title>
                 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
                 <link rel='shortcut icon' href='<?= BASE_URL ?>/www/img/favicon.ico' type='image/x-icon' />
                 <link type='text/css' rel='stylesheet' href='<?= BASE_URL ?>/www/css/app_style.css' />
