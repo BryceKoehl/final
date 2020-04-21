@@ -16,7 +16,7 @@ class CelebrityModel {
     static private $_instance = NULL;
     private $celebrity;
     private $celebrity_dimension;
-    //private $personality_dimension;
+    private $personality_dimension;
 
     //To use singleton pattern, this constructor is made private. To get an instance of the class, the getCelebrityModel method must be called.
     private function __construct() {
@@ -24,7 +24,7 @@ class CelebrityModel {
         $this->dbConnection = $this->db->getConnection();
         $this->celebrity = $this->db->getCelebrity();
         $this->celebrity_dimension = $this->db->getCelebrityDimension();
-        //$this->$personality_dimension = $this->db->getPersonalityDimension();
+        $this->personality_dimension = $this->db->getPersonalityDimension();
 
         //Escapes special characters in a string for use in an SQL statement. This stops SQL inject in POST vars.
         foreach ($_POST as $key => $value) {
@@ -64,7 +64,7 @@ class CelebrityModel {
          * WHERE ...
          */
 
-        $sql = "SELECT first_name, last_name FROM" . $this->celebrity;
+        $sql = "SELECT * FROM" . $this->celebrity;
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -83,13 +83,13 @@ class CelebrityModel {
 
         //loop through all rows in the returned recordsets
         while ($obj = $query->fetch_object()) {
-            $celebrity = new Celebrity(stripslashes($obj->first_name), stripslashes($obj->last_name), stripslashes($obj->gender), stripslashes($obj->age), stripslashes($obj->web_presence), stripslashes($obj->most_active), stripslashes($obj->freqency));
+            $celeb = new Celebrity(stripslashes($obj->first_name), stripslashes($obj->last_name), stripslashes($obj->gender), stripslashes($obj->age), stripslashes($obj->web_presence), stripslashes($obj->most_active), stripslashes($obj->freqency));
 
             //set the id for the celebrity
-            $celebs->setId($obj->id);
+            $celeb->setCelebId($obj->celeb_id);
 
             //add the celebrity into the array
-            $celebs[] = $celebs;
+            $celebs[] = $celeb;
         }
         return $celebs;
     }

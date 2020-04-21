@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CelebError' => $baseDir . '/views/celebrity/error/celeb_error.class.php',
     'Celebrity' => $baseDir . '/models/celebrity.class.php',
     'CelebrityController' => $baseDir . '/controllers/celebrity_controller.class.php',
     'CelebrityDetail' => $baseDir . '/views/celebrity/detail/celebrity_detail.class.php',
@@ -19,7 +20,6 @@ return array(
     'Database' => $baseDir . '/application/database.class.php',
     'Dispatcher' => $baseDir . '/application/dispatcher.class.php',
     'IndexView' => $baseDir . '/views/index_view.class.php',
-    'MovieError' => $baseDir . '/views/celebrity/error/celeb_error.class.php',
     'MovieSearch' => $baseDir . '/views/celebrity/search/celebrity_search.class.php',
     'Personality' => $baseDir . '/models/personality.class.php',
     'PersonalityController' => $baseDir . '/controllers/personality_controller.class.php',
