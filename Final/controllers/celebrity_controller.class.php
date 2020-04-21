@@ -15,7 +15,7 @@ class CelebrityController {
     //default constructor
     public function __construct() {
         //create an instance of the CelebrityModel class
-        $this->celebrity_model = CelebrityModel::getCelebrity();
+        $this->celebrity_model = CelebrityModel::getCelebrityModel();
     }
 
     //index action that displays all celebrities

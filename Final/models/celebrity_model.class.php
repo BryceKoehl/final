@@ -37,14 +37,14 @@ class CelebrityModel {
         }
 
         //initialize celebrity personality demension
-        if (!isset($_SESSION['_celebrity'])) {
-          $celebrity = $this->getCelebrity();
-           $_SESSION['celebrity'] = $celebrity;
-        }
+        //if (!isset($_SESSION['_celebrity'])) {
+         // $celebrity = $this->getCelebrityModel();
+          //// $_SESSION['celebrity'] = $celebrity;
+        //}
     }
 
     //static method to ensure there is just one CelebrityModel instance
-    public static function getCelebrity() {
+    public static function getCelebrityModel() {
         if (self::$_instance == NULL) {
             self::$_instance = new CelebrityModel();
         }
