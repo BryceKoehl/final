@@ -19,7 +19,7 @@ return array(
     'Database' => $baseDir . '/application/database.class.php',
     'Dispatcher' => $baseDir . '/application/dispatcher.class.php',
     'IndexView' => $baseDir . '/views/index_view.class.php',
-    'MovieError' => $baseDir . '/views/celebrity/error/celebrity_error.class.php',
+    'MovieError' => $baseDir . '/views/celebrity/error/celeb_error.class.php',
     'MovieSearch' => $baseDir . '/views/celebrity/search/celebrity_search.class.php',
     'Personality' => $baseDir . '/models/personality.class.php',
     'PersonalityController' => $baseDir . '/controllers/personality_controller.class.php',

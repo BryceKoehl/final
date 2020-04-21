@@ -64,8 +64,7 @@ class CelebrityModel {
          * WHERE ...
          */
 
-        $sql = "SELECT * FROM " . $this->celebrity . "," . $this->celebrity_dimension .
-                " WHERE " . $this->celebrity . ".personality_dimension=" . $this->personality_dimension . ".dim_id";
+        $sql = "SELECT first_name, last_name FROM" . $this->celebrity;
 
         //execute the query
         $query = $this->dbConnection->query($sql);

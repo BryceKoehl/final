@@ -6,7 +6,7 @@
  * Description:
  *
  */
-class MovieError extends MovieIndexView {
+class CelebError extends CelebrityIndexView {
 
     public function display($message) {
 
@@ -31,7 +31,7 @@ class MovieError extends MovieIndexView {
             </tr>
         </table>
         <br><br><br><br><hr>
-        <a href="<?= BASE_URL ?>/movie/index">Back to movie list</a>
+        <a href="<?= BASE_URL ?>/celebrity/index">Back to celebrity list</a>
         <?php
         //display page footer
         parent::displayFooter();

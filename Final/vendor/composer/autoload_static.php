@@ -20,7 +20,7 @@ class ComposerStaticInit2aa62ca7900cf9d7c7258cee3d36ecdf
         'Database' => __DIR__ . '/../..' . '/application/database.class.php',
         'Dispatcher' => __DIR__ . '/../..' . '/application/dispatcher.class.php',
         'IndexView' => __DIR__ . '/../..' . '/views/index_view.class.php',
-        'MovieError' => __DIR__ . '/../..' . '/views/celebrity/error/celebrity_error.class.php',
+        'MovieError' => __DIR__ . '/../..',
         'MovieSearch' => __DIR__ . '/../..' . '/views/celebrity/search/celebrity_search.class.php',
         'Personality' => __DIR__ . '/../..' . '/models/personality.class.php',
         'PersonalityController' => __DIR__ . '/../..' . '/controllers/personality_controller.class.php',
