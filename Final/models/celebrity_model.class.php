@@ -38,13 +38,13 @@ class CelebrityModel {
 
         //initialize celebrity personality demension
         if (!isset($_SESSION['_celebrity'])) {
-          $celebrity = $this->get_celebrity();
+          $celebrity = $this->getCelebrity();
            $_SESSION['celebrity'] = $celebrity;
         }
     }
 
     //static method to ensure there is just one CelebrityModel instance
-    public static function getCelebrityModel() {
+    public static function getCelebrity() {
         if (self::$_instance == NULL) {
             self::$_instance = new CelebrityModel();
         }
@@ -87,10 +87,10 @@ class CelebrityModel {
             $celebrity = new Celebrity(stripslashes($obj->first_name), stripslashes($obj->last_name), stripslashes($obj->gender), stripslashes($obj->age), stripslashes($obj->web_presence), stripslashes($obj->most_active), stripslashes($obj->freqency));
 
             //set the id for the celebrity
-            $celeb->setId($obj->id);
+            $celebs->setId($obj->id);
 
             //add the celebrity into the array
-            $celebs[] = $celeb;
+            $celebs[] = $celebs;
         }
         return $celebs;
     }
@@ -132,7 +132,7 @@ class CelebrityModel {
                 !filter_has_var(INPUT_POST, 'gender') ||
                 !filter_has_var(INPUT_POST, 'age') ||
                 !filter_has_var(INPUT_POST, 'web_presence') ||
-                !filter_has_var(INPUT_POST, 'most_active')) ||
+                !filter_has_var(INPUT_POST, 'most_active') ||
                 !filter_has_var(INPUT_POST, 'freqency')) {
 
             return false;

@@ -10,7 +10,7 @@
 class Celebrity {
 
     //private data members
-    private $id, $first_name, $last_name, $gender, $age, $web_presence, $most_active, $frequency;
+    private $celeb_id, $first_name, $last_name, $gender, $age, $web_presence, $most_active, $frequency;
 
     //the constructor
     public function __construct($first_name, $last_name, $gender, $age, $web_presence, $most_active, $frequency) {
@@ -25,8 +25,8 @@ class Celebrity {
     }
 
 	//getters
-    public function getId() {
-        return $this->id;
+    public function getCelebId() {
+        return $this->celeb_id;
     }
 
     public function getFirstName() {
