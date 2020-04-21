@@ -14,13 +14,13 @@ class PersonalityModel {
     private $db;
     private $dbConnection;
     static private $_instance = NULL;
-    private $personalities;
+    private $personality_dimension;
 
     //To use singleton pattern, this constructor is made private. To get an instance of the class, the getpersonalityModel method must be called.
     private function __construct() {
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
-        $this->tblPersonality = $this->db->getUsers();
+        $this->personality_dimension = $this->db->getPersonalityDimension();
 
         //Escapes special characters in a string for use in an SQL statement. This stops SQL inject in POST vars.
         foreach ($_POST as $key => $value) {
