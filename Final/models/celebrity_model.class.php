@@ -96,7 +96,7 @@ class CelebrityModel
         //the select sql statement
         //$sql = "SELECT * FROM " . $this->celebrity;
         $sql = "SELECT * FROM " . $this->celebrity .
-            " AND " . $this->celebrity . ".celeb_id='$celeb_id'";
+            " WHERE " . $this->celebrity . ".celeb_id='$celeb_id'";
 
         //execute the query
         $query = $this->dbConnection->query($sql);

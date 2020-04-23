@@ -80,9 +80,10 @@ class PersonalityModel {
      * and returns a personality object. Return false if failed.
      */
 
-    public function view_personality($id) {
+    public function view_personality($dim_id) {
         //the select ssql statement
-        $sql = "SELECT * FROM " . $this->db->getPersonalityDimension();
+        $sql = "SELECT * FROM " . $this->db->getPersonalityDimension() .
+        " WHERE " . $this->personality_dimension . ".dim_id='$dim_id'";
 
         //execute the query
         $query = $this->dbConnection->query($sql);

@@ -57,4 +57,8 @@ class Celebrity {
     public function getFrequency() {
         return $this->frequency;
     }*/
+
+    public function setCelebId($celeb_id){
+        $this -> celeb_id = $celeb_id;
+    }
 }
