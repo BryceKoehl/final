@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'CelebError' => $baseDir . '/views/celebrity/error/celeb_error.class.php',
     'Celebrity' => $baseDir . '/models/celebrity.class.php',
+    'CelebrityAdd' => $baseDir . '/views/celebrity/add/celebrity_add.class.php',
     'CelebrityController' => $baseDir . '/controllers/celebrity_controller.class.php',
     'CelebrityDetail' => $baseDir . '/views/celebrity/detail/celebrity_detail.class.php',
     'CelebrityEdit' => $baseDir . '/views/celebrity/edit/celebrity_edit.class.php',
