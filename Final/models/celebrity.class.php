@@ -10,18 +10,18 @@
 class Celebrity {
 
     //private data members
-    private $celeb_id, $first_name, $last_name, $gender, $age, $web_presence, $most_active, $frequency;
+    private $celeb_id, $first_name, $last_name, $gender, $age, $web_presence, $most_active, $post_frequency; //$icon;
 
     //the constructor
-    public function __construct($first_name, $last_name) {
+    public function __construct($first_name, $last_name, $gender, $age, $web_presence, $most_active, $post_frequency) {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
-//        $this->gender = $gender; $gender, $age, $web_presence, $most_active, $frequency
-//        $this->age = $age;
-//        $this->web_presence = $web_presence;
-//        $this->most_active = $most_active;
-//        $this->frequency = $frequency;
- //       $this->icon = $icon;
+        $this->gender = $gender;
+        $this->age = $age;
+        $this->web_presence = $web_presence;
+        $this->most_active = $most_active;
+        $this->post_frequency = $post_frequency;
+        //$this->icon = $icon;
 
     }
 
@@ -37,7 +37,7 @@ class Celebrity {
     public function getLastName() {
         return $this->last_name;
     }
-/*
+
     public function getGender() {
         return $this->gender;
     }
@@ -54,9 +54,9 @@ class Celebrity {
         return $this->most_active;
     }
 
-    public function getFrequency() {
-        return $this->frequency;
-    }*/
+    public function getPostFrequency() {
+        return $this->post_frequency;
+    }
 
     public function setCelebId($celeb_id){
         $this -> celeb_id = $celeb_id;

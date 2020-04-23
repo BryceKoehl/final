@@ -98,7 +98,7 @@ class CelebrityController {
         }
 
         //search the database for matching celebrities
-        $celebs = $this->celebrity_model->search_celebrity($query_terms);
+        $celebs = $this->celebrity_model->search_celebs($query_terms);
 
         if ($celebs === false) {
             //handle error
@@ -114,7 +114,7 @@ class CelebrityController {
     public function suggest($terms) {
         //retrieve query terms
         $query_terms = urldecode(trim($terms));
-        $celebs = $this->celebrity_model->search_celebrity($query_terms);
+        $celebs = $this->celebrity_model->search_celebs($query_terms);
 
         //retrieve all celebrity titles and store them in an array
         $titles = array();
@@ -128,13 +128,13 @@ class CelebrityController {
         echo json_encode($celebs);
     }
     //handle an error
-    public function error($message) {
+/*    public function error($message) {
         //create an object of the Error class
         $error = new CelebError();
 
         //display the error page
         $error->display($message);
-    }
+    }*/
 
     //handle calling inaccessible methods
     public function __call($name, $arguments) {

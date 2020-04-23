@@ -48,8 +48,6 @@ class CelebrityIndex extends CelebrityIndexView {
         </div>
 
         <?php
-        //display page footer
-        parent::displayFooter();
     } //end of display method
 }
 }

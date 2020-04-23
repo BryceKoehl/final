@@ -7,20 +7,20 @@
  *     accepts an array of Movie objects and displays them in a grid.
  */
 
-class MovieSearch extends MovieIndexView {
+class CelebritySearch extends CelebrityIndexView {
     /*
      * the displays accepts an array of movie objects and displays
      * them in a grid.
      */
 
-     public function display($terms, $movies) {
+     public function display($terms, $celebs) {
         //display page header
         parent::displayHeader("Search Results");
         ?>
         <div id="main-header"> Search Results for <i><?= $terms ?></i></div>
         <span class="rcd-numbers">
             <?php
-            echo ((!is_array($movies)) ? "( 0 - 0 )" : "( 1 - " . count($movies) . " )");
+            echo ((!is_array($celebs)) ? "( 0 - 0 )" : "( 1 - " . count($celebs) . " )");
             ?>
         </span>
         <hr>
@@ -28,35 +28,39 @@ class MovieSearch extends MovieIndexView {
        <!-- display all records in a grid -->
                <div class="grid-container">
             <?php
-            if ($movies === 0) {
-                echo "No movie was found.<br><br><br><br><br>";
+            if ($celebs === 0) {
+                echo "No celebrity was found.<br><br><br><br><br>";
             } else {
                 //display movies in a grid; six movies per row
-                foreach ($movies as $i => $movie) {
-                    $id = $movie->getId();
-                    $title = $movie->getTitle();
-                    $rating = $movie->getRating();
-                    $release_date = $release_date = new \DateTime($movie->getRelease_date());
-                    $image = $movie->getImage();
-                    if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
-                        $image = BASE_URL . "/" . MOVIE_IMG . $image;
+                foreach ($celebs as $i => $celeb) {
+                    $celeb_id = $celeb->getCelebId();
+                    $first_name = $celeb->getFirstName();
+                    $last_name = $celeb->getLastName();
+                    $gender = $celeb->getGender();
+                    $age = $celeb->getAge();
+                    $web_presence = $celeb->getWebPresence();
+                    $most_active = $celeb->getMostActive();
+                    $post_frequency = $celeb->getPostFrequency();
+                    if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
+                        $celeb_id = $i + 1;
                     }
+
                     if ($i % 6 == 0) {
                         echo "<div class='row'>";
                     }
 
-                    echo "<div class='col'><p><a href='" . BASE_URL . "/movie/detail/$id'><img src='" . $image .
-                    "'></a><span>$title<br>Rated $rating<br>" . $release_date->format('m-d-Y') . "</span></p></div>";
+                    echo "<div class='col'><p><a href='", BASE_URL, "/celebrity/detail/$celeb_id'><img src='" . $celeb_id .
+                        "'></a><span>$first_name<br>$last_name<br></span></p></div>";
                     ?>
                     <?php
-                    if ($i % 6 == 5 || $i == count($movies) - 1) {
+                    if ($i % 6 == 5 || $i == count($celebs) - 1) {
                         echo "</div>";
                     }
                 }
             }
             ?>  
         </div>
-        <a href="<?= BASE_URL ?>/movie/index">Go to movie list</a>
+        <a href="<?= BASE_URL ?>/celebrity/index">Go to Celebrity list</a>
         <?php
         //display page footer
         parent::displayFooter();
