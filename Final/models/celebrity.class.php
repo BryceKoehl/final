@@ -13,14 +13,14 @@ class Celebrity {
     private $celeb_id, $first_name, $last_name, $gender, $age, $web_presence, $most_active, $frequency;
 
     //the constructor
-    public function __construct($first_name, $last_name, $gender, $age, $web_presence, $most_active, $frequency) {
+    public function __construct($first_name, $last_name) {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
-        $this->gender = $gender;
-        $this->age = $age;
-        $this->web_presence = $web_presence;
-        $this->most_active = $most_active;
-        $this->frequency = $frequency;
+//        $this->gender = $gender; $gender, $age, $web_presence, $most_active, $frequency
+//        $this->age = $age;
+//        $this->web_presence = $web_presence;
+//        $this->most_active = $most_active;
+//        $this->frequency = $frequency;
 
     }
 

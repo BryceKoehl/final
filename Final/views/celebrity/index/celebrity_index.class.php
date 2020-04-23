@@ -15,10 +15,12 @@ class CelebrityIndex extends CelebrityIndexView {
         //display page header
         parent::displayHeader("List All Celebrities");
         ?>
-        <div id="main-header">Celebritiy Web Presence</div>
+        <div id="main-header">Celebrity Web Presence</div>
 
         <div class="grid-container">
             <?php
+            echo count($celebs);
+            exit();
             if ($celebs === 0) {
                 echo "No celeb was found.<br><br><br><br><br>";
             } else {
@@ -29,14 +31,15 @@ class CelebrityIndex extends CelebrityIndexView {
                     $last_name = $celeb->getLastName();
                    // $rating = $movie->getRating();
                     //$release_date = new \DateTime($movie->getRelease_date());
-                    //$image = $movie->getImage();
-                    //if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
-                     //   $image = BASE_URL . "/" . MOVIE_IMG . $image;
+                    $image = $movie->getImage();
+                    if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
+                        $image = BASE_URL . "/" . MOVIE_IMG . $image;
                     }
                     if ($i % 6 == 0) {
                         echo "<div class='row'>";
                     }
-                    echo "<div class='col'><p><a href='", BASE_URL, "/celebrity/detail/$celeb_id'> . </a><span>$first_name<br>Last Name $last_name<br>" .  "</span></p></div>";
+                    echo "<div class='col'><p><a href='", BASE_URL, "/celebrity/detail/$celeb_id'><img src='" . $image .
+                        "'></a><span>$first_name<br>Last Name $last_name<br>" .  "</span></p></div>";
                     ?>
                     <?php
                     if ($i % 6 == 5 || $i == count($celebs) - 1) {
@@ -51,4 +54,5 @@ class CelebrityIndex extends CelebrityIndexView {
         //display page footer
         parent::displayFooter();
     } //end of display method
+}
 }
