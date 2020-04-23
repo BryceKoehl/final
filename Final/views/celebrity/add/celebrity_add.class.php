@@ -8,22 +8,12 @@
 
 class CelebrityAdd extends CelebrityIndexView
 {
-    public function display($celebrity, $confirm = "") {
-
-        //retrieve celebrity details by calling get methods
-        $celeb_id = $celebrity->getCelebId();
-        $first_name = $celebrity->getFirstName();
-        $last_name = $celebrity->getLastName();
-        $gender = $celebrity->getGender();
-        $age = $celebrity->getAge();
-        $web_presence = $celebrity->getWebPresence();
-        $most_active = $celebrity->getMostActive();
-        $post_frequency = $celebrity->getPostFrequency();
+    public function display() {
         ?>
 
         <div id="main-header">Add in New Celebrity Details</div>
 
-        <form class="new-media"  action='<?= BASE_URL . "/celebrity/add/" . $celeb_id?>' method="post" style="border: 1px solid #bbb; margin-top: 10px; padding: 10px;">>
+        <form class="new-media"  action='<?= BASE_URL . "/celebrity/add/"?>' method="post" style="border: 1px solid #bbb; margin-top: 10px; padding: 10px;">>
             <table>
                 <tr>
                     <td>First Name:</td>
@@ -57,7 +47,7 @@ class CelebrityAdd extends CelebrityIndexView
             </table>
             <div>
                 <input type="submit" name="action" value="Add New Celebrity"/>
-                <input type="button" value="Cancel" onclick='window.location.href = "<?= BASE_URL . "/celebrity/index/" . $celeb_id ?>"'
+                <input type="button" value="Cancel" onclick='window.location.href = "<?= BASE_URL . "/celebrity/index/"?>"'
             </div>
         </form>
 

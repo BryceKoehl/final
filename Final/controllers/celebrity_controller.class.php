@@ -129,13 +129,13 @@ class CelebrityController {
     }
 
     public function goToAdd(){
-        $view = new Celebrity();
+        $view = new CelebrityAdd();
         $view->display();
     }
 
     public function add(){
         $celeb = $this->celebrity_model->add_celebs();
-        $view = new Celebrity();
+        $view = new CelebrityAdd();
         $view->display();
     }
     //handle an error
