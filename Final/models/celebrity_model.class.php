@@ -37,10 +37,10 @@ class CelebrityModel {
         }
 
         //initialize celebrity personality demension
-        //if (!isset($_SESSION['_celebrity'])) {
-         // $celebrity = $this->getCelebrityModel();
-          //// $_SESSION['celebrity'] = $celebrity;
-        //}
+        if (!isset($_SESSION['_celebrity'])) {
+          $celebrity = $this->list_celebrity();
+           $_SESSION['celebrity'] = $celebrity;
+        }
     }
 
     //static method to ensure there is just one CelebrityModel instance
@@ -64,7 +64,8 @@ class CelebrityModel {
          * WHERE ...
          */
 
-        $sql = "SELECT * FROM" . $this->celebrity;
+        $sql = "SELECT * FROM" . $this->db->celebrity;
+
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -72,6 +73,8 @@ class CelebrityModel {
         // if the query failed, return false.
         if (!$query)
             return false;
+        echo $sql;
+        exit();
 
         //if the query succeeded, but no celebrity was found.
         if ($query->num_rows == 0)
@@ -83,7 +86,7 @@ class CelebrityModel {
 
         //loop through all rows in the returned recordsets
         while ($obj = $query->fetch_object()) {
-            $celeb = new Celebrity(stripslashes($obj->first_name), stripslashes($obj->last_name), stripslashes($obj->gender), stripslashes($obj->age), stripslashes($obj->web_presence), stripslashes($obj->most_active), stripslashes($obj->freqency));
+            $celeb = new Celebrity(stripslashes($obj->first_name), stripslashes($obj->last_name), stripslashes($obj->gender), stripslashes($obj->age), stripslashes($obj->web_presence), stripslashes($obj->most_active), stripslashes($obj->post_freqency));
 
             //set the id for the celebrity
             $celeb->setCelebId($obj->celeb_id);

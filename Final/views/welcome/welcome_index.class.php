@@ -45,7 +45,7 @@ class WelcomeIndex extends CelebrityIndexView {
             <p>Click an image below to explore a library. Click the logo in the banner to come back to this page.</p>
 
             <a href="<?= BASE_URL ?>/celebrity/index">
-                <img src="<?= BASE_URL ?>/www/img/movies.jpg" title="Movie Library"/>
+                <img src="<?= BASE_URL ?>/www/img/movies.jpg" title="Celeb Library"/>
             </a>
             <a href="<?= BASE_URL ?>/personality/index">
                 <img src="<?= BASE_URL ?>/www/img/books.jpg" title="Book Library"/>
