@@ -36,13 +36,13 @@ class CelebrityController {
     }
 
     //show details of a celebrity
-    public function detail($id) {
+    public function detail($celeb_id) {
         //retrieve the specific celebrity
-        $celeb = $this->celebrity_model->view_celebrity($id);
+        $celeb = $this->celebrity_model->view_celebrity($celeb_id);
 
         if (!$celeb) {
             //display an error
-            $message = "There was a problem displaying the celebrity id='" . $id . "'.";
+            $message = "There was a problem displaying the celebrity id='" . $celeb_id . "'.";
             $this->error($message);
             return;
         }
@@ -53,13 +53,13 @@ class CelebrityController {
     }
 
     //display a celebrity in a form for editing
-    public function edit($id) {
+    public function edit($celeb_id) {
         //retrieve the specific celebrity
-        $celeb = $this->celebrity_model->view_celebrity($id);
+        $celeb = $this->celebrity_model->view_celebrity($celeb_id);
 
         if (!$celeb) {
             //display an error
-            $message = "There was a problem displaying the celebrity id='" . $id . "'.";
+            $message = "There was a problem displaying the celebrity id='" . $celeb_id . "'.";
             $this->error($message);
             return;
         }
@@ -69,19 +69,19 @@ class CelebrityController {
     }
 
     //update a celebrity in the database
-    public function update($id) {
+    public function update($celeb_id) {
         //update the celebrity
-        $update = $this->celebrity_model->update_celebrity($id);
+        $update = $this->celebrity_model->update_celebrity($celeb_id);
         if (!$update) {
             //handle errors
-            $message = "There was a problem updating the celeb id='" . $id . "'.";
+            $message = "There was a problem updating the celeb id='" . $celeb_id . "'.";
             $this->error($message);
             return;
         }
 
         //display the updateed celebrity details
         $confirm = "The celebrity was successfully updated.";
-        $celeb = $this->celebrity_model->view_celebrity($id);
+        $celeb = $this->celebrity_model->view_celebrity($celeb_id);
 
         $view = new CelebrityDetail();
         $view->display($celeb, $confirm);
@@ -128,13 +128,13 @@ class CelebrityController {
         echo json_encode($celebs);
     }
     //handle an error
-/*    public function error($message) {
+    public function error($message) {
         //create an object of the Error class
         $error = new CelebError();
 
         //display the error page
         $error->display($message);
-    }*/
+    }
 
     //handle calling inaccessible methods
     public function __call($name, $arguments) {

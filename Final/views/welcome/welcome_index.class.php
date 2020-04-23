@@ -6,56 +6,41 @@
  * Description: This class defines the method "display" that displays the home page.
  */
 
-class WelcomeIndex extends CelebrityIndexView {
+class WelcomeIndex extends IndexView {
 
     public function display() {
         //display page header
-        parent::displayHeader("Kung Fu Panda Media Library Home");
-        ?>    
-        <div id="main-header">Welcome to KUNG FU PANDA Media Library!</div>
-        <p>This application is designed to demonstrate the popular software design pattern named MVC. The application hosts four different media types: movie, book, music cd, and game. The movie library is complete. The partially completed book, cd, and game libraries are to show how easy it is to host additional media objects. The application is meant to be flexible and extensible.</p>
-        <br>
-        <table style="border: none; width: 700px; margin: 5px auto">
-            <tr>
-                <td colspan="2" style="text-align: center"><strong>Major features include:</strong></td>
-            </tr>
-            <tr>
-                <td style="text-align: left">
-                    <ul>
-                        <li>List all media</li>
-                        <li>Display details of specific media</li>
-                        <li>Update or delete existing media</li>
-                        <li>Add new media</li>
-                    </ul>
-                </td>
-                <td style="text-align: left">
-                    <ul>
-                        <li>Search for media</li>
-                        <li>Autosuggestion</li>
-                        <li>Filter media</li>
-                        <li>Sort media</li>
-                        <li>Pagination</li>
-                    </ul></td>
-            </tr>
-        </table>
+        parent::displayHeader("Celebrity Web Presence Data Home");
+        ?>
+        <br><br>
+        <div align = "center">
+        <p style="font-size: 16px; font-family: 'Trebuchet MS', Helvetica, sans-serif;">
+            Welcome! For our INFO 211 final project, we want to showcase data collected and analyzed
+            by students in INFO I202 Social Informatics and INFO I421 Applications of Data Mining. In
+            INFO I202, students studied web presence data through web crawling and scanning for digital
+            footprints. After collecting social media posts and web presence data of around 50 famous
+            people, students in INFO I421 applied data mining techniques and tools to analyze this
+            digital footprint data and to discover patterns related to their behaviors as digital citizens.
+            I421 students are using this data to find the frequencies of certain words in famous people’s
+            posts in order to categorize each person’s personality by dimensions including extraversion,
+            agreeableness, conscientiousness, neuroticism, and openness. Currently, the three courses -
+            INFO 202, INFO 211, and INFO 421 - run separately and independently with seemingly no connections.
+            Therefore, our intention with our final project is to bridge the learning of the three courses
+            with signature projects. Our role in I211 is to create a MVC system that easily displays this
+            collection of data in a format that is accessible and easy for the users to understand. Since a
+            program like this designed for these specific classes doesn’t exist, we will be filling the niche
+            with our application. Click the links below to explore our research data for celebrities and their
+            personality dimensions!
+        </p> </div>
 
-        <br>
-
-        <div id="thumbnails" style="text-align: center; border: none">
-            <p>Click an image below to explore a library. Click the logo in the banner to come back to this page.</p>
-
+        <div id="thumbnails" style="text-align: center;">
             <a href="<?= BASE_URL ?>/celebrity/index">
-                <img src="<?= BASE_URL ?>/www/img/movies.jpg" title="Movie Library"/>
+                <img src="<?= BASE_URL ?>/www/img/celeb.png" title="Celebrity Data" height="150px""/>
             </a>
             <a href="<?= BASE_URL ?>/personality/index">
-                <img src="<?= BASE_URL ?>/www/img/books.jpg" title="Book Library"/>
+                <img src="<?= BASE_URL ?>/www/img/brain.png" title="Personality Data" height="150px""/>
             </a>
         </div>
-        <br>
-        <p style="text-align: center; color: red; font-weight: bold">Disclaimer</p>
-        <p style="font-style: italic">This application is created as a course project for I211. It is solely for teaching and learning purposes. As a course project, the goal is to learn how to do things, but not to get things done. Therefore, the code used in this project may not be most efficient or most effective. Furthermore, the code has not been tested in any production environment. If you want to use any code in this project in any production environment, use it at your own risk.</p><br>
-        <p >Please email <a href="mailto:louizhu@iupui.edu?Subject=Thank%20you">Louie Zhu</a> or call (317) 278-9536 for questions, comments, or reporting bugs. </p>
-
         <?php
         //display page footer
         parent::displayFooter();

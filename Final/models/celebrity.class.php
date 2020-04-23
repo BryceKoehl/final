@@ -36,7 +36,7 @@ class Celebrity {
     public function getLastName() {
         return $this->last_name;
     }
-
+/*
     public function getGender() {
         return $this->gender;
     }
@@ -55,5 +55,5 @@ class Celebrity {
 
     public function getFrequency() {
         return $this->frequency;
-    }
+    }*/
 }

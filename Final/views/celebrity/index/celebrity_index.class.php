@@ -27,16 +27,16 @@ class CelebrityIndex extends CelebrityIndexView {
                     $celeb_id = $celeb->getCelebId();
                     $first_name = $celeb->getFirstName();
                     $last_name = $celeb->getLastName();
-                   // $rating = $movie->getRating();
-                    //$release_date = new \DateTime($movie->getRelease_date());
-                    //$image = $movie->getImage();
                     if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
-                        $celeb_id = BASE_URL . "/" . $celeb_id;
+                        $celeb_id = $i + 1;
                     }
+
                     if ($i % 6 == 0) {
                         echo "<div class='row'>";
                     }
-                    echo "<div class='col'><p><a href='", BASE_URL, "/celebrity/detail/$celeb_id'></a><span>$first_name<br>$last_name<br>" .  "</span></p></div>";
+
+                    echo "<div class='col'><p><a href='", BASE_URL, "/celebrity/detail/$celeb_id'><img src='" . $celeb_id .
+                        "'></a><span>$first_name<br>$last_name<br></span></p></div>";
                     ?>
                     <?php
                     if ($i % 6 == 5 || $i == count($celebs) - 1) {

@@ -20,6 +20,7 @@ body{
 /*reset padding for p and hx tags*/
 p {
     padding: 0 0 1em;
+    "Lucida Sans Unicode", "Lucida Grande", sans-serif
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -37,14 +38,14 @@ hr {
 
 #top {
     position: absolute;
-    top: 0;
+    top: 25px;
     left: 0;
     z-index: -10;
     margin: 0;
     padding: 0;
-    background-color: #9FBA8F;
+    background-color: #DC143C;
     width: 100%;
-    height: 160px;
+    height: 100px;
 }
 
 #wrapper {
@@ -52,8 +53,8 @@ hr {
     height: auto !important;
     height: 100%;
     margin: 0 auto -4em;
-    text-align:left; 
-    width:960px; 
+    text-align:center;
+    width:960px;
 }
 
 
@@ -72,29 +73,15 @@ hr {
 
 /*style for the banner */
 #banner {
-    background-color: #9FBA8F;
-    height: 160px;
-}
-
-#banner #left{
-    float: left;
-    overflow: hidden;
-    width: 530px;
-    text-align: left;
-    margin-top: 30px;
-}
-
-#banner #right{
-    float: left;
-    overflow: hidden;
-    text-align: center;
+    background-color: #FFFF00;
+    height: 100px;
 }
 
 /*styles for the page header that appears right below the banner*/
 #main-header {
     margin-top: 10px;
     margin-bottom: 5px;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     color: #ff6600;
     display: inline-block;
@@ -384,7 +371,6 @@ table#detail {
     border-radius: 10px;
     margin: 5px;
     padding: 1px;
-    width: 150px;
 
     /*for Firefox */
     -moz-border-radius: 10px;
@@ -392,8 +378,8 @@ table#detail {
 
 #thumbnails img:hover {
     border: solid 6px #393ECE;
-    margin: 2px
-=======
+    margin: 2px;
+}
 /*
     Document   : app_style.css
     Author     : Louie Zhu
@@ -431,28 +417,6 @@ hr {
     clear: both;
 }
 
-#top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -10;
-    margin: 0;
-    padding: 0;
-    background-color: #9FBA8F;
-    width: 100%;
-    height: 160px;
-}
-
-#wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -4em;
-    text-align:left; 
-    width:960px; 
-}
-
-
 /*styles for the page footer */
 #footer{
     font-size: 80%;    
@@ -466,35 +430,6 @@ hr {
     clear: both;
 }
 
-/*style for the banner */
-#banner {
-    background-color: #9FBA8F;
-    height: 160px;
-}
-
-#banner #left{
-    float: left;
-    overflow: hidden;
-    width: 530px;
-    text-align: left;
-    margin-top: 30px;
-}
-
-#banner #right{
-    float: left;
-    overflow: hidden;
-    text-align: center;
-}
-
-/*styles for the page header that appears right below the banner*/
-#main-header {
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #ff6600;
-    display: inline-block;
-}
 /*styles for the record numbers that appear to the right of the page header*/
 span.rcd-numbers {
     color: #999;
@@ -765,29 +700,3 @@ table#detail {
     background-repeat: no-repeat;
 }
 
-
-/*styles for the thumbnails on the homepage */
-#thumbnails a {
-    text-decoration: none;
-}
-
-#thumbnails a:hover {
-    text-decoration: none;
-}
-
-#thumbnails img {
-    border: solid 3px #448C9A;
-    border-radius: 10px;
-    margin: 5px;
-    padding: 1px;
-    width: 150px;
-
-    /*for Firefox */
-    -moz-border-radius: 10px;
-}
-
-#thumbnails img:hover {
-    border: solid 6px #393ECE;
-    margin: 2px
->>>>>>> origin/i211
-}

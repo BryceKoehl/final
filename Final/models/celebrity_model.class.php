@@ -91,10 +91,12 @@ class CelebrityModel
      * and returns a celebrity object. Return false if failed.
      */
 
-    public function view_celebrity($id)
+    public function view_celebrity($celeb_id)
     {
         //the select sql statement
-        $sql = "SELECT * FROM " . $this->celebrity;
+        //$sql = "SELECT * FROM " . $this->celebrity;
+        $sql = "SELECT * FROM " . $this->celebrity .
+            " AND " . $this->celebrity . ".celeb_id='$celeb_id'";
 
         //execute the query
         $query = $this->dbConnection->query($sql);

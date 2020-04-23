@@ -9,55 +9,42 @@
 
 class CelebrityDetail extends CelebrityIndexView {
 
-    public function display($movie, $confirm = "") {
+    public function display($celebrity, $confirm = "") {
         //display page header
-        parent::displayHeader("Movie Details");
+        parent::displayHeader("Celebrity Details");
 
         //retrieve movie details by calling get methods
-        $id = $movie->getId();
-        $title = $movie->getTitle();
-        $rating = $movie->getRating();
-        $release_date = new \DateTime($movie->getRelease_date());
-        $director = $movie->getDirector();
-        $image = $movie->getImage();
-        $description = $movie->getDescription();
+        $celeb_id = $celebrity->getCelebId();
+        $first_name = $celebrity->getFirstName();
+        $last_name = $celebrity->getLastName();
 
-
-        if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
-            $image = BASE_URL . '/' . MOVIE_IMG . $image;
+        if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
+            $celeb_id = BASE_URL . '/' . MOVIE_IMG . $celeb_id;
         }
         ?>
 
-        <div id="main-header">Movie Details</div>
+        <div id="main-header">Celebrity Details</div>
         <hr>
         <!-- display movie details in a table -->
         <table id="detail">
             <tr>
                 <td style="width: 150px;">
-                    <img src="<?= $image ?>" alt="<?= $title ?>" />
+                    <img src="<?= $first_name ?>" alt="<?= $first_name ?>" />
                 </td>
                 <td style="width: 130px;">
-                    <p><strong>Title:</strong></p>
-                    <p><strong>Rating:</strong></p>
-                    <p><strong>Release Date:</strong></p>
-                    <p><strong>Director:</strong></p>
-                    <p><strong>Description:</strong></p>
-                    <div id="button-group">
+                    <p><strong>Name:</strong></p>
+<!--                    <div id="button-group">
                         <input type="button" id="edit-button" value="   Edit   "
-                               onclick="window.location.href = '<?= BASE_URL ?>/movie/edit/<?= $id ?>'">&nbsp;
-                    </div>
+                               onclick="window.location.href = '<?/*= BASE_URL */?>/celebrity/edit/<?/*= $celeb_id */?>'">&nbsp;
+                    </div>-->
                 </td>
                 <td>
-                    <p><?= $title ?></p>
-                    <p><?= $rating ?></p>
-                    <p><?= $release_date->format('m-d-Y') ?></p>
-                    <p><?= $director ?></p>
-                    <p class="media-description"><?= $description ?></p>
+                    <p><?= $first_name, $last_name ?></p>
                     <div id="confirm-message"><?= $confirm ?></div>
                 </td>
             </tr>
         </table>
-        <a href="<?= BASE_URL ?>/movie/index">Go to movie list</a>
+        <a href="<?= BASE_URL ?>/celebrity/index">Go to movie list</a>
 
         <?php
         //display page footer
