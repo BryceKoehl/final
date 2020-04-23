@@ -12,8 +12,7 @@ class Personality {
     private $dim_id, $dimension, $qualities, $description, $keywords;
 
     //the constructor that initializes all properties
-    public function __construct($dim_id, $dimension, $qualities, $description, $keywords) {
-        $this->dim_id = $dim_id;
+    public function __construct($dimension, $qualities, $description, $keywords) {
         $this->dimension = $dimension;
         $this->qualities = $qualities;
         $this->description = $description;

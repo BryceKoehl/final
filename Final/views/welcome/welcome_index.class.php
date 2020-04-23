@@ -35,10 +35,10 @@ class WelcomeIndex extends IndexView {
 
         <div id="thumbnails" style="text-align: center;">
             <a href="<?= BASE_URL ?>/celebrity/index">
-                <img src="<?= BASE_URL ?>/www/img/celeb.png" title="Celebrity Data" height="150px""/>
+                <img src="<?= BASE_URL ?>/www/img/celeb.png" title="Celebrity Data" height="150px" width="150px"/>
             </a>
             <a href="<?= BASE_URL ?>/personality/index">
-                <img src="<?= BASE_URL ?>/www/img/brain.png" title="Personality Data" height="150px""/>
+                <img src="<?= BASE_URL ?>/www/img/brain.png" title="Personality Data" height="150px" width="150px"/>
             </a>
         </div>
         <?php

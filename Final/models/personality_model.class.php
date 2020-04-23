@@ -35,7 +35,7 @@ class PersonalityModel {
     }
 
     //static method to ensure there is just one personalityModel instance
-    public static function getUserModel() {
+    public static function getPersonalityModel() {
         if (self::$_instance == NULL) {
             self::$_instance = new PersonalityModel();
         }
@@ -49,42 +49,30 @@ class PersonalityModel {
      */
 
     public function list_personality() {
-        /* construct the sql SELECT statement in this format
-         * SELECT ...
-         * FROM ...
-         * WHERE ...
-         */
-
-        $sql = "SELECT * FROM " . $this->personality_dimension . "," . $this->personality_dimension .
-                " WHERE " . $this->personality_dimension . ".personality=" . $this->personality_dimension . ".dim_id";
-
-        //echo $sql; exit;
+        //SQL select statement
+        $sql = "SELECT * FROM " . $this->db->getPersonalityDimension();
 
         //execute the query
         $query = $this->dbConnection->query($sql);
 
-        // if the query failed, return false.
-        if (!$query)
-            return false;
+        if ($query && $query->num_rows > 0) {
+            //array to store all toys
+            $personalities = array();
 
-        //if the query succeeded, but no personality was found.
-        if ($query->num_rows == 0)
-            return 0;
+            //loop through all rows
+            while ($query_row = $query->fetch_assoc()) {
+                $personality= new Personality(
+                    $query_row["dimension"],
+                    $query_row["qualities"],
+                    $query_row["description"],
+                    $query_row["keywords"]);
 
-        //handle the result
-        //create an array to store all returned personalitys
-        $personalities = array();
-
-        //loop through all rows in the returned recordsets
-        while ($obj = $query->fetch_object()) {
-            $personality = new Personality(stripslashes($obj->dimension), stripslashes($obj->qualities), stripslashes($obj->description), stripslashes($obj->keywords));
-            //set the id for the personality
-            $personality->setId($obj->dim_id);
-
-            //add the personality into the array
-            $personalities[] = $personality;
+                //push the toy into the array
+                $personalities[] = $personality;
+            }
+            return $personalities;
         }
-        return $personalities;
+        return false;
     }
 
     /*
@@ -94,9 +82,7 @@ class PersonalityModel {
 
     public function view_personality($id) {
         //the select ssql statement
-        $sql = "SELECT * FROM " . $this->personality_dimension . "," . $this->personality_dimension .
-                " WHERE " . $this->personality_dimension . ".personality=" . $this->personality_dimension . ".dim_id" .
-                " AND " . $this->personality_dimension . ".dim_id='$dim_id'";
+        $sql = "SELECT * FROM " . $this->db->getPersonalityDimension();
 
         //execute the query
         $query = $this->dbConnection->query($sql);

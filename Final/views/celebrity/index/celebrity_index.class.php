@@ -15,7 +15,7 @@ class CelebrityIndex extends CelebrityIndexView {
         //display page header
         parent::displayHeader("List All Celebrities");
         ?>
-        <div id="main-header">Celebrity Web Presence</div>
+        <div id="main-header" align="center">Click on any celebrity profile to learn more!</div>
 
         <div class="grid-container">
             <?php

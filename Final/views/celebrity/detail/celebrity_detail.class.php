@@ -19,7 +19,7 @@ class CelebrityDetail extends CelebrityIndexView {
         $last_name = $celebrity->getLastName();
 
         if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
-            $celeb_id = BASE_URL . '/' . MOVIE_IMG . $celeb_id;
+            $celeb_id = BASE_URL . '/' . CELEB_IMG . $celeb_id;
         }
         ?>
 

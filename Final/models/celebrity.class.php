@@ -21,6 +21,7 @@ class Celebrity {
 //        $this->web_presence = $web_presence;
 //        $this->most_active = $most_active;
 //        $this->frequency = $frequency;
+ //       $this->icon = $icon;
 
     }
 
