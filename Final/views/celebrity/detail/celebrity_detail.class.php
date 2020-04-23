@@ -58,8 +58,35 @@ class CelebrityDetail extends CelebrityIndexView {
                     <div id="confirm-message"><?= $confirm ?></div>
                 </td>
             </tr>
-        </table> <br>
-        <a href="<?= BASE_URL ?>/celebrity/index">Go to movie list</a>
+        </table>
+
+        <table id="personality_detail">
+            <tr>
+                <h3>Personality Details</h3>
+                <td style="width: 130px;">
+                    <h3>Dimensions</h3>
+                    <p><strong>Extroversion:</strong></p>
+                    <p><strong>Agreeableness:</strong></p>
+                    <p><strong>Conscientiousness:</strong></p>
+                    <p><strong>Neuroticism:</strong></p>
+                    <p><strong>Openness:</strong></p>
+                    <p><strong>Post Frequency:</strong></p>
+
+                </td>
+                <td>
+                    <p><? ?>
+                    <p><? ?></p>
+                    <p><? ?></p>
+                    <p><? ?></p>
+                    <p><? ?></p>
+                    <p><? ?></p><br><br>
+                    <div id="confirm-message"><?= $confirm ?></div>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+        <a href="<?= BASE_URL ?>/celebrity/index">Go to celebrity list</a>
 
         <?php
 
