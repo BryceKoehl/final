@@ -64,9 +64,8 @@ class CelebrityDetail extends CelebrityIndexView {
 
         <table id="personality_detail">
             <tr>
-                <h3>Personality Details</h3>
+                <h3>Personality Details</h3><br>
                 <td style="width: 130px;">
-                    <h3>Dimensions</h3>
                     <p><strong>Extroversion:</strong></p>
                     <p><strong>Agreeableness:</strong></p>
                     <p><strong>Conscientiousness:</strong></p>
@@ -74,7 +73,7 @@ class CelebrityDetail extends CelebrityIndexView {
                     <p><strong>Openness:</strong></p>
                 </td>
                 <td>
-                    <p><? ?>
+                    <p><? ?></p>
                     <p><? ?></p>
                     <p><? ?></p>
                     <p><? ?></p>
