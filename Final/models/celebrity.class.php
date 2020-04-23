@@ -21,6 +21,7 @@ class Celebrity {
 //        $this->web_presence = $web_presence;
 //        $this->most_active = $most_active;
 //        $this->frequency = $frequency;
+ //       $this->icon = $icon;
 
     }
 
@@ -36,7 +37,7 @@ class Celebrity {
     public function getLastName() {
         return $this->last_name;
     }
-
+/*
     public function getGender() {
         return $this->gender;
     }
@@ -55,5 +56,9 @@ class Celebrity {
 
     public function getFrequency() {
         return $this->frequency;
+    }*/
+
+    public function setCelebId($celeb_id){
+        $this -> celeb_id = $celeb_id;
     }
 }

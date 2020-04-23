@@ -15,7 +15,7 @@ class PersonalityController {
     //default constructor
     public function __construct() {
         //create an instance of the personalityModel class
-        $this->personality_model = PersonalityModel::getPersonalityDimension();
+        $this->personality_model = PersonalityModel::getPersonalityModel();
     }
 
     //index action that displays all personalitys
