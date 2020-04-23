@@ -43,10 +43,12 @@ class CelebrityEdit extends CelebrityIndexView {
                 }*/
                 ?>
             </p>
-            <p><strong>Name</strong>: <br>
-                <input name="name" type="varchar" size="50" value="<?= $first_name, " ", $last_name ?>" required=""></p>
+            <p><strong>First Name</strong>: <br>
+                <input name="first_name" type="text" size="50" value="<?= $first_name ?>" required=""></p>
+            <p><strong>Last Name</strong>: <br>
+                <input name="last_name" type="text" size="50" value="<?= $last_name ?>" required=""></p>
             <p><strong>Gender</strong>: <br>
-                <input name="gender" type="varchar" size="50" required value="<?= $gender ?>"></p>
+                <input name="gender" type="text" size="50" required value="<?= $gender ?>"></p>
             <p><strong>Age</strong>: <br>
                 <input name="age" type="int" size="3" required value="<?= $age ?>"></p>
             <p><strong>Web Presence</strong>: <br>
@@ -55,7 +57,7 @@ class CelebrityEdit extends CelebrityIndexView {
                 <input name="most_active" type="text" required value="<?= $most_active ?>"></p>
             <p><strong>Post Frequency</strong>: <br>
                 <input name="post_frequency" type="text" required value="<?= $post_frequency ?>"></p>
-            <input type="submit" name="action" value="Update Movie">
+            <input type="submit" name="action" value="Update Celebrity">
             <input type="button" value="Cancel" onclick='window.location.href = "<?= BASE_URL . "/celebrity/detail/" . $celeb_id ?>"'
         </form>
         <?php

@@ -36,11 +36,11 @@ class CelebritySearch extends CelebrityIndexView {
                     $celeb_id = $celeb->getCelebId();
                     $first_name = $celeb->getFirstName();
                     $last_name = $celeb->getLastName();
-                    $gender = $celeb->getGender();
+/*                    $gender = $celeb->getGender();
                     $age = $celeb->getAge();
                     $web_presence = $celeb->getWebPresence();
                     $most_active = $celeb->getMostActive();
-                    $post_frequency = $celeb->getPostFrequency();
+                    $post_frequency = $celeb->getPostFrequency();*/
                     if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
                         $celeb_id = $i + 1;
                     }

@@ -124,6 +124,7 @@ class CelebrityModel
     //the update_celebrity method updates an existing celebrity in the database. Details of the movie are posted in a form. Return true if succeed; false otherwise.
     public function update_celebrity($celeb_id)
     {
+
         //if the script did not received post data, display an error message and then terminite the script immediately
         if (!filter_has_var(INPUT_POST, 'first_name') ||
             !filter_has_var(INPUT_POST, 'last_name') ||
@@ -165,7 +166,7 @@ class CelebrityModel
             " WHERE (1";
 
         foreach ($terms as $term) { //COME BACK TO THIS!! Search by first & last name? Only works with first
-            $sql .= " AND first_name LIKE '%" . $term . "%'";
+            $sql .= " AND first_name LIKE '%" . $term . "%' OR last_name LIKE '%" . $term . "%'";
         }
 
         $sql .= ")";
