@@ -13,7 +13,7 @@ class CelebrityDetail extends CelebrityIndexView {
         //display page header
         parent::displayHeader("Celebrity Details");
 
-        //retrieve movie details by calling get methods
+        //retrieve celeb details by calling get methods
         $celeb_id = $celebrity->getCelebId();
         $first_name = $celebrity->getFirstName();
         $last_name = $celebrity->getLastName();
@@ -22,6 +22,8 @@ class CelebrityDetail extends CelebrityIndexView {
         $web_presence = $celebrity->getWebPresence();
         $most_active = $celebrity->getMostActive();
         $post_frequency = $celebrity->getPostFrequency();
+
+
 
   /*      if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
             $celeb_id = BASE_URL . '/' . CELEB_IMG . $celeb_id;
@@ -70,8 +72,6 @@ class CelebrityDetail extends CelebrityIndexView {
                     <p><strong>Conscientiousness:</strong></p>
                     <p><strong>Neuroticism:</strong></p>
                     <p><strong>Openness:</strong></p>
-                    <p><strong>Post Frequency:</strong></p>
-
                 </td>
                 <td>
                     <p><? ?>
