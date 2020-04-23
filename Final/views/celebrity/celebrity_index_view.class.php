@@ -19,7 +19,7 @@ class CelebrityIndexView extends IndexView {
         <!--create the search bar -->
         <div id="searchbar">
             <form method="get" action="<?= BASE_URL ?>/celebrity/search">
-                <input type="text" name="query-terms" id="searchtextbox" placeholder="Search celebrities by first and last name" autocomplete="off" onkeyup="handleKeyUp(event)">
+                <input type="text" name="query-terms" id="searchtextbox" placeholder="Search by first and last name" autocomplete="off" onkeyup="handleKeyUp(event)">
                 <input type="submit" value="Go" />
             </form>
             <div id="suggestionDiv"></div>

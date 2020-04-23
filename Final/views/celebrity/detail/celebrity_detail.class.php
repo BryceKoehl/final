@@ -17,29 +17,44 @@ class CelebrityDetail extends CelebrityIndexView {
         $celeb_id = $celebrity->getCelebId();
         $first_name = $celebrity->getFirstName();
         $last_name = $celebrity->getLastName();
+        $gender = $celebrity->getGender();
+        $age = $celebrity->getAge();
+        $web_presence = $celebrity->getWebPresence();
+        $most_active = $celebrity->getMostActive();
+        $post_frequency = $celebrity->getPostFrequency();
 
-        if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
+  /*      if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
             $celeb_id = BASE_URL . '/' . CELEB_IMG . $celeb_id;
-        }
+        }*/
         ?>
 
-        <div id="main-header">Celebrity Details</div>
+        <div id="main-header"><?=$first_name, " ", $last_name, " "; ?>Web Presence Details</div>
         <hr>
         <!-- display movie details in a table -->
         <table id="detail">
             <tr>
-                <td style="width: 150px;">
-                    <img src="<?= $first_name ?>" alt="<?= $first_name ?>" />
-                </td>
+<!--                <td style="width: 150px;">
+                    <img src="<?/*= $first_name */?>" alt="<?/*= $first_name */?>" />
+                </td>-->
                 <td style="width: 130px;">
                     <p><strong>Name:</strong></p>
-<!--                    <div id="button-group">
+                    <p><strong>Gender:</strong></p>
+                    <p><strong>Age:</strong></p>
+                    <p><strong>Web Presence:</strong></p>
+                    <p><strong>Most Active:</strong></p>
+                    <p><strong>Post Frequency:</strong></p>
+                    <div id="button-group">
                         <input type="button" id="edit-button" value="   Edit   "
-                               onclick="window.location.href = '<?/*= BASE_URL */?>/celebrity/edit/<?/*= $celeb_id */?>'">&nbsp;
-                    </div>-->
+                               onclick="window.location.href = '<?=BASE_URL ?>/celebrity/edit/<?= $celeb_id?>'">&nbsp;
+                    </div>
                 </td>
                 <td>
-                    <p><?= $first_name, $last_name ?></p>
+                    <p><?= $first_name, " ", $last_name ?>
+                    <p><?= $gender ?></p>
+                    <p><?= $age ?></p>
+                    <p><?= $web_presence ?></p>
+                    <p><?= $most_active ?></p>
+                    <p><?= $post_frequency ?></p>
                     <div id="confirm-message"><?= $confirm ?></div>
                 </td>
             </tr>
@@ -47,8 +62,7 @@ class CelebrityDetail extends CelebrityIndexView {
         <a href="<?= BASE_URL ?>/celebrity/index">Go to movie list</a>
 
         <?php
-        //display page footer
-        parent::displayFooter();
+
     }
 
 //end of display method

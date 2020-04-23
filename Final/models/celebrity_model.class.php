@@ -37,12 +37,6 @@ class CelebrityModel
         foreach ($_GET as $key => $value) {
             $_GET[$key] = $this->dbConnection->real_escape_string($value);
         }
-
-        //initialize celebrity personality demension
-        //if (!isset($_SESSION['_celebrity'])) {
-        // $celebrity = $this->getCelebrityModel();
-        //// $_SESSION['celebrity'] = $celebrity;
-        //}
     }
 
     //static method to ensure there is just one CelebrityModel instance
@@ -76,8 +70,12 @@ class CelebrityModel
             while ($query_row = $query->fetch_assoc()) {
                 $celeb = new Celebrity(
                     $query_row["first_name"],
-                    $query_row["last_name"]);
-
+                    $query_row["last_name"],
+                    $query_row["gender"],
+                    $query_row["age"],
+                    $query_row["web_presence"],
+                    $query_row["most_active"],
+                    $query_row["post_frequency"]);
                 //push the toy into the array
                 $celebs[] = $celeb;
             }
@@ -105,7 +103,13 @@ class CelebrityModel
             $obj = $query->fetch_object();
 
             //create a celebrity object
-            $celeb = new Celebrity(stripslashes($obj->first_name), stripslashes($obj->last_name));
+            $celeb = new Celebrity(stripslashes($obj->first_name),
+                stripslashes($obj->last_name),
+                stripslashes($obj->gender),
+                stripslashes($obj->age),
+                stripslashes($obj->web_presence),
+                stripslashes($obj->most_active),
+                stripslashes($obj->post_frequency));
 
             //set the id for the celebrity
             $celeb->setCelebId($obj->celeb_id);
@@ -115,14 +119,19 @@ class CelebrityModel
 
         return false;
     }
-}
 
-/*    //the update_celebrity method updates an existing celebrity in the database. Details of the movie are posted in a form. Return true if succeed; false otherwise.
-    public function update_celebrity($id)
+
+    //the update_celebrity method updates an existing celebrity in the database. Details of the movie are posted in a form. Return true if succeed; false otherwise.
+    public function update_celebrity($celeb_id)
     {
         //if the script did not received post data, display an error message and then terminite the script immediately
         if (!filter_has_var(INPUT_POST, 'first_name') ||
-            !filter_has_var(INPUT_POST, 'last_name')) {
+            !filter_has_var(INPUT_POST, 'last_name') ||
+            !filter_has_var(INPUT_POST, 'gender') ||
+            !filter_has_var(INPUT_POST, 'age') ||
+            !filter_has_var(INPUT_POST, 'web_presence') ||
+            !filter_has_var(INPUT_POST, 'most_active') ||
+            !filter_has_var(INPUT_POST, 'post_frequency')) {
 
             return false;
         }
@@ -134,26 +143,28 @@ class CelebrityModel
         $age = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'age', FILTER_SANITIZE_STRING)));
         $web_presence = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'web_presence', FILTER_SANITIZE_STRING)));
         $most_active = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'most_active', FILTER_SANITIZE_STRING)));
-        $frequency = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'frequency', FILTER_SANITIZE_STRING)));
+        $post_frequency = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'post_frequency', FILTER_SANITIZE_STRING)));
 
         //COME BACK TO THIS STATEMENT!!! query string for update
         $sql = "UPDATE " . $this->celebrity .
             " SET first_name='$first_name', last_name='$last_name',  gender='$gender',  age='$age', web_presence='$web_presence', "
-            . "most_active='$most_active', frequency='$frequency' WHERE id='$id'";
+            . "most_active='$most_active', post_frequency='$post_frequency' WHERE celeb_id='$celeb_id'";
 
         //execute the query
         return $this->dbConnection->query($sql);
     }
+
 
     //search the database for celebrities that match words in titles. Return an array of movies if succeed; false otherwise.
     public function search_celebs($terms)
     {
         $terms = explode(" ", $terms); //explode multiple terms into an array
 
-        //COME BACK TO THIS STATEMENT SEARCHING FOR CELEBS BY NAME!!! select statement for AND search
-        $sql = "SELECT * FROM " . $this->celebrity . ".celeb_id AND (1";
+        //select statement for AND search
+        $sql = "SELECT * FROM " . $this->celebrity .
+            " WHERE (1";
 
-        foreach ($terms as $term) {
+        foreach ($terms as $term) { //COME BACK TO THIS!! Search by first & last name? Only works with first
             $sql .= " AND first_name LIKE '%" . $term . "%'";
         }
 
@@ -176,19 +187,26 @@ class CelebrityModel
 
         //loop through all rows in the returned record sets
         while ($obj = $query->fetch_object()) {
-            $celeb = new Celebrity($obj->first_name, $obj->last_name, $obj->personality_dimension);
+            $celeb = new Celebrity(stripslashes($obj->first_name),
+                stripslashes($obj->last_name),
+                stripslashes($obj->gender),
+                stripslashes($obj->age),
+                stripslashes($obj->web_presence),
+                stripslashes($obj->most_active),
+                stripslashes($obj->post_frequency));
 
             //set the id for the celebrity
-            $celeb->setId($obj->id);
+            $celeb->setCelebId($obj->celeb_id);
 
             //add the celebrity into the array
             $celebs[] = $celeb;
         }
         return $celebs;
     }
-}*/
+}
 
-    //get all celebrity personality demensions
+
+//get all celebrity personality demensions
 /*    private function get_celebrity_personalitydemensions() {
         $sql = "SELECT * FROM " . $this->personality_dimension;
 
