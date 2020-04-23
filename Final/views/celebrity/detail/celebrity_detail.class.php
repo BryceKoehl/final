@@ -54,11 +54,11 @@ class CelebrityDetail extends CelebrityIndexView {
                     <p><?= $age ?></p>
                     <p><?= $web_presence ?></p>
                     <p><?= $most_active ?></p>
-                    <p><?= $post_frequency ?></p>
+                    <p><?= $post_frequency ?></p><br><br>
                     <div id="confirm-message"><?= $confirm ?></div>
                 </td>
             </tr>
-        </table>
+        </table> <br>
         <a href="<?= BASE_URL ?>/celebrity/index">Go to movie list</a>
 
         <?php

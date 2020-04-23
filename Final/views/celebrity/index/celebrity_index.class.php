@@ -16,6 +16,11 @@ class CelebrityIndex extends CelebrityIndexView {
         parent::displayHeader("List All Celebrities");
         ?>
         <div id="main-header" align="center">Click on any celebrity profile to learn more!</div>
+        <br>
+        <div id="button-group">
+            <input type="button" id="edit-button" value="   Add New Celebrity Profile   "
+                   onclick="window.location.href = '<?=BASE_URL ?>/celebrity/goToAdd'">&nbsp;
+        </div>
 
         <div class="grid-container">
             <?php

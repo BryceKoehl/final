@@ -127,6 +127,17 @@ class CelebrityController {
 
         echo json_encode($celebs);
     }
+
+    public function goToAdd(){
+        $view = new Celebrity();
+        $view->display();
+    }
+
+    public function add(){
+        $celeb = $this->celebrity_model->add_celebs();
+        $view = new Celebrity();
+        $view->display();
+    }
     //handle an error
 /*    public function error($message) {
         //create an object of the Error class
