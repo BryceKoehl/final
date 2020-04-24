@@ -59,13 +59,13 @@ class Database
         return $this->param['celebrity'];
     }
 
-    //returns the name of the table that stores celebritys
+    //returns the name of the table that stores celebrities personality dimension
     public function getCelebrityDimension()
     {
         return $this->param['celebrity_dimension'];
     }
 
-    //returns the name of the table storing games
+    //returns the name of the table storing personality dimensions
     public function getPersonalityDimension()
     {
         return $this->param['personality_dimension'];

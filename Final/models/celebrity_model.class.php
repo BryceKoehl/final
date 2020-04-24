@@ -18,6 +18,8 @@ class CelebrityModel
 
     //variables to call our web_presence database tables
     private $celebrity;
+    private $celebrity_dimension;
+    private $personality_dimension;
 
     //To use singleton pattern, this constructor is made private. To get an instance of the class, the getCelebrityModel method must be called.
     private function __construct()
@@ -27,6 +29,8 @@ class CelebrityModel
 
         //connect to our web_presence database tables
         $this->celebrity = $this->db->getCelebrity();
+        $this->celebrity_dimension = $this->db->getCelebrityDimension();
+        $this->personality_dimension = $this->db->getPersonalityDimension();
 
         //Escapes special characters in a string for use in an SQL statement. This stops SQL inject in POST vars.
         foreach ($_POST as $key => $value) {
@@ -53,6 +57,44 @@ class CelebrityModel
      * returns an array of Celebrity objects if successful or false if failed.
      * Celebrities should also be filtered by personality demensions and/or sorted by titles or rating if they are available.
      */
+
+    //lists each celebrity personality dimensions
+    public function celebrity_personality($celeb_id)
+    {
+        //the select sql statement
+        /*        SELECT celebrity_dimension.frequency, personality_dimension.dimension FROM celebrity
+                INNER JOIN celebrity_dimension ON celebrity.celeb_id=celebrity_dimension.celeb_id
+                INNER JOIN personality_dimension ON celebrity_dimension.dim_id=personality_dimension.dim_id
+                GROUP BY personality_dimension.dimension ,,, " WHERE " . $this->celebrity . ".celeb_id='$celeb_id'" . */
+
+        $sql = "SELECT * FROM " . $this->celebrity .
+            " FULL OUTER JOIN " . $this->celebrity_dimension . "ON" . $this->celebrity . ".celeb_id='$celeb_id'" . $this->celebrity_dimension . ".celeb_id='$celeb_id'" .
+            " FULL OUTER JOIN " . $this->personality_dimension . "ON" . $this->celebrity_dimension . ".dim_id=" . $this->personality_dimension . ".dim_id" .
+            " GROUP BY " . $this->personality_dimension . ".dimension'";
+
+        //execute the query
+        $query = $this->dbConnection->query($sql);
+
+        if ($query && $query->num_rows > 0) {
+            $celebPersons = array(); //create an array for celebrity personalities
+
+            //loop through all rows
+            while ($query_row = $query->fetch_assoc()) {
+                $celebPerson = new CelebPersonality(
+                    $query_row["dimension"],
+                    $query_row["frequency"]);
+                //push the toy into the array
+                $celebPersons[] = $celebPerson;
+            }
+            return $celebPersons;
+        }
+        return false;
+    }
+
+/*            //create a new object to store frequency data for each celebrity
+            $personArr = arr("Extraversion", "Agreeableness", "Conscientiousness", "Neuroticism", "Openness");
+            return $personArr;
+    }*/
 
     public function list_celebrity()
     {
@@ -155,6 +197,8 @@ class CelebrityModel
         return $this->dbConnection->query($sql);
     }
 
+
+    //add_celeb function
     public function add_celebs(){
         if (!filter_has_var(INPUT_POST, 'first_name') ||
             !filter_has_var(INPUT_POST, 'last_name') ||
@@ -167,15 +211,6 @@ class CelebrityModel
             return false;
         }
 
-        //This retrieves form details and trims/sanitizes them
-        //as suggested in the homework, I used the real_escape_string method to escape mySQL data
- /*       $name = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)));
-        $price = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT)));
-        $use = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'use', FILTER_SANITIZE_STRING)));
-        $image = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING)));
-        $type = $conn->real_escape_string(trim(filter_input(INPUT_POST, 'type', FILTER_SANITIZE_STRING)));
-        */
-
         $first_name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_STRING)));
         $last_name = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_STRING)));
         $gender = $this->dbConnection->real_escape_string(filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING));
@@ -184,21 +219,11 @@ class CelebrityModel
         $most_active = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'most_active', FILTER_SANITIZE_STRING)));
         $post_frequency = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'post_frequency', FILTER_SANITIZE_STRING)));
 
-
-//SQL query adds the included values into the products table of the  database
+        //SQL query adds the included values into the products table of the  database
         $sql = "INSERT INTO celebrity VALUES(NULL,'$first_name','$last_name','$gender','$age', '$web_presence', '$most_active', '$post_frequency')";
 
         //executes the query
         $query = $this->dbConnection->query($sql);
-
-        /*//this handles insertion errors
-        if (!$query) {
-            $error_no = $conn->errno;
-            $error = $conn->error;
-            echo "Insertion failed: ($error_no) $error";
-            $conn->close();
-            die();
-        }*/
 
         //determine the id of the newly added product
         $celeb_id = $this->dbConnection->insert_id;

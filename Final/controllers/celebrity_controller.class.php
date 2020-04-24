@@ -39,17 +39,17 @@ class CelebrityController {
     public function detail($celeb_id) {
         //retrieve the specific celebrity
         $celeb = $this->celebrity_model->view_celebrity($celeb_id);
+        $pers = $this->celebrity_model->celebrity_personality($celeb_id);
 
-        if (!$celeb) {
+        if (!$celeb || $pers) {
             //display an error
             $message = "There was a problem displaying the celebrity id='" . $celeb_id . "'.";
             $this->error($message);
             return;
         }
-
         //display celebrity details
         $view = new CelebrityDetail();
-        $view->display($celeb);
+        $view->display($celeb, $pers);
     }
 
     //display a celebrity in a form for editing

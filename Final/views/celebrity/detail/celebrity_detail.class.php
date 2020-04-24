@@ -9,11 +9,11 @@
 
 class CelebrityDetail extends CelebrityIndexView {
 
-    public function display($celebrity, $confirm = "") {
+    public function display($celebrity, $pers) {
         //display page header
         parent::displayHeader("Celebrity Details");
 
-        //retrieve movie details by calling get methods
+        //retrieve celebrity details by calling get methods
         $celeb_id = $celebrity->getCelebId();
         $first_name = $celebrity->getFirstName();
         $last_name = $celebrity->getLastName();
@@ -22,6 +22,10 @@ class CelebrityDetail extends CelebrityIndexView {
         $web_presence = $celebrity->getWebPresence();
         $most_active = $celebrity->getMostActive();
         $post_frequency = $celebrity->getPostFrequency();
+
+        //retrieve celebrity personality details by calling get methods
+        //$dimension = $pers->getDimension();
+        //$frequency = $pers->getFrequency();
 
   /*      if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
             $celeb_id = BASE_URL . '/' . CELEB_IMG . $celeb_id;
@@ -55,7 +59,6 @@ class CelebrityDetail extends CelebrityIndexView {
                     <p><?= $web_presence ?></p>
                     <p><?= $most_active ?></p>
                     <p><?= $post_frequency ?></p><br><br>
-                    <div id="confirm-message"><?= $confirm ?></div>
                 </td>
             </tr>
         </table>
@@ -64,21 +67,20 @@ class CelebrityDetail extends CelebrityIndexView {
             <tr>
                 <h3>Personality Details</h3><br>
                 <td style="width: 130px;">
-                    <p><strong>Extroversion:</strong></p>
-                    <p><strong>Agreeableness:</strong></p>
-                    <p><strong>Conscientiousness:</strong></p>
-                    <p><strong>Neuroticism:</strong></p>
-                    <p><strong>Openness:</strong></p>
+                    <p><strong>Extroversion:<?/*= $dimension, $frequency */?></strong></p>
+                    <p><strong>Agreeableness: <?/*= $dimension, $frequency */?></strong></p>
+                    <p><strong>Conscientiousness: <?/*= $dimension, $frequency */?></strong></p>
+                    <p><strong>Neuroticism: <?/*= $dimension, $frequency */?></strong></p>
+                    <p><strong>Openness: <?/*= $dimension, $frequency */?></strong></p>
                 </td>
-                <td>
-                    <p><? ?></p>
-                    <p><? ?></p>
-                    <p><? ?></p>
-                    <p><? ?></p>
-                    <p><? ?></p>
-                    <p><? ?></p><br><br>
-                    <div id="confirm-message"><?= $confirm ?></div>
-                </td>
+<!--                <td>
+                    <p><?/* */?></p>
+                    <p><?/* */?></p>
+                    <p><?/* */?></p>
+                    <p><?/* */?></p>
+                    <p><?/* */?></p>
+                    <p><?/* */?></p><br><br>
+                </td>-->
             </tr>
         </table>
 
@@ -86,8 +88,6 @@ class CelebrityDetail extends CelebrityIndexView {
         <a href="<?= BASE_URL ?>/celebrity/index">Go to celebrity list</a>
 
         <?php
-
     }
-
 //end of display method
 }
