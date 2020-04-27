@@ -34,14 +34,12 @@ class PersonalityDetail extends PersonalityIndexView {
                     <img src="<?/*= $image */?>" alt="<?/*= $title */?>" />
                 </td>-->
                 <td style="width: 130px;">
-                    <p><strong>ID:</strong></p>
                     <p><strong>Dimension:</strong></p>
                     <p><strong>Qualities:</strong></p>
                     <p><strong>Description:</strong></p>
                     <p><strong>Keywords:</strong></p>
                 </td>
                 <td>
-                    <p><?= $dim_id ?></p>
                     <p><?= $dimension ?></p>
                     <p><?= $qualities ?></p>
                     <p><?= $description ?></p>
