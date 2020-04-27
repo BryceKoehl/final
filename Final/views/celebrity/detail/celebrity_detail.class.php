@@ -9,7 +9,7 @@
 
 class CelebrityDetail extends CelebrityIndexView {
 
-    public function display($celebrity, $pers) {
+    public function display($celebrity) { //$pers
         //display page header
         parent::displayHeader("Celebrity Details");
 
