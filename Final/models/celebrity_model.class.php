@@ -61,17 +61,23 @@ class CelebrityModel
     //lists each celebrity personality dimensions
     public function celebrity_personality($celeb_id)
     {
+        /* SELECT
+    celebrity.first_name, celebrity.last_name, personality_dimension.dimension, celebrity_dimension.frequency
+FROM
+    celebrity
+INNER JOIN celebrity_dimension ON celebrity.celeb_id = celebrity_dimension.celeb_id
+INNER JOIN personality_dimension ON celebrity_dimension.dim_id = personality_dimension.dim_id
+WHERE celebrity.celeb_id = 1 */
+
         //the select sql statement
-        /*        SELECT celebrity_dimension.frequency, personality_dimension.dimension FROM celebrity
-                INNER JOIN celebrity_dimension ON celebrity.celeb_id=celebrity_dimension.celeb_id
-                INNER JOIN personality_dimension ON celebrity_dimension.dim_id=personality_dimension.dim_id
-                GROUP BY personality_dimension.dimension ,,, " WHERE " . $this->celebrity . ".celeb_id='$celeb_id'" . */
+        $sql = " SELECT " . $this->celebrity . ".first_name, " . $this->celebrity . ".last_name, " . $this->personality_dimension . ".dimension, " . $this->celebrity_dimension . ".frequency " .
+            " FROM " . $this->celebrity .
+            " INNER JOIN " . $this->celebrity_dimension . " ON " . $this->celebrity . ".celeb_id=" . $this->celebrity_dimension . ".celeb_id" .
+            " INNER JOIN " . $this->personality_dimension . " ON " . $this->celebrity_dimension . ".dim_id=" . $this->personality_dimension . ".dim_id" .
+            " WHERE " . $this->celebrity . ".celeb_id=$celeb_id";
 
-        $sql = "SELECT * FROM " . $this->celebrity .
-            " FULL OUTER JOIN " . $this->celebrity_dimension . "ON" . $this->celebrity . ".celeb_id='$celeb_id'" . $this->celebrity_dimension . ".celeb_id='$celeb_id'" .
-            " FULL OUTER JOIN " . $this->personality_dimension . "ON" . $this->celebrity_dimension . ".dim_id=" . $this->personality_dimension . ".dim_id" .
-            " GROUP BY " . $this->personality_dimension . ".dimension'";
-
+        //echo $sql;
+        //exit();
         //execute the query
         $query = $this->dbConnection->query($sql);
 
