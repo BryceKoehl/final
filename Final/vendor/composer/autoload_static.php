@@ -8,6 +8,7 @@ class ComposerStaticInit2aa62ca7900cf9d7c7258cee3d36ecdf
 {
     public static $classMap = array (
         'CelebError' => __DIR__ . '/../..' . '/views/celebrity/error/celeb_error.class.php',
+        'CelebPersonality' => __DIR__ . '/../..' . '/models/celeb_personality.class.php',
         'Celebrity' => __DIR__ . '/../..' . '/models/celebrity.class.php',
         'CelebrityAdd' => __DIR__ . '/../..' . '/views/celebrity/add/celebrity_add.class.php',
         'CelebrityController' => __DIR__ . '/../..' . '/controllers/celebrity_controller.class.php',
