@@ -52,11 +52,20 @@ class CelebrityModel
         return self::$_instance;
     }
 
-    /*
-     * the list_celebrity method retrieves all celebrities from the database and
-     * returns an array of Celebrity objects if successful or false if failed.
-     * Celebrities should also be filtered by personality demensions and/or sorted by titles or rating if they are available.
-     */
+
+    //display later!
+    public function rank_celebs(){
+        //grabs extraversion column in intersection table to sort by
+        $sql = "SELECT celeb_id, frequency from celebrity_dimension where dim_id=1 ORDER BY frequency DESC";
+
+        $query = $this->dbConnection->query($sql);
+        $ranking = [];
+        while($row = $query->fetch_assoc()) {
+            $ranking[] =[$row['celeb_id']=>$row['frequency']] ;
+        }
+
+        var_dump($ranking);
+    }
 
     //lists each celebrity personality dimensions
     public function celebrity_personality($celeb_id)
@@ -81,12 +90,30 @@ WHERE celebrity.celeb_id = 1 */
         //execute the query
         $query = $this->dbConnection->query($sql);
 
+        /*       if ($query && $query->num_rows > 0) {
+                   $obj = $query->fetch_object();
+
+                   //create a celebrity object
+                   $celeb_dim = new CelebrityDimension(stripslashes($obj->dimension),
+                       stripslashes($obj->frequency));
+
+                   //set the id for the celebrity
+                   $celeb_dim->setCelebId($obj->celeb_id);
+
+                   foreach ($celeb_dim as $propName => $propValue) {
+                       echo $propName . ': ' . $propValue . '<br>';
+                   }
+
+                   return $celeb_dim;
+               }
+           }*/
+
         if ($query && $query->num_rows > 0) {
             $celebPersons = array(); //create an array for celebrity personalities
 
             //loop through all rows
             while ($query_row = $query->fetch_assoc()) {
-                $celebPerson = new CelebPersonality(
+                $celebPerson = new CelebrityDimension(
                     $query_row["dimension"],
                     $query_row["frequency"]);
                 //push the toy into the array

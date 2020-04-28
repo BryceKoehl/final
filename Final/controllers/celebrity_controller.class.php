@@ -39,9 +39,9 @@ class CelebrityController {
     public function detail($celeb_id) {
         //retrieve the specific celebrity
         $celeb = $this->celebrity_model->view_celebrity($celeb_id);
-        //$pers = $this->celebrity_model->celebrity_personality($celeb_id);
+        $celeb_dim = $this->celebrity_model->celebrity_personality($celeb_id);
 
-        if (!$celeb) { //|| $pers) {
+        if (!$celeb || !$celeb_dim) {
             //display an error
             $message = "There was a problem displaying the celebrity id='" . $celeb_id . "'.";
             $this->error($message);
@@ -49,7 +49,7 @@ class CelebrityController {
         }
         //display celebrity details
         $view = new CelebrityDetail();
-        $view->display($celeb); //$pers
+        $view->display($celeb, $celeb_dim); //$pers
     }
 
     //display a celebrity in a form for editing
@@ -136,6 +136,12 @@ class CelebrityController {
     public function add(){
         $celeb = $this->celebrity_model->add_celebs();
         $view = new CelebrityAdd();
+        $view->display();
+    }
+
+    public function rank(){
+        $rank = $this->celebrity_model->rank_celebs();
+        $view = new CelebrityRank();
         $view->display();
     }
     //handle an error

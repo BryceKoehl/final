@@ -8,15 +8,16 @@ class ComposerStaticInit2aa62ca7900cf9d7c7258cee3d36ecdf
 {
     public static $classMap = array (
         'CelebError' => __DIR__ . '/../..' . '/views/celebrity/error/celeb_error.class.php',
-        'CelebPersonality' => __DIR__ . '/../..' . '/models/celeb_personality.class.php',
         'Celebrity' => __DIR__ . '/../..' . '/models/celebrity.class.php',
         'CelebrityAdd' => __DIR__ . '/../..' . '/views/celebrity/add/celebrity_add.class.php',
         'CelebrityController' => __DIR__ . '/../..' . '/controllers/celebrity_controller.class.php',
         'CelebrityDetail' => __DIR__ . '/../..' . '/views/celebrity/detail/celebrity_detail.class.php',
+        'CelebrityDimension' => __DIR__ . '/../..' . '/models/celebrity_dimension.class.php',
         'CelebrityEdit' => __DIR__ . '/../..' . '/views/celebrity/edit/celebrity_edit.class.php',
         'CelebrityIndex' => __DIR__ . '/../..' . '/views/celebrity/index/celebrity_index.class.php',
         'CelebrityIndexView' => __DIR__ . '/../..' . '/views/celebrity/celebrity_index_view.class.php',
         'CelebrityModel' => __DIR__ . '/../..' . '/models/celebrity_model.class.php',
+        'CelebrityRank' => __DIR__ . '/../..' . '/views/celebrity/rank/celebrity_rank.class.php',
         'CelebritySearch' => __DIR__ . '/../..' . '/views/celebrity/search/celebrity_search.class.php',
         'ComposerAutoloaderInit2aa62ca7900cf9d7c7258cee3d36ecdf' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',

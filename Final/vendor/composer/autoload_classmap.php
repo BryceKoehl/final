@@ -7,15 +7,16 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'CelebError' => $baseDir . '/views/celebrity/error/celeb_error.class.php',
-    'CelebPersonality' => $baseDir . '/models/celeb_personality.class.php',
     'Celebrity' => $baseDir . '/models/celebrity.class.php',
     'CelebrityAdd' => $baseDir . '/views/celebrity/add/celebrity_add.class.php',
     'CelebrityController' => $baseDir . '/controllers/celebrity_controller.class.php',
     'CelebrityDetail' => $baseDir . '/views/celebrity/detail/celebrity_detail.class.php',
+    'CelebrityDimension' => $baseDir . '/models/celebrity_dimension.class.php',
     'CelebrityEdit' => $baseDir . '/views/celebrity/edit/celebrity_edit.class.php',
     'CelebrityIndex' => $baseDir . '/views/celebrity/index/celebrity_index.class.php',
     'CelebrityIndexView' => $baseDir . '/views/celebrity/celebrity_index_view.class.php',
     'CelebrityModel' => $baseDir . '/models/celebrity_model.class.php',
+    'CelebrityRank' => $baseDir . '/views/celebrity/rank/celebrity_rank.class.php',
     'CelebritySearch' => $baseDir . '/views/celebrity/search/celebrity_search.class.php',
     'ComposerAutoloaderInit2aa62ca7900cf9d7c7258cee3d36ecdf' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',

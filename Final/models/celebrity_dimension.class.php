@@ -2,11 +2,11 @@
 /**
  * Author: "Ashley Nguyen"
  * Date: 4/23/2020
- * File: celeb_personality.class.php
+ * File: celebrity_dimension.class.php
  * Description:
  */
 
-class CelebPersonality
+class CelebrityDimension
 {
     private $celeb_id, $dim_id, $dimension, $frequency;
 
