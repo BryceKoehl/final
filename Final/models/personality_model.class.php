@@ -65,7 +65,8 @@ class PersonalityModel {
                     $query_row["dimension"],
                     $query_row["qualities"],
                     $query_row["description"],
-                    $query_row["keywords"]);
+                    $query_row["keywords"],
+                    $query_row["image"]);
 
                 //push the toy into the array
                 $personalities[] = $personality;
@@ -92,7 +93,7 @@ class PersonalityModel {
             $obj = $query->fetch_object();
 
             //create a personality object
-            $personality = new Personality(stripslashes($obj->dimension), stripslashes($obj->qualities), stripslashes($obj->description), stripslashes($obj->keywords));
+            $personality = new Personality(stripslashes($obj->dimension), stripslashes($obj->qualities), stripslashes($obj->description), stripslashes($obj->keywords), stripslashes($obj->image));
 
             //set the id for the personality
             $personality->setId($obj->dim_id);
