@@ -9,14 +9,15 @@
 class Personality {
 
     //private properties of a User object
-    private $dim_id, $dimension, $qualities, $description, $keywords;
+    private $dim_id, $dimension, $qualities, $description, $keywords, $image;
 
     //the constructor that initializes all properties
-    public function __construct($dimension, $qualities, $description, $keywords) {
+    public function __construct($dimension, $qualities, $description, $keywords, $image) {
         $this->dimension = $dimension;
         $this->qualities = $qualities;
         $this->description = $description;
         $this->keywords = $keywords;
+        $this->image = $image;
     }
 
     //get the id of a user
@@ -44,6 +45,10 @@ class Personality {
         return $this->keywords;
     }
 
+    public function getImage()
+    {
+        return $this->image;
+    }
 
     //set user id
     public function setId($dim_id) {

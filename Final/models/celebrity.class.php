@@ -10,10 +10,10 @@
 class Celebrity {
 
     //private data members
-    private $celeb_id, $first_name, $last_name, $gender, $age, $web_presence, $most_active, $post_frequency; //$icon;
+    private $celeb_id, $first_name, $last_name, $gender, $age, $web_presence, $most_active, $post_frequency, $images;
 
     //the constructor
-    public function __construct($first_name, $last_name, $gender, $age, $web_presence, $most_active, $post_frequency) {
+    public function __construct($first_name, $last_name, $gender, $age, $web_presence, $most_active, $post_frequency, $images) {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->gender = $gender;
@@ -21,7 +21,7 @@ class Celebrity {
         $this->web_presence = $web_presence;
         $this->most_active = $most_active;
         $this->post_frequency = $post_frequency;
-        //$this->icon = $icon;
+        $this->images = $images;
 
     }
 
@@ -56,6 +56,11 @@ class Celebrity {
 
     public function getPostFrequency() {
         return $this->post_frequency;
+    }
+
+    public function getImages()
+    {
+        return $this->images;
     }
 
     public function setCelebId($celeb_id){

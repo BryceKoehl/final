@@ -32,6 +32,11 @@ class CelebrityIndex extends CelebrityIndexView {
                     $celeb_id = $celeb->getCelebId();
                     $first_name = $celeb->getFirstName();
                     $last_name = $celeb->getLastName();
+                    $images = $celeb->getImages();
+
+                 /*   if (strps($image, "http://") === false AND strps($image, "https://")=== false) {
+                        $image = BASE_URL . "/" . CELEB_IMG . $image;
+                    }*/
                     if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
                         $celeb_id = $i + 1;
                     }
@@ -40,7 +45,7 @@ class CelebrityIndex extends CelebrityIndexView {
                         echo "<div class='row'>";
                     }
 
-                    echo "<div class='col'><p><a href='", BASE_URL, "/celebrity/detail/$celeb_id'><img src='" . $celeb_id .
+                    echo "<div class='col'><p><a href='", BASE_URL, "/celebrity/detail/$celeb_id'><img src='" . $images . $celeb_id .
                         "'></a><span>$first_name<br>$last_name<br></span></p></div>";
                     ?>
                     <?php

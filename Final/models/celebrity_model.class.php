@@ -123,8 +123,9 @@ WHERE celebrity.celeb_id = 1 */
                     $query_row["age"],
                     $query_row["web_presence"],
                     $query_row["most_active"],
-                    $query_row["post_frequency"]);
-                //push the toy into the array
+                    $query_row["post_frequency"],
+                    $query_row["images"]);
+                //push
                 $celebs[] = $celeb;
             }
             return $celebs;
@@ -157,7 +158,8 @@ WHERE celebrity.celeb_id = 1 */
                 stripslashes($obj->age),
                 stripslashes($obj->web_presence),
                 stripslashes($obj->most_active),
-                stripslashes($obj->post_frequency));
+                stripslashes($obj->post_frequency),
+                stripslashes($obj->images));
 
             //set the id for the celebrity
             $celeb->setCelebId($obj->celeb_id);
@@ -280,7 +282,8 @@ WHERE celebrity.celeb_id = 1 */
                 stripslashes($obj->age),
                 stripslashes($obj->web_presence),
                 stripslashes($obj->most_active),
-                stripslashes($obj->post_frequency));
+                stripslashes($obj->post_frequency),
+                stripslashes($obj->images));
 
             //set the id for the celebrity
             $celeb->setCelebId($obj->celeb_id);
