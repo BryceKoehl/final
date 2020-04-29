@@ -9,7 +9,7 @@
 
 class CelebrityDetail extends CelebrityIndexView {
 
-    public function display($celebrity, $celebrity_dimension) { //$pers
+    public function display($celebrity, $celebrity_dimension, $rank_extra, $rank_pers) {
         //display page header
         parent::displayHeader("Celebrity Details");
 
@@ -67,7 +67,18 @@ class CelebrityDetail extends CelebrityIndexView {
                             $dim = $celebrity_dimension->getDimension();
                             $freq = $celebrity_dimension->getFrequency();
 
-                            echo "<p><strong>$dim:</strong> $freq</p>";
+                            /*if($dim == 1){
+                                $dimArr[] = $dim;
+                                $exRank = max($dimArr);
+                            }
+                            echo "<p><strong>$dim:</strong> $freq $exRank</p>";*/
+
+
+                            //$freqArr[] = $freq;
+
+                            //$val = max($freqArr);
+
+                            echo "<p><strong>$dim:</strong> $freq </p>";
                         }
                     }
                     ?>
@@ -75,28 +86,6 @@ class CelebrityDetail extends CelebrityIndexView {
                 </td>
             </tr>
         </table>
-
-<!--        <table id="personality_detail">
-            <tr>
-                <h3>Personality Details</h3><br>
-                <td style="width: 130px;">
-                    <p><strong>Extroversion:<?/*/*= $dimension, $frequency */?></strong></p>
-                    <p><strong>Agreeableness: <?/*/*= $dimension, $frequency */?></strong></p>
-                    <p><strong>Conscientiousness: <?/*/*= $dimension, $frequency */?></strong></p>
-                    <p><strong>Neuroticism: <?/*/*= $dimension, $frequency */?></strong></p>
-                    <p><strong>Openness: <?/*/*= $dimension, $frequency */?></strong></p>
-                </td>
-                <td>
-                    <p><?/*/* */?></p>
-                    <p><?/*/* */?></p>
-                    <p><?/*/* */?></p>
-                    <p><?/*/* */?></p>
-                    <p><?/*/* */?></p>
-                    <p><?/*/* */?></p><br><br>
-                </td>
-            </tr>
-        </table>-->
-
         <br>
         <a href="<?= BASE_URL ?>/celebrity/index">Go to celebrity list</a>
 

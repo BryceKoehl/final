@@ -40,16 +40,19 @@ class CelebrityController {
         //retrieve the specific celebrity
         $celeb = $this->celebrity_model->view_celebrity($celeb_id);
         $celeb_dim = $this->celebrity_model->celebrity_personality($celeb_id);
+        $rank_extra = $this->celebrity_model->rank_extraversion($celeb_id);
+        $rank_pers = $this->celebrity_model->rank_personalities($celeb_id);
 
-        if (!$celeb || !$celeb_dim) {
+/*        if (!$celeb || !$celeb_dim) {
             //display an error
             $message = "There was a problem displaying the celebrity id='" . $celeb_id . "'.";
             $this->error($message);
             return;
-        }
+        }*/
+
         //display celebrity details
         $view = new CelebrityDetail();
-        $view->display($celeb, $celeb_dim); //$pers
+        $view->display($celeb, $celeb_dim, $rank_extra, $rank_pers); //$pers
     }
 
     //display a celebrity in a form for editing
@@ -139,22 +142,17 @@ class CelebrityController {
         $view->display();
     }
 
-    public function rank(){
+/*    public function rank($celeb_id){
         //retrieve the specific celebrity
-        $rank = $this->celebrity_model->rank_celebs();
-        //$celeb = $this->celebrity_model->view_celebrity($celeb_id);
+        $celeb = $this->celebrity_model->view_celebrity($celeb_id);
+        $rank = $this->celebrity_model->rank_celebs($celeb_id);
+
         //$celeb_dim = $this->celebrity_model->celebrity_personality($celeb_id);
 
-        /*if (!$celeb || !$celeb_dim) {
-            //display an error
-            $message = "There was a problem displaying the celebrity id='" . $celeb_id . "'.";
-            $this->error($message);
-            return;
-        }*/
         //display celebrity details
         $view = new CelebrityRank();
         $view->display($rank); //$pers
-    }
+    }*/
     //handle an error
 /*    public function error($message) {
         //create an object of the Error class

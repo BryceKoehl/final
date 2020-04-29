@@ -20,8 +20,8 @@ class CelebrityIndex extends CelebrityIndexView {
         <div id="button-group">
             <input type="button" id="edit-button" value="   Add New Celebrity Profile   "
                    onclick="window.location.href = '<?=BASE_URL ?>/celebrity/goToAdd'">&nbsp;
-            <input type="button" id="edit-button" value="   See Celebrity Rankings   "
-                   onclick="window.location.href = '<?=BASE_URL ?>/celebrity/rank'">&nbsp;
+<!--            <input type="button" id="edit-button" value="   See Celebrity Rankings   "
+                   onclick="window.location.href = '<?/*=BASE_URL */?>/celebrity/rank'">&nbsp;-->
         </div>
 
         <div class="grid-container">
@@ -35,6 +35,7 @@ class CelebrityIndex extends CelebrityIndexView {
                     $first_name = $celeb->getFirstName();
                     $last_name = $celeb->getLastName();
                     $images = $celeb->getImages();
+
 
                  /*   if (strps($image, "http://") === false AND strps($image, "https://")=== false) {
                         $image = BASE_URL . "/" . CELEB_IMG . $image;

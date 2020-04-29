@@ -54,24 +54,36 @@ class CelebrityModel
 
 
     //display later!
-    public function rank_celebs(){
+    public function rank_extraversion($celeb_id){
         /*
-        SELECT
-    celebrity.first_name, celebrity.last_name, celebrity_dimension.frequency
-FROM
-    celebrity
-INNER JOIN celebrity_dimension ON celebrity.celeb_id = celebrity_dimension.celeb_id
-INNER JOIN personality_dimension ON celebrity_dimension.dim_id = personality_dimension.dim_id
-WHERE celebrity_dimension.dim_id = 1
-ORDER BY celebrity_dimension.frequency DESC
+            SELECT
+                celebrity_dimension.celeb_id, celebrity_dimension.frequency
+            FROM
+                celebrity_dimension
+            WHERE celebrity_dimension.dim_id = 1
+            ORDER BY celebrity_dimension.frequency DESC
+
+
+            // Louie's code below: The following code snippet will generate an array called "ranking".
+             The elements in the array are ordered by frequencies (# of posts). Each element
+             contains celebrity id and frequency.
+
+            $sql = "SELECT celeb_id, frequency from celebrity_dimension where dim_id=1 ORDER BY frequency DESC";
+
+            $query = $conn->query($sql);
+            $ranking = [];
+
+            while($row = $query->fetch_assoc()) {
+                $ranking[] =[$row['celeb_id']=>$row['frequency']] ;
+            }
+
+            var_dump($ranking);
         */
 
-        //grabs extraversion column in intersection table to sort celebrities by
-        $sql = " SELECT " . $this->celebrity . ".first_name, " . $this->celebrity . ".last_name, " . $this->celebrity_dimension . ".frequency " .
-            " FROM " . $this->celebrity .
-            " INNER JOIN " . $this->celebrity_dimension . " ON " . $this->celebrity . ".celeb_id=" . $this->celebrity_dimension . ".celeb_id" .
-            " INNER JOIN " . $this->personality_dimension . " ON " . $this->celebrity_dimension . ".dim_id=" . $this->personality_dimension . ".dim_id" .
-            " WHERE " . $this->celebrity_dimension . ".dim_id=1" .
+        //grabs extraversion column in intersection table to sort first 10 celebrities by
+        $sql = " SELECT " . $this->celebrity_dimension . " .celeb_id " . $this->celebrity_dimension . ".frequency " .
+            " FROM " . $this->celebrity_dimension .
+            " WHERE " . $this->celebrity_dimension . ".dim_id=1" . " AND " . $this->celebrity_dimension . ".celeb_id<11" .
             " ORDER BY " . $this->celebrity_dimension . ".frequency" . " DESC ";
 
         //execute the query
@@ -84,24 +96,56 @@ ORDER BY celebrity_dimension.frequency DESC
 
             //loop through all the rows
             while($query_row = $query->fetch_assoc()) {
-                $ranking =[$query_row['celeb_id']=>$query_row['frequency']] ;
-                $rankings = $ranking;
+                $ranking = [$query_row['celeb_id']=>$query_row['frequency']];
+                //$rankings = $ranking;
             }
-            return $rankings;
+            return $ranking;
         }
         return false;
+    }
+
+    public function rank_personalities($celeb_id){
+        /*
+        SELECT celebrity_dimension.celeb_id, celebrity_dimension.frequency
+        FROM celebrity_dimension
+        WHERE celebrity_dimension.celeb_id = 1 AND celebrity_dimension.dim_id != 1
+        ORDER BY celebrity_dimension.frequency DESC
+        */
+
+        //grabs all personality dimensions except extraversion
+        $sql = " SELECT " . $this->celebrity_dimension . ".celeb_id " . $this->celebrity_dimension . ".frequency " .
+            " FROM " . $this->celebrity_dimension .
+            " WHERE " . $this->celebrity_dimension . " .celeb_id=$celeb_id" . $this->celebrity_dimension . ".dim_id!=1" .
+            " ORDER BY " . $this->celebrity_dimension . ".frequency" . " DESC ";
+
+        //execute the query
+        $query = $this->dbConnection->query($sql);
+
+        if ($query && $query->num_rows > 0) {
+            $ranking = array();
+
+            //$ranking = [];
+
+            //loop through all the rows
+            while($query_row = $query->fetch_assoc()) {
+                $ranking = [$query_row['celeb_id']=>$query_row['frequency']] ;
+                //$rankings = $ranking;
+            }
+            return $ranking;
+        }
+        return false;
+
     }
 
     //lists each celebrity personality dimensions
     public function celebrity_personality($celeb_id)
     {
-        /* SELECT
-    celebrity.first_name, celebrity.last_name, personality_dimension.dimension, celebrity_dimension.frequency
-FROM
-    celebrity
-INNER JOIN celebrity_dimension ON celebrity.celeb_id = celebrity_dimension.celeb_id
-INNER JOIN personality_dimension ON celebrity_dimension.dim_id = personality_dimension.dim_id
-WHERE celebrity.celeb_id = 1 */
+        /* SELECT celebrity.first_name, celebrity.last_name, personality_dimension.dimension, celebrity_dimension.frequency
+        FROM celebrity
+        INNER JOIN celebrity_dimension ON celebrity.celeb_id = celebrity_dimension.celeb_id
+        INNER JOIN personality_dimension ON celebrity_dimension.dim_id = personality_dimension.dim_id
+        WHERE celebrity.celeb_id = 1
+        */
 
         //the select sql statement
         $sql = " SELECT " . $this->celebrity . ".first_name, " . $this->celebrity . ".last_name, " . $this->personality_dimension . ".dimension, " . $this->celebrity_dimension . ".frequency " .
@@ -136,7 +180,7 @@ WHERE celebrity.celeb_id = 1 */
 
     public function list_celebrity()
     {
-        //SQL select statement
+        //SQL select statement, grabs all celebs & sorts by extraversion
         $sql = "SELECT * FROM " . $this->db->getCelebrity();
 
         //execute the query
