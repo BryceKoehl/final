@@ -140,9 +140,20 @@ class CelebrityController {
     }
 
     public function rank(){
+        //retrieve the specific celebrity
         $rank = $this->celebrity_model->rank_celebs();
+        //$celeb = $this->celebrity_model->view_celebrity($celeb_id);
+        //$celeb_dim = $this->celebrity_model->celebrity_personality($celeb_id);
+
+        /*if (!$celeb || !$celeb_dim) {
+            //display an error
+            $message = "There was a problem displaying the celebrity id='" . $celeb_id . "'.";
+            $this->error($message);
+            return;
+        }*/
+        //display celebrity details
         $view = new CelebrityRank();
-        $view->display();
+        $view->display($rank); //$pers
     }
     //handle an error
 /*    public function error($message) {

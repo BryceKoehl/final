@@ -20,6 +20,8 @@ class CelebrityIndex extends CelebrityIndexView {
         <div id="button-group">
             <input type="button" id="edit-button" value="   Add New Celebrity Profile   "
                    onclick="window.location.href = '<?=BASE_URL ?>/celebrity/goToAdd'">&nbsp;
+            <input type="button" id="edit-button" value="   See Celebrity Rankings   "
+                   onclick="window.location.href = '<?=BASE_URL ?>/celebrity/rank'">&nbsp;
         </div>
 
         <div class="grid-container">

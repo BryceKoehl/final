@@ -55,16 +55,41 @@ class CelebrityModel
 
     //display later!
     public function rank_celebs(){
-        //grabs extraversion column in intersection table to sort by
-        $sql = "SELECT celeb_id, frequency from celebrity_dimension where dim_id=1 ORDER BY frequency DESC";
+        /*
+        SELECT
+    celebrity.first_name, celebrity.last_name, celebrity_dimension.frequency
+FROM
+    celebrity
+INNER JOIN celebrity_dimension ON celebrity.celeb_id = celebrity_dimension.celeb_id
+INNER JOIN personality_dimension ON celebrity_dimension.dim_id = personality_dimension.dim_id
+WHERE celebrity_dimension.dim_id = 1
+ORDER BY celebrity_dimension.frequency DESC
+        */
 
+        //grabs extraversion column in intersection table to sort celebrities by
+        $sql = " SELECT " . $this->celebrity . ".first_name, " . $this->celebrity . ".last_name, " . $this->celebrity_dimension . ".frequency " .
+            " FROM " . $this->celebrity .
+            " INNER JOIN " . $this->celebrity_dimension . " ON " . $this->celebrity . ".celeb_id=" . $this->celebrity_dimension . ".celeb_id" .
+            " INNER JOIN " . $this->personality_dimension . " ON " . $this->celebrity_dimension . ".dim_id=" . $this->personality_dimension . ".dim_id" .
+            " WHERE " . $this->celebrity_dimension . ".dim_id=1" .
+            " ORDER BY " . $this->celebrity_dimension . ".frequency" . " DESC ";
+
+        //execute the query
         $query = $this->dbConnection->query($sql);
-        $ranking = [];
-        while($row = $query->fetch_assoc()) {
-            $ranking[] =[$row['celeb_id']=>$row['frequency']] ;
-        }
 
-        var_dump($ranking);
+        if ($query && $query->num_rows > 0) {
+            $ranking = array();
+
+        //$ranking = [];
+
+            //loop through all the rows
+            while($query_row = $query->fetch_assoc()) {
+                $ranking =[$query_row['celeb_id']=>$query_row['frequency']] ;
+                $rankings = $ranking;
+            }
+            return $rankings;
+        }
+        return false;
     }
 
     //lists each celebrity personality dimensions
@@ -85,28 +110,8 @@ WHERE celebrity.celeb_id = 1 */
             " INNER JOIN " . $this->personality_dimension . " ON " . $this->celebrity_dimension . ".dim_id=" . $this->personality_dimension . ".dim_id" .
             " WHERE " . $this->celebrity . ".celeb_id=$celeb_id";
 
-        //echo $sql;
-        //exit();
         //execute the query
         $query = $this->dbConnection->query($sql);
-
-        /*       if ($query && $query->num_rows > 0) {
-                   $obj = $query->fetch_object();
-
-                   //create a celebrity object
-                   $celeb_dim = new CelebrityDimension(stripslashes($obj->dimension),
-                       stripslashes($obj->frequency));
-
-                   //set the id for the celebrity
-                   $celeb_dim->setCelebId($obj->celeb_id);
-
-                   foreach ($celeb_dim as $propName => $propValue) {
-                       echo $propName . ': ' . $propValue . '<br>';
-                   }
-
-                   return $celeb_dim;
-               }
-           }*/
 
         if ($query && $query->num_rows > 0) {
             $celebPersons = array(); //create an array for celebrity personalities
