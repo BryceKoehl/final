@@ -379,3 +379,345 @@ table#detail {
     border: solid 6px #393ECE;
     margin: 2px;
 }
+
+.stafflist {
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+}
+
+.stafflist tr {
+    padding: .5%;
+}
+
+.stafflist th {
+    padding: 3px 5px;
+}
+
+.stafflist td {
+
+    padding: .5%;
+}
+
+.stafflist .row {
+    display: flex;
+    text-align: left;
+}
+
+.stafflist .row:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.header {
+    background-color: #152e57;
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.stafflist .col1 {
+    width: 16%;
+}
+
+.stafflist .col2 {
+    width: 16%;
+}
+
+.stafflist .col3 {
+    width: 16%;
+}
+
+.stafflist .col4 {
+    width: 16%;
+
+}
+
+.stafflist .col5 {
+    width: 16%;
+}
+
+.stafflist .col5 {
+    width: 16%;
+
+}
+
+.staffdetails {
+    display: flex;
+    justify-content: left;
+    margin: 1em;
+}
+
+.request {
+    display: flex;
+    justify-content: center;
+}
+
+.staffdetails h2, .request h2 {
+    padding-left: 1em;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.staffdetails .label div {
+    padding-left: 10px;
+    text-align: left;
+    width: 200px;
+    font-weight: 600;
+    height: 32px;
+}
+
+.staffdetails > img {
+    width: auto;
+    height: 375px;
+    margin: 0 1em;
+}
+
+.staffdetails tr, td, th, .request tr, td, th{
+    padding: .5em;
+    font-size: 1.3em;
+
+}
+
+.staffdetails b, .request b{
+    font-weight: 600;
+}
+
+
+
+div.order-summary {
+    border: 1px solid #ccc;
+    width: 260px;
+    margin-left: auto;
+    margin-right: 0px;
+    margin-top: -30px;
+    padding: 10px;
+    overflow: auto;
+}
+
+div.order-summary div {
+    padding: 3px;
+}
+
+div.order-summary span {
+    float: right;
+    margin-right: 5px
+}
+
+
+/*styles for action buttons */
+.staff-button {
+
+    border-top: 1px solid #CCCCCC;
+    margin: 50px auto 20px auto;
+    padding-top: 10px;
+    text-align: center;
+    /* align-content: center;*/
+}
+
+.staff-button input {
+    font-size: 1.1em ;
+}
+
+.staff-button.delete-confirmed {
+    display: none;
+}
+
+.staff-button.delete-initial span,
+.staff-button.delete-confirmed span {
+    color: red;
+    font: 12px/18px Arial, Sans-serif;
+    display: inline-block;
+    margin-left: 40px;
+}
+
+
+/*styles for login and registration forms*/
+div.login-container {
+    vertical-align: top;
+    background-color: white;
+    align-content: center;
+}
+
+div.login-container div.login {
+    horiz-align: right;
+    width: 20%;
+    margin-right: 50px;
+    margin-left: 50px;
+
+}
+
+div.login-container div.registration {
+    vertical-align: top;
+    border-left: 1px solid black;
+    padding-left: 100px;
+}
+
+div.login-container div {
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    display: grid;
+    width: 180px;
+    height: 350px;
+}
+
+div.gallery-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+div.gallery-item {
+    margin: 1em;
+    border: 1px solid #ccc;
+    font-size: 1.5em;
+}
+
+.gallery-item img {
+    height: 330px;
+}
+
+div.gallery-item:hover {
+    border: 1px solid black;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 1em;
+    text-align: center;
+}
+
+.fancy-input, .fancy-select {
+    display: block;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #444;
+    line-height: 1.3;
+    padding: 1em 1.5em;
+    width: 20%;
+    max-width: 100%; /* useful when width is set to anything other than 100% */
+    box-sizing: border-box;
+    margin: 1em;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    border-radius: .5em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+}
+
+.fancy-select {
+    /* note: bg image below uses 2 urls. The first is an svg data uri for the arrow icon, and the second is the gradient.
+        for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url. You can also swap in a different svg icon or an external image reference
+
+    */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+    linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+    background-repeat: no-repeat, repeat;
+    /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
+    background-position: right .7em top 50%, 0 0;
+    /* icon size, then gradient */
+    background-size: .65em auto, 100%;
+}
+/* Hide arrow icon in IE browsers */
+.fancy-select::-ms-expand {
+    display: none;
+}
+/* Hover style */
+.fancy-select:hover {
+    border-color: #888;
+}
+/* Focus style */
+.fancy-select:focus {
+    border-color: #aaa;
+    /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+}
+
+/* Set options to normal weight */
+.fancy-select option {
+    font-weight:normal;
+}
+
+/* Support for rtl text, explicit support for Arabic and Hebrew */
+*[dir="rtl"] .fancy-select, :root:lang(ar) .fancy-select, :root:lang(iw) .fancy-select {
+    background-position: left .7em top 50%, 0 0;
+    padding: .6em .8em .5em 1.4em;
+}
+
+/* Disabled styles */
+.fancy-select:disabled, .fancy-select[aria-disabled=true] {
+    color: graytext;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+    linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+}
+
+.fancy-select:disabled:hover, .fancy-select[aria-disabled=true] {
+    border-color: #aaa;
+}
+
+.search, .search-results {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.search-results {
+    flex-direction: column;
+    align-items: start;
+    padding-left:0;
+}
+
+.search-results > input {
+    margin:2em;
+}
+
+.search-form h2 {
+    padding-left: 1em;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.search-btn {
+    height: 3em;
+    display: inherit;
+}
+
+/*can I use*/
+/*em rem instead of pixels*/
+
+.staff-details-table {
+    align-self: center;
+/*    border: .1em solid black;*/
+}
+
+.staff-details-table tr > td{
+    text-align: left;
+}
+
+
+.color-red {
+    color:red;
+    /* margin-left: 1em; */
+}
+
+.container-fluid {
+    margin-top: 1em;
+}
