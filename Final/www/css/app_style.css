@@ -1,6 +1,6 @@
 /*
     Document   : app_style.css
-    Author     : Louie Zhu
+    Author     : Bryce Koehl
     Description: External style sheet for the application.
 */
 * {
@@ -13,8 +13,8 @@ html, body {
 
 body{
     text-align: center;
-    background-color: #e6e6f1;
-    background-color: white;
+    background-color: black;
+    /*background-color: #e6e6f1;*/
 }
 
 /*reset padding for p and hx tags*/
@@ -53,7 +53,8 @@ hr {
     height: 100%;
     margin: 0 auto -4em;
     text-align:center;
-    width:960px;
+    background-color: #e6e6f1;
+    width: 95%;
 }
 
 
@@ -72,17 +73,18 @@ hr {
 
 /*style for the banner */
 #banner {
-    background-color: #FFFF00;
+    background-color: black;
     height: 100px;
 }
 
 /*styles for the page header that appears right below the banner*/
 #main-header {
+    /*background-color: black;*/
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     margin-top: 10px;
     margin-bottom: 5px;
     font-size: 20px;
-    color: #000000;
+    color: black;
 }
 /*styles for the record numbers that appear to the right of the page header*/
 span.rcd-numbers {
@@ -98,7 +100,7 @@ span.rcd-numbers {
     margin: 10px auto 10px auto;
     width: 960px; 
     border: 1px solid #eee;
-    background-color: #ffebeb; 
+    background-color: darkred; 
 }
 
 .row:before, 
@@ -112,13 +114,13 @@ span.rcd-numbers {
     float: left; 
     min-height: 1px; 
     padding: 16px; 
-    background-color: #ffebeb;
-    border: 1px dotted #ffebeb;
+    background-color: darkred;
+    border: 1px dotted darkred;
     text-align: center;
 }
 
 .col:hover {
-    border: 1px solid #ff6600;
+    border: 1px solid gold;
 }
 
 .col > p {
@@ -173,7 +175,7 @@ table#detail {
 }
 
 #detail #button-group {
-    position: absolute;
+    /*position: absolute;*/
     bottom: 20px;
 }
 
@@ -190,11 +192,10 @@ table#detail {
 
 /* style for the search bar */
 #searchbar {
-    float: right;
     margin-top: 10px;
     margin-right: 0px;
     position: relative;
-    border: #bbb 1px solid;
+    /*border: #bbb 1px solid;*/
     border-radius: 0px;
 
 }
@@ -220,7 +221,7 @@ table#detail {
     width: 24px;
     height: 19px;
     text-align: center;
-    background-color: #eee;
+    /*background-color: #eee;*/
 }
 
 #searchbar input[type="submit"]:hover{

@@ -30,7 +30,7 @@ class IndexView {
                         <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="Celebrity Web Presence Data">
                             <div align="center" style="padding-top: 25px;">
                                 <!-- <img src='<?= BASE_URL ?>/www/img/logo.png' style="width: 180px; border: none" /> -->
-                                <span style='color: #000; font-size: 30pt; font-family: "Trebuchet MS", Helvetica, sans-serif'>
+                                <span style='color: antiquewhite; font-size: 30pt; font-family: "Trebuchet MS", Helvetica, sans-serif'>
                                     🌟 Celebrity Web Data Showcase 🌟
                                 </span>
                             </div>

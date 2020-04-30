@@ -208,12 +208,10 @@ class CelebrityModel
         }
         return false;
     }
-
     /*
      * the viewCelebrity method retrieves the details of the movie specified by its id
      * and returns a celebrity object. Return false if failed.
      */
-
     public function view_celebrity($celeb_id)
     {
         //the select sql statement

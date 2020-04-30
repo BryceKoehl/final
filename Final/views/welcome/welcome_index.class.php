@@ -14,7 +14,7 @@ class WelcomeIndex extends IndexView {
         ?>
         <br><br>
         <div align = "center">
-        <p style="font-size: 16px; font-family: 'Trebuchet MS', Helvetica, sans-serif;">
+        <p style="font-size: 16px; font-family: 'Trebuchet MS', Helvetica, sans-serif; width: 80%">
             Welcome! For our INFO 211 final project, we want to showcase data collected and analyzed
             by students in INFO I202 Social Informatics and INFO I421 Applications of Data Mining. In
             INFO I202, students studied web presence data through web crawling and scanning for digital
@@ -35,10 +35,10 @@ class WelcomeIndex extends IndexView {
 
         <div id="thumbnails" style="text-align: center;">
             <a href="<?= BASE_URL ?>/celebrity/index">
-                <img src="<?= BASE_URL ?>/www/img/celeb.png" title="Celebrity Data" height="150px" width="150px"/>
+                <img src="<?= BASE_URL ?>/www/img/download1.jpg" title="Celebrity Data" height="150px" width="150px"/>
             </a>
             <a href="<?= BASE_URL ?>/personality/index">
-                <img src="<?= BASE_URL ?>/www/img/brain.png" title="Personality Data" height="150px" width="150px"/>
+                <img src="<?= BASE_URL ?>/www/img/download.jpg" title="Personality Data" height="150px" width="150px"/>
             </a>
         </div>
         <?php

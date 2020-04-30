@@ -22,7 +22,7 @@ define("BASE_URL", "http://localhost/i211_Group3/Final");
  ************************************************************************************/
 
 //define default path for media images
-define("CELEB_IMG", "www/img/images/");
+define("CELEB_IMG", "www/img/icon/");
 
 
 /*************************************************************************************
@@ -30,4 +30,6 @@ define("CELEB_IMG", "www/img/images/");
  ************************************************************************************/
 
 //define default path for media images
- define("personality_IMG", "www/img/image/");
+// define("personality_IMG", "www/img/personality/");
+
+
