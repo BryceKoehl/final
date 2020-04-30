@@ -140,25 +140,14 @@ class CelebrityController {
         $view->display();
     }
 
-/*    public function rank($celeb_id){
-        //retrieve the specific celebrity
-        $celeb = $this->celebrity_model->view_celebrity($celeb_id);
-        $rank = $this->celebrity_model->rank_celebs($celeb_id);
-
-        //$celeb_dim = $this->celebrity_model->celebrity_personality($celeb_id);
-
-        //display celebrity details
-        $view = new CelebrityRank();
-        $view->display($rank); //$pers
-    }*/
     //handle an error
-/*    public function error($message) {
+    public function error($message) {
         //create an object of the Error class
         $error = new CelebError();
 
         //display the error page
         $error->display($message);
-    }*/
+    }
 
     //handle calling inaccessible methods
     public function __call($name, $arguments) {

@@ -24,6 +24,7 @@ class IndexView {
                     //create the JavaScript variable for the base url
                     var base_url = "<?= BASE_URL ?>";
                 </script>
+                <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_autosuggestion.js"></script>
             </head>
             <body>
                 <!-- <div id="top"></div> -->
@@ -48,7 +49,7 @@ class IndexView {
                     <div id="push"></div>
                 </div>
                 <!-- <div id="footer"><br>I211 Final Project Spring 2020</div> -->
-                <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_autosuggestion.js"></script>
+
             </body>
         </html>
         <?php

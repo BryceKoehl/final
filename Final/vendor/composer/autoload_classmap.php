@@ -16,7 +16,6 @@ return array(
     'CelebrityIndex' => $baseDir . '/views/celebrity/index/celebrity_index.class.php',
     'CelebrityIndexView' => $baseDir . '/views/celebrity/celebrity_index_view.class.php',
     'CelebrityModel' => $baseDir . '/models/celebrity_model.class.php',
-    'CelebrityRank' => $baseDir . '/views/celebrity/rank/celebrity_rank.class.php',
     'CelebritySearch' => $baseDir . '/views/celebrity/search/celebrity_search.class.php',
     'ComposerAutoloaderInit2aa62ca7900cf9d7c7258cee3d36ecdf' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
