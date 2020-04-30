@@ -8,8 +8,8 @@
  */
 
 class CelebrityDetail extends CelebrityIndexView {
-
-    public function display($celebrity, $celebrity_dimension, $rank_extra, $rank_pers) {
+                            //object, array
+    public function display($celebrity, $celebrity_dimensions) {
         //display page header
         parent::displayHeader("Celebrity Details");
 
@@ -59,26 +59,18 @@ class CelebrityDetail extends CelebrityIndexView {
                     <p><?= $most_active ?></p>
                     <p><?= $post_frequency ?></p>
                     <?php
-                    if ($celebrity_dimension === 0) {
+                    if ($celebrity_dimensions === 0) {
                         echo "No personality info avaliable!";
                     } else {
-                        //display movies in a grid; six movies per row
-                        foreach ($celebrity_dimension as $i => $celebrity_dimension) {
-                            $dim = $celebrity_dimension->getDimension();
-                            $freq = $celebrity_dimension->getFrequency();
+                                                            //key => value
+                        foreach ($celebrity_dimensions as $i => $celebrity_dimension) {
+                            //echo "<table><tr><td><strong>$i:</strong></td><td><strong></strong>$celebrity_dimension</td></tr></table>";
 
-                            /*if($dim == 1){
-                                $dimArr[] = $dim;
-                                $exRank = max($dimArr);
+                            if($celebrity_dimension == "0.00"){
+                                echo "<table><tr><td><strong>$i:</strong></td><td><strong></strong>N/A</td></tr></table>";
+                            }else{
+                                echo "<table><tr><td><strong>$i:</strong></td><td><strong></strong>$celebrity_dimension</td></tr></table>";
                             }
-                            echo "<p><strong>$dim:</strong> $freq $exRank</p>";*/
-
-
-                            //$freqArr[] = $freq;
-
-                            //$val = max($freqArr);
-
-                            echo "<p><strong>$dim:</strong> $freq </p>";
                         }
                     }
                     ?>
