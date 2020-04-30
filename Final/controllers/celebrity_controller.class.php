@@ -40,19 +40,17 @@ class CelebrityController {
         //retrieve the specific celebrity
         $celeb = $this->celebrity_model->view_celebrity($celeb_id);
         $celeb_dim = $this->celebrity_model->celebrity_personality($celeb_id);
-        $rank_extra = $this->celebrity_model->rank_extraversion($celeb_id);
-        $rank_pers = $this->celebrity_model->rank_personalities($celeb_id);
 
-/*        if (!$celeb || !$celeb_dim) {
+        if (!$celeb || !$celeb_dim) {
             //display an error
             $message = "There was a problem displaying the celebrity id='" . $celeb_id . "'.";
             $this->error($message);
             return;
-        }*/
+        }
 
         //display celebrity details
         $view = new CelebrityDetail();
-        $view->display($celeb, $celeb_dim, $rank_extra, $rank_pers); //$pers
+        $view->display($celeb, $celeb_dim); //$pers
     }
 
     //display a celebrity in a form for editing

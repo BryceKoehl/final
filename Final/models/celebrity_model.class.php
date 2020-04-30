@@ -54,7 +54,7 @@ class CelebrityModel
 
 
     //display later!
-    public function rank_extraversion($celeb_id){
+    //public function rank_extraversion($celeb_id){
         /*
             SELECT
                 celebrity_dimension.celeb_id, celebrity_dimension.frequency
@@ -80,7 +80,7 @@ class CelebrityModel
             var_dump($ranking);
         */
 
-        //grabs extraversion column in intersection table to sort first 10 celebrities by
+/*        //grabs extraversion column in intersection table to sort first 10 celebrities by
         $sql = " SELECT " . $this->celebrity_dimension . " .celeb_id " . $this->celebrity_dimension . ".frequency " .
             " FROM " . $this->celebrity_dimension .
             " WHERE " . $this->celebrity_dimension . ".dim_id=1" . " AND " . $this->celebrity_dimension . ".celeb_id<11" .
@@ -102,9 +102,9 @@ class CelebrityModel
             return $ranking;
         }
         return false;
-    }
+    }*/
 
-    public function rank_personalities($celeb_id){
+    //public function rank_personalities($celeb_id){
         /*
         SELECT celebrity_dimension.celeb_id, celebrity_dimension.frequency
         FROM celebrity_dimension
@@ -113,7 +113,7 @@ class CelebrityModel
         */
 
         //grabs all personality dimensions except extraversion
-        $sql = " SELECT " . $this->celebrity_dimension . ".celeb_id " . $this->celebrity_dimension . ".frequency " .
+/*        $sql = " SELECT " . $this->celebrity_dimension . ".celeb_id " . $this->celebrity_dimension . ".frequency " .
             " FROM " . $this->celebrity_dimension .
             " WHERE " . $this->celebrity_dimension . " .celeb_id=$celeb_id" . $this->celebrity_dimension . ".dim_id!=1" .
             " ORDER BY " . $this->celebrity_dimension . ".frequency" . " DESC ";
@@ -135,11 +135,73 @@ class CelebrityModel
         }
         return false;
 
-    }
+    }*/
 
     //lists each celebrity personality dimensions
     public function celebrity_personality($celeb_id)
     {
+        //the select sql statement
+        $sql = "SELECT frequency, dimension FROM celebrity_dimension, personality_dimension WHERE 
+				celebrity_dimension.dim_id = personality_dimension.dim_id AND celeb_id = $celeb_id ORDER BY frequency DESC";
+/*        $sql = " SELECT " . $this->celebrity . ".first_name, " . $this->celebrity . ".last_name, " . $this->personality_dimension . ".dimension, " . $this->celebrity_dimension . ".frequency " .
+            " FROM " . $this->celebrity .
+            " INNER JOIN " . $this->celebrity_dimension . " ON " . $this->celebrity . ".celeb_id=" . $this->celebrity_dimension . ".celeb_id" .
+            " INNER JOIN " . $this->personality_dimension . " ON " . $this->celebrity_dimension . ".dim_id=" . $this->personality_dimension . ".dim_id" .
+            " WHERE " . $this->celebrity . ".celeb_id=$celeb_id";*/
+
+        //execute the query
+        $query = $this->dbConnection->query($sql);
+
+        $celebPersons = array(); //create an array for celebrity personalities
+        if ($query && $query->num_rows > 0) {
+            //loop through all rows
+            while ($query_row = $query->fetch_assoc()) {
+                $celebPersons[$query_row["dimension"]] = $query_row["frequency"];
+            }
+        }
+
+
+        if(empty($celebPersons)) {
+            return false;
+        }
+
+
+        //Determine primary and secondary dimension
+        $dimensions = array_keys($celebPersons);
+        if($dimensions[0] == "Extraversion") {
+            array_shift($dimensions);
+        }
+        $celebPersons['Primary']  = $dimensions[0];
+        $celebPersons['Secondary']  = $dimensions[1];
+
+
+        //Determine ranking on extraversion
+        $sql = " SELECT " . $this->celebrity_dimension . ".celeb_id, " . $this->celebrity_dimension . ".frequency " .
+            " FROM " . $this->celebrity_dimension .
+            " WHERE " . $this->celebrity_dimension . ".dim_id=1" .
+            " ORDER BY " . $this->celebrity_dimension . ".frequency" . " DESC ";
+
+
+        //exit($sql);
+
+        $query = $this->dbConnection->query($sql);
+
+
+        $ranking = 0;
+        while($query_row = $query->fetch_assoc()) {
+            $ranking++;
+            //$ranking[] =[$query_row['celeb_id']=>$query_row['frequency']] ;
+            if($query_row['celeb_id'] == $celeb_id) {
+                break;
+            }
+        }
+        $celebPersons['Ranking'] = $ranking;
+        //var_dump($celebPersons); exit;
+        return $celebPersons;
+
+    }
+ //   public function celebrity_personality($celeb_id)
+ //   {
         /* SELECT celebrity.first_name, celebrity.last_name, personality_dimension.dimension, celebrity_dimension.frequency
         FROM celebrity
         INNER JOIN celebrity_dimension ON celebrity.celeb_id = celebrity_dimension.celeb_id
@@ -147,8 +209,8 @@ class CelebrityModel
         WHERE celebrity.celeb_id = 1
         */
 
-        //the select sql statement
-        $sql = " SELECT " . $this->celebrity . ".first_name, " . $this->celebrity . ".last_name, " . $this->personality_dimension . ".dimension, " . $this->celebrity_dimension . ".frequency " .
+        //the select sql statement to display all personalities for each celebrity
+/*        $sql = " SELECT " . $this->celebrity . ".first_name, " . $this->celebrity . ".last_name, " . $this->personality_dimension . ".dimension, " . $this->celebrity_dimension . ".frequency " .
             " FROM " . $this->celebrity .
             " INNER JOIN " . $this->celebrity_dimension . " ON " . $this->celebrity . ".celeb_id=" . $this->celebrity_dimension . ".celeb_id" .
             " INNER JOIN " . $this->personality_dimension . " ON " . $this->celebrity_dimension . ".dim_id=" . $this->personality_dimension . ".dim_id" .
@@ -171,12 +233,8 @@ class CelebrityModel
             return $celebPersons;
         }
         return false;
-    }
-
-/*            //create a new object to store frequency data for each celebrity
-            $personArr = arr("Extraversion", "Agreeableness", "Conscientiousness", "Neuroticism", "Openness");
-            return $personArr;
     }*/
+
 
     public function list_celebrity()
     {
