@@ -14,9 +14,9 @@ class CelebrityAdd extends CelebrityIndexView
 
         <div id="main-header"><h2 class="align-middle">Add in New Celebrity Details</div>
         <form class="card-body" action='<?= BASE_URL . "/celebrity/add/" ?>' method="post"
-              style="border: 1px solid #bbb; margin-top: 10px; padding: 10px; ">
-
-                <table  class="staff-details-table" align='left' cellspacing="15">
+              style=" margin-top: 10px; padding: 10px; ">
+            <div>
+                <table class="staff-details-table" align='left' cellspacing="15">
                     <tr>
                         <td>First Name:</td>
                         <td><input name="first_name" type="text" size="100" required/></td>
@@ -47,7 +47,7 @@ class CelebrityAdd extends CelebrityIndexView
                         <td><input name="post_frequency" type="text" size="100" required/></td>
                     </tr>
                 </table>
-
+            </div>
             <div style="align-items: center">
                 <input type="submit" name="action" value="Add New Celebrity"/>
                 <input type="button" value="Cancel"
