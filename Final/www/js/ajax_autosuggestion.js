@@ -43,7 +43,7 @@ function suggest(query) {
 
     //proceed only if the search term isn't empty
     // open an asynchronous request to the server.
-    xmlHttp.open("GET", base_url + "/" + media + "/suggest/" + query, true);
+    xmlHttp.open("GET", base_url + "/" + "celebrity" + "/suggest/" + query, true);
 
     //handle server's responses
     xmlHttp.onreadystatechange = function () {
@@ -51,7 +51,7 @@ function suggest(query) {
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             // extract the JSON received from the server
             var titles = JSON.parse(xmlHttp.responseText);
-            //console.log(titlesJSON);
+            //console.log(xmlHttp.responseText);
             // display suggested titles in a div block
             displayTitles(titles);
         }
@@ -79,6 +79,7 @@ function displayTitles(titles) {
     //retrive the titles from the JSON doc and create a new span for each title
     for (i = 0; i < titles.length; i++) {
         divContent += "<span id=s_" + i + " onclick='clickTitle(this)'>" + titles[i] + "</span>";
+        //console.log(titles[i]);
     }
     //display the spans in the div block
     suggestionBoxObj.innerHTML = divContent;
@@ -122,8 +123,6 @@ function handleKeyUp(e) {
         searchBoxObj.value = activeTitleObj.innerHTML;
     }
 }
-
-
 
 //when a title is clicked, fill the search box with the title and then hide the suggestion list
 function clickTitle(title) {
