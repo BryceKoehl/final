@@ -7,9 +7,11 @@
  *              The method accepts a Movie object and displays the details of the movie in a table.
  */
 
-class CelebrityDetail extends CelebrityIndexView {
-                            //object, array
-    public function display($celebrity, $celebrity_dimensions) {
+class CelebrityDetail extends CelebrityIndexView
+{
+    //object, array
+    public function display($celebrity, $celebrity_dimensions)
+    {
         //display page header
         parent::displayHeader("Celebrity Details");
 
@@ -23,72 +25,72 @@ class CelebrityDetail extends CelebrityIndexView {
         $most_active = $celebrity->getMostActive();
         $post_frequency = $celebrity->getPostFrequency();
 
-  /*      if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
-            $celeb_id = BASE_URL . '/' . CELEB_IMG . $celeb_id;
-        }*/
+        /*      if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
+                  $celeb_id = BASE_URL . '/' . CELEB_IMG . $celeb_id;
+              }*/
         ?>
 
-        <div id="main-header"><h2 class="align-middle"><?= $first_name, " ", $last_name ?></h2>Web Presence Details</div>
+        <div id="main-header"><h2 class="align-middle"><?= $first_name, " ", $last_name ?></h2>Web Presence Details
+        </div>
         <hr>
-        <!-- display movie details in a table -->
-        <table id="detail" style="margin-left: 1%">
+        <div>
+            <!-- display movie details in a table -->
+            <table id="detail" style="margin-left: 1%">
 
-                    <div class="col-10 pr-0">
-                        <div class="card-header d-flex">
-                            <!--<h2 class="align-middle"><?/*= $first_name, " ", $last_name */?></h2>-->
-                        </div>
-                        <div class="card-body">
-                            <table class="staff-details-table" align='left' cellspacing="15" cellpadding="3">
-                                <tr>
-                                    <td><b>Name:</td>
-                                    <td><?= $first_name, " ", $last_name ?></td>
-                                </tr>
-                                <tr>
-                                    <td><b>Gender:</td>
-                                    <td><?= $gender ?></td>
-                                </tr>
-                                <tr>
-                                    <td><b>Age:</td>
-                                    <td><?= $age ?></td>
-                                </tr>
-                                <tr>
-                                    <td><b>Web Presence:</td>
-                                    <td><?= $web_presence ?></td>
-                                </tr>
-                                <tr>
-                                    <td><b>Most Active:</td>
-                                    <td><?= $most_active ?></td>
-                                </tr>
-                                <tr>
-                                    <td><b>Post Frequency:</td>
-                                    <td><?= $post_frequency ?></td>
-                                </tr>
-                                <?php
-                                if ($celebrity_dimensions === 0) {
-                                    echo "No personality info avaliable!";
-                                } else {
-                                    //key => value
-                                    foreach ($celebrity_dimensions as $i => $celebrity_dimension) {
-                                        //echo "<table><tr><td><strong>$i:</strong></td><td><strong></strong>$celebrity_dimension</td></tr></table>";
+                <div class="col-10 pr-0">
+                    <div class="card-body">
+                        <table class="staff-details-table" align='left' cellspacing="15" cellpadding="3">
+                            <tr>
+                                <td><b>Name:</td>
+                                <td><?= $first_name, " ", $last_name ?></td>
+                            </tr>
+                            <tr>
+                                <td><b>Gender:</td>
+                                <td><?= $gender ?></td>
+                            </tr>
+                            <tr>
+                                <td><b>Age:</td>
+                                <td><?= $age ?></td>
+                            </tr>
+                            <tr>
+                                <td><b>Web Presence:</td>
+                                <td><?= $web_presence ?></td>
+                            </tr>
+                            <tr>
+                                <td><b>Most Active:</td>
+                                <td><?= $most_active ?></td>
+                            </tr>
+                            <tr>
+                                <td><b>Post Frequency:</td>
+                                <td><?= $post_frequency ?></td>
+                            </tr>
+                            <?php
+                            if ($celebrity_dimensions === 0) {
+                                echo "No personality info avaliable!";
+                            } else {
+                                //key => value
+                                foreach ($celebrity_dimensions as $i => $celebrity_dimension) {
+                                    //echo "<table><tr><td><strong>$i:</strong></td><td><strong></strong>$celebrity_dimension</td></tr></table>";
 
-                                        if($celebrity_dimension == "0.00"){
-                                            echo "<table><tr><td><strong>$i:</strong></td><td><strong></strong>N/A</td></tr></table>";
-                                        }else{
-                                            echo "<table><tr><td><strong>$i:</strong></td><td><strong></strong>$celebrity_dimension</td></tr></table>";
-                                        }
+                                    if ($celebrity_dimension == "0.00") {
+                                        echo "<tr><td><strong>$i:</strong></td><td><strong></strong>N/A</td></tr>";
+                                    } else {
+                                        echo "<tr><td><strong>$i:</strong></td><td><strong></strong>$celebrity_dimension</td></tr>";
                                     }
                                 }
-                                ?>
-                            </table>
-                        </div>
+                            }
+                            ?>
+                        </table>
                     </div>
+                </div>
 
-                    <br><br>
                 </td>
-            </tr>
-        </table>
-        <a href="<?= BASE_URL ?>/celebrity/index" >Go to celebrity list</a>
-        <br>  <br>  <br>  <br>
+                </tr>
+            </table>
+        </div>
+
+        <a href="<?= BASE_URL ?>/celebrity/index" style="margin-left: 40%">Go to celebrity list</a>
+        <br> <br> <br> <br><br><br><br><br><br><br><br><br>
 
         <?php
     }

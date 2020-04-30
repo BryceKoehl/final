@@ -23,15 +23,16 @@ class CelebrityIndex extends CelebrityIndexView
         <br>
         <div>
             <!--create the search bar -->
-            <div id="searchbar" style="text-align: left">
+            <div id="searchbar" style="text-align: center">
                 <form method="get" action="<?= BASE_URL ?>/celebrity/search">
                     <input type="text" name="query-terms" id="searchtextbox" placeholder="Search by first and last name"
-                           autocomplete="off" onkeyup="handleKeyUp(event)">
-                    <input type="submit" value="Go"/>
+                           autocomplete="off" onkeyup="handleKeyUp(event)"  style="justify-content: center">
+                    <input type="submit" value="Go" />
                 </form>
                 <div id="suggestionDiv"></div>
             </div>
-            <div id="button-group" style="float: right">
+            <br>
+            <div id="button-group" style="align-content: center">
                 <input type="button" id="edit-button" value="   Add New Celebrity Profile   "
                        onclick="window.location.href = '<?= BASE_URL ?>/celebrity/goToAdd'">&nbsp;
             </div>

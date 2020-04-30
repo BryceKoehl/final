@@ -7,14 +7,16 @@
  * The method accepts a Personality object and displays the details of the celebrity in a table.
  */
 
-class PersonalityDetail extends PersonalityIndexView {
+class PersonalityDetail extends PersonalityIndexView
+{
 
-    public function display($personality, $confirm = "") {
+    public function display($personality, $confirm = "")
+    {
         //display page header
         parent::displayHeader("Personality Details");
 
         //retrieve personality details by calling get methods
-        $dim_id= $personality->getDimID();
+        $dim_id = $personality->getDimID();
         $dimension = $personality->getDimension();
         $qualities = $personality->getQualities();
         $description = $personality->getDescription();
@@ -25,30 +27,38 @@ class PersonalityDetail extends PersonalityIndexView {
         }
         ?>
 
-        <div id="main-header">Personality Details</div>
-        <hr>
-        <!-- display personality details in a table -->
-        <table id="detail">
-            <tr>
-<!--                <td style="width: 150px;">
-                    <img src="<?/*= $image */?>" alt="<?/*= $title */?>" />
-                </td>-->
-                <td style="width: 130px;">
-                    <p><strong>Dimension:</strong></p>
-                    <p><strong>Qualities:</strong></p>
-                    <p><strong>Description:</strong></p>
-                    <p><strong>Keywords:</strong></p>
-                </td>
-                <td>
-                    <p><?= $dimension ?></p>
-                    <p><?= $qualities ?></p>
-                    <p><?= $description ?></p>
-                    <p><?= $keywords ?></p>
-                </td>
-            </tr>
-        </table>
-        <a href="<?= BASE_URL ?>/personality/index">Go to Personality List</a>
 
+        <div id="main-header"><h2 class="align-middle"></h2><?= $dimension ?> Personality Details</div>
+        <hr>
+
+        <div class="col-10 pr-0">
+            <div class="card-body">
+                <table class="staff-details-table" align='left' cellspacing="15" cellpadding="3">
+                    <tr>
+                        <td><b>Dimension:</td>
+                        <td><?= $dimension ?></td>
+                    </tr>
+                    <tr>
+                        <td><b>Qualities:</td>
+                        <td><?= $qualities ?></td>
+                    </tr>
+                    <tr>
+                        <td><b>Description:</td>
+                        <td><?= $description ?></td>
+                    </tr>
+                    <tr>
+                        <td><b>Keywords:</td>
+                        <td><?= $keywords ?></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <br>
+
+        <div>
+            <a href="<?= BASE_URL ?>/personality/index">Go to Personality List</a>
+        </div>
         <?php
         //display page footer
         parent::displayFooter();
