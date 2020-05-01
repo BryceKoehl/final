@@ -49,10 +49,10 @@ class CelebrityIndex extends CelebrityIndexView
                 $last_name = $celeb->getLastName();
                 $images = $celeb->getImages();
 
+                if (strps($images, "http://") === false AND strps($images, "https://")=== false) {
+                       $image = BASE_URL . "/" . CELEB_IMG . $images;
+                }
 
-                /*   if (strps($image, "http://") === false AND strps($image, "https://")=== false) {
-                       $image = BASE_URL . "/" . CELEB_IMG . $image;
-                   }*/
                 if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
                     $celeb_id = $i + 1;
                 }

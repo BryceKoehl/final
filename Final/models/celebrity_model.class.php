@@ -385,7 +385,7 @@ class CelebrityModel
         $sql = "SELECT * FROM " . $this->celebrity .
             " WHERE (1";
 
-        foreach ($terms as $term) { //COME BACK TO THIS!! Search by first & last name? Only works with first
+        foreach ($terms as $term) {
             $sql .= " AND first_name LIKE '%" . $term . "%' OR last_name LIKE '%" . $term . "%'";
         }
 

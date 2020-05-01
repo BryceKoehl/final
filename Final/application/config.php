@@ -15,14 +15,14 @@ error_reporting(E_ALL);
 date_default_timezone_set('America/New_York');
 
 //base url of the application
-define("BASE_URL", "http://localhost/i211_Group3/Final");
+define("BASE_URL", "http://localhost/I211/i211_Group3/Final");
 
 /*************************************************************************************
  *                       settings for celebritys                                         *
  ************************************************************************************/
 
 //define default path for media images
-define("CELEB_IMG", "www/img/icon/");
+define("CELEB_IMG", "www/img/celebrity/");
 
 
 /*************************************************************************************
@@ -30,6 +30,4 @@ define("CELEB_IMG", "www/img/icon/");
  ************************************************************************************/
 
 //define default path for media images
-// define("personality_IMG", "www/img/personality/");
-
-
+define("PERS_IMG", "www/img/personality/");
