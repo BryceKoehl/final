@@ -14,7 +14,6 @@ class CelebrityAdd extends CelebrityIndexView
         <!DOCTYPE html>
         <html>
         <head>
-            <title> <?php echo $pageTitle ?> </title>
             <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
             <link rel='shortcut icon' href='<?= BASE_URL ?>/www/img/favicon.ico' type='image/x-icon'/>
             <link type='text/css' rel='stylesheet' href='<?= BASE_URL ?>/www/css/app_style.css'/>
@@ -85,12 +84,16 @@ class CelebrityAdd extends CelebrityIndexView
                             <input name="post_frequency" type="text" size="50" required class="form-control"
                                    id="exampleInputPassword1" placeholder="Enter their post frequency.">
                         </div>
-
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Image:</label>
+                            <input name="images" type="text" size="50" required class="form-control"
+                                   id="exampleInputPassword1" placeholder="Enter an image url.">
+                        </div>
                 </div>
                 <div class="staff-button">
                     <div style="align-items: center">
                         <input type="submit" name="action" value="Add New Celebrity"/>
-                        <input type="button" value="Cancel"
+                        <input type="button" value="Back to View All Celebrities"
                                onclick='window.location.href = "<?= BASE_URL . "/celebrity/index/" ?>"'
                     </div>
                 </div>

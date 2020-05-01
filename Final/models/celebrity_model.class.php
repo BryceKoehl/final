@@ -230,7 +230,8 @@ class CelebrityModel
             !filter_has_var(INPUT_POST, 'age') ||
             !filter_has_var(INPUT_POST, 'web_presence') ||
             !filter_has_var(INPUT_POST, 'most_active') ||
-            !filter_has_var(INPUT_POST, 'post_frequency')){
+            !filter_has_var(INPUT_POST, 'post_frequency') ||
+            !filter_has_var(INPUT_POST, 'images')){
 
             return false;
         }
@@ -242,9 +243,10 @@ class CelebrityModel
         $web_presence = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'web_presence', FILTER_SANITIZE_STRING)));
         $most_active = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'most_active', FILTER_SANITIZE_STRING)));
         $post_frequency = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'post_frequency', FILTER_SANITIZE_STRING)));
+        $images = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'images', FILTER_SANITIZE_STRING)));
 
         //SQL query adds the included values into the products table of the  database
-        $sql = "INSERT INTO celebrity VALUES(NULL,'$first_name','$last_name','$gender','$age', '$web_presence', '$most_active', '$post_frequency')";
+        $sql = "INSERT INTO celebrity VALUES(NULL,'$first_name','$last_name','$gender','$age', '$web_presence', '$most_active', '$post_frequency', '$images')";
 
         //executes the query
         $query = $this->dbConnection->query($sql);
@@ -256,7 +258,7 @@ class CelebrityModel
         $this->dbConnection->close();
 
         //display a confirmation message and a link to display details of the new product
-        echo "You have successfully added a new celebrity!<br>";
+        echo "<div align='center'><h1 style='color:green'><b>You have successfully added a new celebrity! :)</b></h1></div>";
     }
 
 
