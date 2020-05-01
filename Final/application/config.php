@@ -18,7 +18,7 @@ date_default_timezone_set('America/New_York');
 define("BASE_URL", "http://localhost/i211_Group3/Final");
 
 /*************************************************************************************
- *                       settings for celebritys                                         *
+ *                       settings for celebrities                                         *
  ************************************************************************************/
 
 //define default path for media images
@@ -26,7 +26,7 @@ define("CELEB_IMG", "www/img/celebrity/");
 
 
 /*************************************************************************************
- *                       settings for personality's                                         *
+ *                       settings for personalities                                         *
  ************************************************************************************/
 
 //define default path for media images

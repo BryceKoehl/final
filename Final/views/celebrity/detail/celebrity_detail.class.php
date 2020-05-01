@@ -83,6 +83,8 @@ class CelebrityDetail extends CelebrityIndexView
                             <div id="button-group">
                                 <input type="button" id="edit-button" value="   Edit   "
                                        onclick="window.location.href = '<?=BASE_URL ?>/celebrity/edit/<?= $celeb_id?>'">&nbsp;
+                                <input type="button" id="delete-button" value="  Delete  "
+                                       onclick=""
                             </div>
                         </table>
                     </div>

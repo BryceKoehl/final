@@ -261,6 +261,19 @@ class CelebrityModel
         echo "<div align='center'><h1 style='color:green'><b>You have successfully added a new celebrity! :)</b></h1></div>";
     }
 
+    public function delete_celeb(){
+        $sql = "DELETE FROM celebrity WHERE celebrity . celeb_id = $celeb_id";
+
+        //executes the query
+        $query = $this->dbConnection->query($sql);
+
+        //determine the id of the newly added product
+        $celeb_id = $this->dbConnection->insert_id;
+
+        // close the connection.
+        $this->dbConnection->close();
+    }
+
 
     //search the database for celebrities that match words in titles. Return an array of movies if succeed; false otherwise.
     public function search_celebs($terms)
