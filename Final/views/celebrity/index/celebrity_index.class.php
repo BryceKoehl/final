@@ -23,11 +23,11 @@ class CelebrityIndex extends CelebrityIndexView
         <br>
         <div>
             <!--create the search bar -->
-            <div id="searchbar" style="text-align: center">
+            <div id="searchbar" style="align-content: center">
                 <form method="get" action="<?= BASE_URL ?>/celebrity/search">
-                    <input type="text" name="query-terms" id="searchtextbox" placeholder="Search by first and last name"
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="query-terms" placeholder="Search by first and last name"
                            autocomplete="off" onkeyup="handleKeyUp(event)"  style="justify-content: center">
-                    <input type="submit" value="Go" />
+                    <button type="submit" class="btn btn-primary">Go</button>
                 </form>
                 <div id="suggestionDiv"></div>
             </div>

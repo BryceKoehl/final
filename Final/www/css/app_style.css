@@ -202,18 +202,16 @@ table#detail {
 }
 
 #searchbar input{
-    border: none;
+    align-items: center;
 }
 
 #searchbar input[type="text"] {
-    width: 155px;
+    width: 200px;
     padding-left: 8px;
-    font-size: 0.8em;
     color: #444;
 }
 
 #searchbar input[type="text"]:focus {
-    outline: none;
 }
 
 #searchbar input[type="submit"]{
