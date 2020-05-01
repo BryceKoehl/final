@@ -11,50 +11,96 @@ class CelebrityAdd extends CelebrityIndexView
     public function display()
     {
         ?>
-
-        <div id="main-header"><h2 class="align-middle">Add in New Celebrity Details</div>
-        <form class="card-body" action='<?= BASE_URL . "/celebrity/add/" ?>' method="post"
-              style=" margin-top: 10px; padding: 10px; ">
-            <div>
-                <table class="staff-details-table" align='left' cellspacing="15">
-                    <tr>
-                        <td>First Name:</td>
-                        <td><input name="first_name" type="text" size="100" required/></td>
-                    </tr>
-
-                    <tr>
-                        <td>Last Name:</td>
-                        <td><input name="last_name" type="text" size="100" required/></td>
-                    </tr>
-                    <tr>
-                        <td>Gender:</td>
-                        <td><input name="gender" type="text" size="100" required/></td>
-                    </tr>
-                    <tr>
-                        <td>Age:</td>
-                        <td><input name="age" type="text" size="100" required/></td>
-                    </tr>
-                    <tr>
-                        <td>Web Presence:</td>
-                        <td><input name="web_presence" type="text" size="100" required/></td>
-                    </tr>
-                    <tr>
-                        <td>Most Active:</td>
-                        <td><input name="most_active" type="text" size="100" required/></td>
-                    </tr>
-                    <tr>
-                        <td>Post Frequency:</td>
-                        <td><input name="post_frequency" type="text" size="100" required/></td>
-                    </tr>
-                </table>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title> <?php echo $pageTitle ?> </title>
+            <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+            <link rel='shortcut icon' href='<?= BASE_URL ?>/www/img/favicon.ico' type='image/x-icon'/>
+            <link type='text/css' rel='stylesheet' href='<?= BASE_URL ?>/www/css/app_style.css'/>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                  crossorigin="anonymous">
+            <script>
+                //create the JavaScript variable for the base url
+                var base_url = "<?= BASE_URL ?>";
+            </script>
+            <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_autosuggestion.js"></script>
+        </head>
+        <body>
+        <!-- <div id="top"></div> -->
+        <div id='wrapper'>
+            <div id="banner">
+                <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="Celebrity Web Presence Data">
+                    <div align="center" style="padding-top: 25px;">
+                        <!-- <img src='<?= BASE_URL ?>/www/img/logo.png' style="width: 180px; border: none" /> -->
+                        <span style='color: antiquewhite; font-size: 30pt; font-family: "Trebuchet MS", Helvetica, sans-serif'>
+                                    🌟 Celebrity Web Data Showcase 🌟
+                                </span>
+                    </div>
+                </a>
             </div>
-            <div style="align-items: center">
-                <input type="submit" name="action" value="Add New Celebrity"/>
-                <input type="button" value="Cancel"
-                       onclick='window.location.href = "<?= BASE_URL . "/celebrity/index/" ?>"'
-            </div>
-        </form>
 
+            <br><br><br>
+            <!-- <div id="footer"><br>I211 Final Project Spring 2020</div> -->
+
+
+            <div id="mainbody">
+                <div>
+                    <div id="main-header"><h2 class="align-middle">Add in New Celebrity Details</div>
+
+                    <form action="insertStaff.php" method="post" class="col5">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">First Name:</label>
+                            <input name="first_name" type="text" size="50" required class="form-control"
+                                   id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Enter their first name.">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Last Name:</label>
+                            <input name="last_name" type="text" size="50" required class="form-control"
+                                   id="exampleInputPassword1" placeholder="Enter their last name.">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Gender:</label>
+                            <input name="gender" type="text" size="50" required class="form-control"
+                                   id="exampleInputPassword1" placeholder="Enter their Gender.">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Age:</label>
+                            <input name="age" type="text" size="50" required class="form-control"
+                                   id="exampleInputPassword1" placeholder="Enter their age.">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Web Presence:</label>
+                            <input name="web_presence" type="text" size="50" required class="form-control"
+                                   id="exampleInputPassword1" placeholder="Enter their web-presence.">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Most Active:</label>
+                            <input name="most_active" type="text" size="50" required class="form-control"
+                                   id="exampleInputPassword1" placeholder="Enter their most active.">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Post Frequency:</label>
+                            <input name="post_frequency" type="text" size="50" required class="form-control"
+                                   id="exampleInputPassword1" placeholder="Enter their post frequency.">
+                        </div>
+
+                </div>
+                <div class="staff-button">
+                    <div style="align-items: center">
+                        <input type="submit" name="action" value="Add New Celebrity"/>
+                        <input type="button" value="Cancel"
+                               onclick='window.location.href = "<?= BASE_URL . "/celebrity/index/" ?>"'
+                    </div>
+                </div>
+
+                </form>
+            </div>
+        </div>
+        </body>
+        </html>
         <?php
     }
 //end of display method
