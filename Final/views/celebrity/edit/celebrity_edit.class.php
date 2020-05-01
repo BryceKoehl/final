@@ -12,11 +12,6 @@ class CelebrityEdit extends CelebrityIndexView {
         //display page header
         parent::displayHeader("Edit Celebrity");
 
-        //get celebrity personality_dimension from a session variable
-/*        if (isset($_SESSION['celebrity'])) {
-            $ratings = $_SESSION['celebrity'];
-        }*/
-
         //retrieve celebrity details by calling get methods
         $celeb_id = $celebrity->getCelebId();
         $first_name = $celebrity->getFirstName();
@@ -33,15 +28,6 @@ class CelebrityEdit extends CelebrityIndexView {
         <!-- display movie details in a form -->
         <form class="new-media"  action='<?= BASE_URL . "/celebrity/update/" . $celeb_id ?>' method="post" style="border: 1px solid #bbb; margin-top: 10px; padding: 10px;">
           <input type="hidden" name="id" value="<?= $celeb_id ?>">
-<!--            <p><strong>Title</strong><br>
-                <input name="title" type="text" size="100" value="<?/*= $first_name */?>" required autofocus></p>-->
-<!--            <p><strong>Edit this Celebrity Info</strong>:-->
-<!--                --><?php
-/*                foreach ($celebrity as $i => $celeb_id) {
-                    $checked = ($rating == $m_rating ) ? "checked" : "";
-                    echo "<input type='radio' name='rating' value='$m_id' $checked> $m_rating &nbsp;&nbsp;";
-                }*/
-                ?>
             </p>
             <p><strong>First Name</strong>: <br>
                 <input name="first_name" type="text" size="50" value="<?= $first_name ?>" required=""></p>
