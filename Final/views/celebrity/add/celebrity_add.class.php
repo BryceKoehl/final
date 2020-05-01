@@ -48,8 +48,7 @@ class CelebrityAdd extends CelebrityIndexView
             <div id="mainbody">
                 <div>
                     <div id="main-header"><h2 class="align-middle">Add in New Celebrity Details</div>
-
-                    <form action="insertStaff.php" method="post" class="col5">
+                    <form action='<?= BASE_URL . "/celebrity/add/"?>' method="post" class="col5">
                         <div class="form-group">
                             <label for="exampleInputEmail1">First Name:</label>
                             <input name="first_name" type="text" size="50" required class="form-control"
