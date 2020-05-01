@@ -140,6 +140,10 @@ class CelebrityController {
         $view->display();
     }
 
+    public function delete($celeb_id){
+        $delete = $this->celebrity_model->delete_celeb($celeb_id);
+    }
+
     //handle an error
 /*    public function error($message) {
         //create an object of the Error class

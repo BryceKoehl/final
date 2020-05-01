@@ -89,7 +89,7 @@ class CelebrityDetail extends CelebrityIndexView
                                 <input type="button" id="edit-button" value="   Edit   "
                                        onclick="window.location.href = '<?=BASE_URL ?>/celebrity/edit/<?= $celeb_id?>'">&nbsp;
                                 <input type="button" id="delete-button" value="  Delete  "
-                                       onclick=""
+                                       onclick="window.location.href = '<?=BASE_URL ?>/celebrity/delete/'">
                             </div>
                         </table>
                     </div>
