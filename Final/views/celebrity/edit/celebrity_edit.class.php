@@ -21,6 +21,7 @@ class CelebrityEdit extends CelebrityIndexView {
         $web_presence = $celebrity->getWebPresence();
         $most_active = $celebrity->getMostActive();
         $post_frequency = $celebrity->getPostFrequency();
+        $images = $celebrity->getImages();
         ?>
 
         <div id="main-header">Edit Celebrity Details</div>
@@ -43,6 +44,8 @@ class CelebrityEdit extends CelebrityIndexView {
                 <input name="most_active" type="text" required value="<?= $most_active ?>"></p>
             <p><strong>Post Frequency</strong>: <br>
                 <input name="post_frequency" type="text" required value="<?= $post_frequency ?>"></p>
+            <p><strong>Image</strong>: <br>
+                <input name="images" type="text" required value="<?= $images ?>"></p>
             <input type="submit" name="action" value="Update Celebrity">
             <input type="button" value="Cancel" onclick='window.location.href = "<?= BASE_URL . "/celebrity/detail/" . $celeb_id ?>"'
         </form>
