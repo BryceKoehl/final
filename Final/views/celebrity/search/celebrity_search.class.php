@@ -19,9 +19,9 @@ class CelebritySearch extends CelebrityIndexView {
         ?>
         <div id="main-header"> Search Results for <i><?= $terms ?></i></div>
         <span class="rcd-numbers">
-            <?php
-            echo ((!is_array($celebs)) ? "( 0 - 0 )" : "( 1 - " . count($celebs) . " )");
-            ?>
+<!--            --><?php
+/*            echo ((!is_array($celebs)) ? "( 0 - 0 )" : "( 1 - " . count($celebs) . " )");
+            */?>
         </span>
         <hr>
 
@@ -42,9 +42,9 @@ class CelebritySearch extends CelebrityIndexView {
                         $images = BASE_URL . "/" . CELEB_IMG . $images;
                     }
 
-                    if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
+                    /*if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
                         $celeb_id = $i + 1;
-                    }
+                    }*/
 
                     if ($i % 6 == 0) {
                         echo "<div class='row'>";

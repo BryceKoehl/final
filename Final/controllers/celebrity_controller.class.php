@@ -127,6 +127,7 @@ class CelebrityController {
         }
 
         echo json_encode($names);
+        exit();
     }
 
     public function goToAdd(){

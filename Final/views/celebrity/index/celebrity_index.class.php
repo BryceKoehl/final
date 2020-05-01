@@ -25,7 +25,7 @@ class CelebrityIndex extends CelebrityIndexView
             <!--create the search bar -->
             <div id="searchbar" style="align-content: center">
                     <form style="margin-left: 40%; margin-right: 45%" method="get" action="<?= BASE_URL ?>/celebrity/search">
-                        <input type="text" class="form-control" id="exampleInputEmail1" name="query-terms"
+                        <input type="text" class="form-control" id="searchtextbox" name="query-terms"
                                placeholder="Search by first and last name"
                                autocomplete="off" onkeyup="handleKeyUp(event)" style="justify-content: center">
                         <button style="float: right; margin-top: -12% " type="submit" class="btn btn-primary">Go
