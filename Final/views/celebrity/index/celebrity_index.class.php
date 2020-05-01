@@ -49,8 +49,8 @@ class CelebrityIndex extends CelebrityIndexView
                 $last_name = $celeb->getLastName();
                 $images = $celeb->getImages();
 
-                if (strps($images, "http://") === false AND strps($images, "https://")=== false) {
-                       $image = BASE_URL . "/" . CELEB_IMG . $images;
+                if (strpos($images, "http://") === false AND strpos($images, "https://")=== false) {
+                    $images = BASE_URL . "/" . CELEB_IMG . $images;
                 }
 
                 if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
@@ -61,8 +61,7 @@ class CelebrityIndex extends CelebrityIndexView
                     echo "<div class='row'>";
                 }
 
-                echo "<div class='col'><p><a href='", BASE_URL, "/celebrity/detail/$celeb_id'><img src='" . $images . $celeb_id .
-                    "'></a><span>$first_name<br>$last_name<br></span></p></div>";
+                echo "<div class='col'><p><a href='", BASE_URL, "/celebrity/detail/$celeb_id'><img src='$images'></a><span>$first_name<br>$last_name<br></span></p></div>";
                 ?>
                 <?php
                 if ($i % 6 == 5 || $i == count($celebs) - 1) {
