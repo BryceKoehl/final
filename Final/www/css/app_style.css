@@ -692,3 +692,7 @@ div.desc {
 .container-fluid {
     margin-top: 1em;
 }
+
+.form-control{
+    width: 50%;
+}
