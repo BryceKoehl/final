@@ -9,12 +9,14 @@
 
 html, body {
     height: 100%;
+
 }
 
 body{
     text-align: center;
     background-color: black;
     height: 100%;
+    width: 100%;
     /*background-color: #e6e6f1;*/
 }
 
@@ -55,7 +57,7 @@ hr {
     margin: 0 auto -4em;
     text-align:center;
     background-color: #e6e6f1;
-    width: 95%;
+    width: 100%;
 }
 
 
@@ -675,6 +677,7 @@ div.desc {
 
 .staff-details-table {
     align-self: center;
+    margin-left: 5%;
 /*    border: .1em solid black;*/
 }
 

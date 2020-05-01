@@ -41,6 +41,9 @@ class CelebrityDetail extends CelebrityIndexView
                     <div class="card-body">
                         <table class="staff-details-table" align='left' cellspacing="15" cellpadding="3">
                             <tr>
+                                <td><h2>Celebrity Details</h2></td>
+                            </tr>
+                            <tr>
                                 <td><b>Name:</td>
                                 <td><?= $first_name, " ", $last_name ?></td>
                             </tr>
@@ -63,6 +66,10 @@ class CelebrityDetail extends CelebrityIndexView
                             <tr>
                                 <td><b>Post Frequency:</td>
                                 <td><?= $post_frequency ?></td>
+                            </tr>
+                            <tr><td><br></td></tr>
+                            <tr>
+                                <td><h2>Personality Details</h2></td>
                             </tr>
                             <?php
                             if ($celebrity_dimensions === 0) {
