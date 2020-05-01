@@ -70,8 +70,6 @@ class CelebrityDetail extends CelebrityIndexView
                             } else {
                                 //key => value
                                 foreach ($celebrity_dimensions as $i => $celebrity_dimension) {
-                                    //echo "<table><tr><td><strong>$i:</strong></td><td><strong></strong>$celebrity_dimension</td></tr></table>";
-
                                     if ($celebrity_dimension == "0.00") {
                                         echo "<tr><td><strong>$i:</strong></td><td><strong></strong>N/A</td></tr>";
                                     } else {
@@ -83,6 +81,8 @@ class CelebrityDetail extends CelebrityIndexView
                             <div id="button-group">
                                 <input type="button" id="edit-button" value="   Edit   "
                                        onclick="window.location.href = '<?=BASE_URL ?>/celebrity/edit/<?= $celeb_id?>'">&nbsp;
+                                <input type="button" id="delete-button" value="  Delete  "
+                                       onclick=""
                             </div>
                         </table>
                     </div>
