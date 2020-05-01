@@ -35,7 +35,7 @@ class CelebrityIndex extends CelebrityIndexView
                 <div id="suggestionDiv"></div>
 
             <div id="button-group" style="align-content: center; margin-top: 1%">
-                <input type="button" id="edit-button" value="   Add New Celebrity Profile   "
+                <input class="btn btn-secondary" type="button" id="edit-button" value="   Add New Celebrity Profile   "
                        onclick="window.location.href = '<?= BASE_URL ?>/celebrity/goToAdd'">&nbsp;
             </div>
             </div>

@@ -92,8 +92,8 @@ class CelebrityAdd extends CelebrityIndexView
                 </div>
                 <div class="staff-button">
                     <div style="align-items: center">
-                        <input type="submit" name="action" value="Add New Celebrity"/>
-                        <input type="button" value="Back to View All Celebrities"
+                        <input  class="btn btn-success" type="submit" name="action" value="Add New Celebrity"/>
+                        <input class="btn btn-secondary" type="button" value="Back to View All Celebrities"
                                onclick='window.location.href = "<?= BASE_URL . "/celebrity/index/" ?>"'
                     </div>
                 </div>

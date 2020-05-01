@@ -85,10 +85,10 @@ class CelebrityDetail extends CelebrityIndexView
                                 }
                             }
                             ?>
-                            <div id="button-group">
-                                <input type="button" id="edit-button" value="   Edit   "
+                            <div id="button-group" >
+                                <input class="btn btn-primary" type="button" id="edit-button" value="   Edit   "
                                        onclick="window.location.href = '<?=BASE_URL ?>/celebrity/edit/<?= $celeb_id?>'">&nbsp;
-                                <input type="button" id="delete-button" value="  Delete  "
+                                <input class="btn btn-danger" type="button" id="delete-button" value="  Delete  "
                                        onclick="window.location.href = '<?=BASE_URL ?>/celebrity/delete/'">
                             </div>
                         </table>
@@ -100,7 +100,7 @@ class CelebrityDetail extends CelebrityIndexView
             </table>
         </div>
 
-        <a href="<?= BASE_URL ?>/celebrity/index" style="margin-left: 40%">Go to celebrity list</a>
+        <a class="btn btn-secondary" href="<?= BASE_URL ?>/celebrity/index" style="margin-left: 40%">Go to celebrity list</a>
         <br> <br> <br> <br><br><br><br><br><br><br><br><br>
 
         <?php
