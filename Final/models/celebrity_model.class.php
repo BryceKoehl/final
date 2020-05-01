@@ -268,7 +268,7 @@ class CelebrityModel
             die();
         }
         //this makes the variable id from the product id value and sanitizes/filters it
-        $celeb_id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+        //$celeb_id = filter_input(INPUT_GET, 'celeb_id', FILTER_SANITIZE_NUMBER_INT);
 
         $sql = "DELETE FROM celebrity WHERE celebrity . celeb_id = $celeb_id";
 
@@ -276,7 +276,7 @@ class CelebrityModel
         $query = $this->dbConnection->query($sql);
 
         //determine the id of the newly added product
-        $celeb_id = $this->dbConnection->insert_id;
+        //$celeb_id = $this->dbConnection->insert_id;
 
         // close the connection.
         $this->dbConnection->close();
