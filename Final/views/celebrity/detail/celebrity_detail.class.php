@@ -70,8 +70,6 @@ class CelebrityDetail extends CelebrityIndexView
                             } else {
                                 //key => value
                                 foreach ($celebrity_dimensions as $i => $celebrity_dimension) {
-                                    //echo "<table><tr><td><strong>$i:</strong></td><td><strong></strong>$celebrity_dimension</td></tr></table>";
-
                                     if ($celebrity_dimension == "0.00") {
                                         echo "<tr><td><strong>$i:</strong></td><td><strong></strong>N/A</td></tr>";
                                     } else {
