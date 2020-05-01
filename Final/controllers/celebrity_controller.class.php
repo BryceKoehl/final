@@ -118,15 +118,15 @@ class CelebrityController {
         $celebs = $this->celebrity_model->search_celebs($query_terms);
 
         //retrieve all celebrity titles and store them in an array
-        $titles = array();
+        $names = array();
+
         if ($celebs) {
             foreach ($celebs as $celeb) {
-                $firstName[] = $celeb->getFirstName();
-                $lastName[] = $celeb->getLastName();
+                $names[] = $celeb->getFirstName() . " " . $celeb->getLastName();
             }
         }
 
-        echo json_encode($celebs);
+        echo json_encode($names);
     }
 
     public function goToAdd(){
