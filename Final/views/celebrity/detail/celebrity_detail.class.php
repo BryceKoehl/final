@@ -33,6 +33,7 @@ class CelebrityDetail extends CelebrityIndexView
         <div id="main-header"><h2 class="align-middle"><?= $first_name, " ", $last_name ?></h2>Web Presence Details</div>
         <hr>
         <div>
+
             <!-- display movie details in a table -->
             <table id="detail" style="margin-left: 1%">
 

@@ -26,6 +26,7 @@ class CelebrityEdit extends CelebrityIndexView {
 
         <div id="main-header">Edit Celebrity Details</div>
 
+
         <!-- display movie details in a form -->
         <form class="new-media"  action='<?= BASE_URL . "/celebrity/update/" . $celeb_id ?>' method="post" style="width: 50%; margin-left: 25%; border: 1px solid #bbb; margin-top: 10px; padding: 10px;">
             <div id="mainbody">
