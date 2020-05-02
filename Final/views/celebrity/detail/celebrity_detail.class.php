@@ -72,6 +72,7 @@ class CelebrityDetail extends CelebrityIndexView
                             <tr>
                                 <td><h2>Personality Details</h2></td>
                             </tr>
+
                             <?php
                             if ($celebrity_dimensions === 0) {
                                 echo "No personality info avaliable!";
@@ -86,6 +87,7 @@ class CelebrityDetail extends CelebrityIndexView
                                 }
                             }
                             ?>
+
                             <div id="button-group">
                                 <button class="btn btn-primary" id="edit-button"
                                         onclick="window.location.href = '<?= BASE_URL ?>/celebrity/edit/<?= $celeb_id ?>'">Edit</button>
@@ -96,6 +98,7 @@ class CelebrityDetail extends CelebrityIndexView
                         </table>
                     </div>
                 </div>
+
             </table>
         </div>
 
