@@ -88,7 +88,7 @@ class CelebrityDetail extends CelebrityIndexView
                             <div id="button-group">
                                 <button class="btn btn-primary" id="edit-button"
                                         onclick="window.location.href = '<?= BASE_URL ?>/celebrity/edit/<?= $celeb_id ?>'">Edit</button>
-                                <button class="btn btn-secondary" href="<?= BASE_URL ?>/celebrity/index" >Go to celebrity list</button>
+                                <button class="btn btn-secondary" onclick="window.location.href= '<?= BASE_URL ?>/celebrity/index'" >Go to celebrity list</button>
                                 <button class="btn btn-danger" id="delete-button"
                                         onclick="window.location.href = '<?= BASE_URL ?>/celebrity/delete/<?= $celeb_id ?>'"> Delete</button>
                             </div>
