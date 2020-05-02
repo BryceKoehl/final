@@ -20,9 +20,7 @@ class CelebritySearch extends CelebrityIndexView
         parent::displayHeader("Search Results");
         ?>
         <div id="main-header"> Search Results for <i><?= $terms ?></i></div>
-        <span class="rcd-numbers">
-
-
+        <span class="rcd-numbers"></span>
         <!-- display all records in a grid -->
         <div class="grid-container">
             <?php

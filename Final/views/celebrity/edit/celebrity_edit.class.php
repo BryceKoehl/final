@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Author: Ashley, Chris, Bryce, Maimouna
  * Date: April 19 2020
@@ -7,12 +6,9 @@
  * Description: the display method in the class displays celebrity details in a form.
  *
  */
+class CelebrityEdit extends CelebrityIndexView {
 
-class CelebrityEdit extends CelebrityIndexView
-{
-
-    public function display($celebrity)
-    {
+    public function display($celebrity) {
         //display page header
         parent::displayHeader("Edit Celebrity");
 
@@ -25,57 +21,28 @@ class CelebrityEdit extends CelebrityIndexView
         $web_presence = $celebrity->getWebPresence();
         $most_active = $celebrity->getMostActive();
         $post_frequency = $celebrity->getPostFrequency();
-        $images = $celebrity->getImages();
         ?>
 
         <div id="main-header">Edit Celebrity Details</div>
 
-
         <!-- display movie details in a form -->
-        <form action='<?= BASE_URL . "/celebrity/update/" ?>' method="post" class="col5"
-              style="width: 50%; margin-left: 25%">
+        <form class="new-media"  action='<?= BASE_URL . "/celebrity/update/" . $celeb_id ?>' method="post" style="border: 1px solid #bbb; margin-top: 10px; padding: 10px;">
             <input type="hidden" name="id" value="<?= $celeb_id ?>">
-            <div class="form-group">
-                <label for="exampleInputEmail1">First Name:</label>
-                <input name="first_name" type="text" size="5" required class="form-control"
-                       id="exampleInputEmail1"
-                       aria-describedby="emailHelp" value="<?= $first_name ?>">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Last Name:</label>
-                <input name="last_name" type="text" size="50" required class="form-control"
-                       id="exampleInputPassword1" value="<?= $last_name ?>">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Gender:</label>
-                <input name="gender" type="text" size="50" required class="form-control"
-                       id="exampleInputPassword1" value="<?= $gender ?>">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Age:</label>
-                <input name="age" type="text" size="50" required class="form-control"
-                       id="exampleInputPassword1" value="<?= $age ?>">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Web Presence:</label>
-                <input name="web_presence" type="text" size="50" required class="form-control"
-                       id="exampleInputPassword1" value="<?= $web_presence ?>">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Most Active:</label>
-                <input name="most_active" type="text" size="50" required class="form-control"
-                       id="exampleInputPassword1" value="<?= $most_active ?>">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Post Frequency:</label>
-                <input name="post_frequency" type="text" size="50" required class="form-control"
-                       id="exampleInputPassword1" value="<?= $post_frequency ?>">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Image:</label>
-                <input name="images" type="text" size="50" required class="form-control"
-                       id="exampleInputPassword1" value="<?= $images ?>">
-            </div>
+            </p>
+            <p><strong>First Name</strong>: <br>
+                <input id="exampleInputPassword1" name="first_name" type="text" size="50" value="<?= $first_name ?>" required=""></p>
+            <p><strong>Last Name</strong>: <br>
+                <input id="exampleInputPassword1" name="last_name" type="text" size="50" value="<?= $last_name ?>" required=""></p>
+            <p><strong>Gender</strong>: <br>
+                <input id="exampleInputPassword1" name="gender" type="text" size="50" required value="<?= $gender ?>"></p>
+            <p><strong>Age</strong>: <br>
+                <input id="exampleInputPassword1" name="age" type="int" size="50" required value="<?= $age ?>"></p>
+            <p><strong>Web Presence</strong>: <br>
+                <input id="exampleInputPassword1" name="web_presence" type="text" size="50" required value="<?= $web_presence?>"></p>
+            <p><strong>Most Active</strong>: <br>
+                <input id="exampleInputPassword1" name="most_active" type="text" size="50" required value="<?= $most_active ?>"></p>
+            <p><strong>Post Frequency</strong>: <br>
+                <input id="exampleInputPassword1" name="post_frequency" type="text" size="50" required value="<?= $post_frequency ?>"></p>
             <div class="staff-button">
                 <div style="align-items: center">
                     <input class="btn btn-success" type="submit" name="action" value="Update Celebrity"/>
@@ -83,10 +50,9 @@ class CelebrityEdit extends CelebrityIndexView
                            onclick='window.location.href = "<?= BASE_URL . "/celebrity/detail/" . $celeb_id ?>"'>
                 </div>
             </div>
-            </div>
         </form>
         <?php
     }
-
 //end of display method
 }
+?>

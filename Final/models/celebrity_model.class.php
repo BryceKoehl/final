@@ -193,8 +193,7 @@ class CelebrityModel
             !filter_has_var(INPUT_POST, 'age') ||
             !filter_has_var(INPUT_POST, 'web_presence') ||
             !filter_has_var(INPUT_POST, 'most_active') ||
-            !filter_has_var(INPUT_POST, 'post_frequency') ||
-            !filter_has_var(INPUT_POST, 'images')) {
+            !filter_has_var(INPUT_POST, 'post_frequency')) {
 
             return false;
         }
@@ -207,11 +206,11 @@ class CelebrityModel
         $web_presence = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'web_presence', FILTER_SANITIZE_STRING)));
         $most_active = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'most_active', FILTER_SANITIZE_STRING)));
         $post_frequency = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'post_frequency', FILTER_SANITIZE_STRING)));
-        $images = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'images', FILTER_SANITIZE_STRING)));
+        //$images = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'images', FILTER_SANITIZE_STRING)));
 
         $sql = "UPDATE " . $this->celebrity .
             " SET first_name='$first_name', last_name='$last_name',  gender='$gender',  age='$age', web_presence='$web_presence', "
-            . "most_active='$most_active', post_frequency='$post_frequency', images='$images' WHERE celeb_id='$celeb_id'";
+            . "most_active='$most_active', post_frequency='$post_frequency' WHERE celeb_id='$celeb_id'";
 
         //execute the query
         return $this->dbConnection->query($sql);

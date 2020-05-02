@@ -58,8 +58,7 @@ class CelebrityController
     }
 
     //display a celebrity in a form for editing
-    public function edit($celeb_id)
-    {
+    public function edit($celeb_id) {
         //retrieve the specific celebrity
         $celeb = $this->celebrity_model->view_celebrity($celeb_id);
 
@@ -75,10 +74,11 @@ class CelebrityController
     }
 
     //update a celebrity in the database
-    public function update($celeb_id)
-    {
+    public function update($celeb_id) {
         //update the celebrity
         $update = $this->celebrity_model->update_celebrity($celeb_id);
+        $celeb_dim = $this->celebrity_model->celebrity_personality($celeb_id);
+
         if (!$update) {
             //handle errors
             $message = "There was a problem updating the celeb id='" . $celeb_id . "'.";
@@ -87,11 +87,10 @@ class CelebrityController
         }
 
         //display the updated celebrity details
-        //$confirm = "The celebrity was successfully updated.";
         $celeb = $this->celebrity_model->view_celebrity($celeb_id);
 
         $view = new CelebrityDetail();
-        $view->display($celeb); //$confirm);
+        $view->display($celeb, $celeb_dim);
     }
 
     //search celebrity

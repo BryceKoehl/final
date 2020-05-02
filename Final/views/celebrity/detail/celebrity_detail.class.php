@@ -107,10 +107,6 @@ class CelebrityDetail extends CelebrityIndexView
                 </tr>
             </table>
         </div>
-
-        <
-
-
         <?php
     }
 //end of display method
