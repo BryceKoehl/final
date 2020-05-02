@@ -263,20 +263,17 @@ class CelebrityModel
 
     public function delete_celeb($celeb_id){
 
-        if (!filter_has_var(INPUT_GET, 'celeb_id')) {
-            echo "Deletion cannot continue since there were problems retrieving product id";
+/*        if (!filter_has_var(INPUT_GET, 'celeb_id')) {
+            echo "Deletion cannot continue since there were problems retrieving celeb id";
             die();
-        }
+        }*/
         //this makes the variable id from the product id value and sanitizes/filters it
         //$celeb_id = filter_input(INPUT_GET, 'celeb_id', FILTER_SANITIZE_NUMBER_INT);
 
-        $sql = "DELETE FROM celebrity WHERE celebrity . celeb_id = $celeb_id";
+        $sql = "DELETE FROM celebrity WHERE celebrity.celeb_id = $celeb_id";
 
         //executes the query
         $query = $this->dbConnection->query($sql);
-
-        //determine the id of the newly added product
-        //$celeb_id = $this->dbConnection->insert_id;
 
         // close the connection.
         $this->dbConnection->close();
