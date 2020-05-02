@@ -1,13 +1,17 @@
 <?php
+
 /*
  * Author: Christopher Schilling
- * Date:  4 20, 2020
+ * Date:  4, 20, 2020
  * File: personality_error.class.php
  *
  */
-class PersonalityError extends PersonalityIndexView {
 
-    public function display($message) {
+class PersonalityError extends PersonalityIndexView
+{
+
+    public function display($message)
+    {
 
         //display page header
         parent::displayHeader("Error");
@@ -29,7 +33,8 @@ class PersonalityError extends PersonalityIndexView {
                 </td>
             </tr>
         </table>
-        <br><br><br><br><hr>
+        <br><br><br><br>
+        <hr>
         <a href="<?= BASE_URL ?>/personality/index">Back to Personality Dimension List</a>
         <?php
         //display page footer

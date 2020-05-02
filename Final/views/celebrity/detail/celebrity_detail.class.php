@@ -1,10 +1,10 @@
 <?php
 /*
- * Author: Louie Zhu
- * Date: Mar 6, 2016
- * Name: movie_view.class.php
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
+ * Date: 5/1/2020
+ * Name: celebrity_view.class.php
  * Description: This class defines a method "display".
- *              The method accepts a Movie object and displays the details of the movie in a table.
+ *              The method accepts a Celebrity object and displays the details of the celebrity in a table.
  */
 
 class CelebrityDetail extends CelebrityIndexView
@@ -25,12 +25,10 @@ class CelebrityDetail extends CelebrityIndexView
         $most_active = $celebrity->getMostActive();
         $post_frequency = $celebrity->getPostFrequency();
 
-        /*      if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
-                  $celeb_id = BASE_URL . '/' . CELEB_IMG . $celeb_id;
-              }*/
         ?>
 
-        <div id="main-header"><h2 class="align-middle"><?= $first_name, " ", $last_name ?></h2>Web Presence Details</div>
+        <div id="main-header"><h2 class="align-middle"><?= $first_name, " ", $last_name ?></h2>Web Presence Details
+        </div>
         <hr>
         <div>
 
@@ -73,7 +71,6 @@ class CelebrityDetail extends CelebrityIndexView
                             <tr>
                                 <td><h2>Personality Details</h2></td>
                             </tr>
-
                             <?php
                             if ($celebrity_dimensions === 0) {
                                 echo "No personality info avaliable!";
@@ -88,21 +85,23 @@ class CelebrityDetail extends CelebrityIndexView
                                 }
                             }
                             ?>
-
                             <div id="button-group">
-                                <button class="btn btn-primary" id="edit-button"
-                                        onclick="window.location.href = '<?= BASE_URL ?>/celebrity/edit/<?= $celeb_id ?>'">Edit</button>
-                                <button class="btn btn-secondary" href="<?= BASE_URL ?>/celebrity/index">Go to celebrity list</button>
-                                <button class="btn btn-danger" id="delete-button"
-                                        onclick="window.location.href = '<?= BASE_URL ?>/celebrity/delete/<?= $celeb_id ?>'">Delete</button>
+                                <input type="button" id="edit-button" value="   Edit   "
+                                       onclick="window.location.href = '<?= BASE_URL ?>/celebrity/edit/<?= $celeb_id ?>'">&nbsp;
+                                <input type="submit" id="delete-button" value="  Delete  "
+                                       onclick="window.location.href = '<?= BASE_URL ?>/celebrity/delete/<?= $celeb_id ?>'">
                             </div>
                         </table>
                     </div>
                 </div>
 
+                </td>
+                </tr>
             </table>
         </div>
 
+        <a href="<?= BASE_URL ?>/celebrity/index" style="margin-left: 40%">Go to celebrity list</a>
+        <br> <br> <br> <br><br><br><br><br><br><br><br><br>
 
         <?php
     }

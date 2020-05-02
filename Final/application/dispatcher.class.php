@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Author:
- * Date:
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
+ * Date: 5/1/2020
  * Name: dispatcher.class.php
  * Description: application dispatcher responsible for dissecting in pieces the requested URI and
  * routing the request to the proper method of the matched controller.
@@ -10,14 +10,17 @@
  * In this url, celebrity is the controller, view is the method, and 1 is the parameter.
  */
 
-class Dispatcher {
+class Dispatcher
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         self::dispatch();
     }
 
     //dispatch request to the appropriate controller/method
-    public static function dispatch() {
+    public static function dispatch()
+    {
         //split the uri into url and querystrings
         $uri_array = explode('?', trim($_SERVER['REQUEST_URI'], '/'));
 
@@ -25,7 +28,6 @@ class Dispatcher {
         $url_array = explode('/', $uri_array[0]);
 
         //remove the root folder name from the array if there is
-        //array_shift($url_array);
         while (array_search(basename(getcwd()), $url_array) !== FALSE) {
             array_shift($url_array);
         }

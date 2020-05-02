@@ -32,7 +32,6 @@ class CelebrityAdd extends CelebrityIndexView
             <div id="banner">
                 <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="Celebrity Web Presence Data">
                     <div align="center" style="padding-top: 25px;">
-                        <!-- <img src='<?= BASE_URL ?>/www/img/logo.png' style="width: 180px; border: none" /> -->
                         <span style='color: antiquewhite; font-size: 30pt; font-family: "Trebuchet MS", Helvetica, sans-serif'>
                                     🌟 Celebrity Web Data Showcase 🌟
                                 </span>
@@ -47,9 +46,10 @@ class CelebrityAdd extends CelebrityIndexView
             <div id="mainbody">
                 <div>
                     <div id="main-header"><h2 class="align-middle">Add in New Celebrity Details</div>
-                    <form action='<?= BASE_URL . "/celebrity/add/"?>' method="post" class="col5"style="width: 50%; margin-left: 25%">
+                    <form action='<?= BASE_URL . "/celebrity/add/" ?>' method="post" class="col5"
+                          style="width: 50%; margin-left: 25%">
                         <div class="form-group">
-                            <label for="exampleInputEmail1" >First Name:</label>
+                            <label for="exampleInputEmail1">First Name:</label>
                             <input name="first_name" type="text" size="5" required class="form-control"
                                    id="exampleInputEmail1"
                                    aria-describedby="emailHelp" placeholder="Enter their first name.">

@@ -1,8 +1,8 @@
 <?php
 
 /*
- * Author:
- * Date:
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
+ * Date: 5/1/2020
  * File: config.php
  * Description: set application settings
  *

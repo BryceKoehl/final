@@ -1,14 +1,18 @@
 <?php
+
 /*
- * Author: Louie Zhu
- * Date: Mar 6, 2016
- * File: movie_error.class.php
- * Description:
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
+ * Date: 5/1/2020
+ * File: celeb_error.class.php
+ * Description: this class displays errors if the celeb id can not be retrieved
  *
  */
-class CelebError extends CelebrityIndexView {
 
-    public function display($message) {
+class CelebError extends CelebrityIndexView
+{
+
+    public function display($message)
+    {
 
         //display page header
         parent::displayHeader("Error");
@@ -30,7 +34,8 @@ class CelebError extends CelebrityIndexView {
                 </td>
             </tr>
         </table>
-        <br><br><br><br><hr>
+        <br><br><br><br>
+        <hr>
         <a href="<?= BASE_URL ?>/celebrity/index">Back to celebrity list</a>
         <?php
         //display page footer

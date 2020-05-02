@@ -2,7 +2,7 @@
 
 /*
  * Author: Christopher Schilling
- * Date: 4 20, 2020
+ * Date: 4, 20, 2020
  * Name: personality_index.class.php
  * Description: This class defines a method called "display", which displays all personalitys.
  */
@@ -34,7 +34,7 @@ class PersonalityIndex extends PersonalityIndexView
                 $description = $personality->getDescription();
                 $image = $personality->getImage();
 
-                if (strpos($image, "http://") === false AND strpos($image, "https://")=== false) {
+                if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
                     $image = BASE_URL . "/" . PERS_IMG . $image;
                 }
 
