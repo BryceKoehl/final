@@ -53,18 +53,16 @@ class CelebrityIndex extends CelebrityIndexView
                 $last_name = $celeb->getLastName();
                 $images = $celeb->getImages();
 
+                //logic for grabbing the correct image file path
                 if (strpos($images, "http://") === false and strpos($images, "https://") === false) {
                     $images = BASE_URL . "/" . CELEB_IMG . $images;
-                }
-
-                if (strpos($celeb_id, "http://") === false and strpos($celeb_id, "https://") === false) {
-                    $celeb_id = $i + 1;
                 }
 
                 if ($i % 6 == 0) {
                     echo "<div class='row'>";
                 }
 
+                //displays each celebrity in database with respective image
                 echo "<div class='col'><p><a href='", BASE_URL, "/celebrity/detail/$celeb_id'><img src='$images'></a><span>$first_name<br>$last_name<br></span></p></div>";
                 ?>
                 <?php

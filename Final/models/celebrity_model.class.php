@@ -52,7 +52,7 @@ class CelebrityModel
         return self::$_instance;
     }
 
-    //lists each celebrity personality dimensions
+    //lists each celebrity personality dimensions and ranks based on primary, secondary, and extraversion
     public function celebrity_personality($celeb_id)
     {
         //the select sql statement
@@ -62,7 +62,8 @@ class CelebrityModel
         //execute the query
         $query = $this->dbConnection->query($sql);
 
-        $celebPersons = array(); //create an array for celebrity personalities
+        //create an array for celebrity personalities
+        $celebPersons = array();
         if ($query && $query->num_rows > 0) {
             //loop through all rows
             while ($query_row = $query->fetch_assoc()) {
@@ -70,6 +71,7 @@ class CelebrityModel
             }
         }
 
+        //checks if array is empty
         if (empty($celebPersons)) {
             return false;
         }
@@ -80,6 +82,8 @@ class CelebrityModel
         if ($dimensions[0] == "Extraversion") {
             array_shift($dimensions);
         }
+
+        //displays N/A for celebrities who do not have any personality data avaliable
         if ($celebPersons["Extraversion"] == 0.00) {
             $celebPersons['Primary'] = "N/A";
             $celebPersons['Secondary'] = "N/A";
@@ -94,10 +98,11 @@ class CelebrityModel
             " WHERE " . $this->celebrity_dimension . ".dim_id=1" .
             " ORDER BY " . $this->celebrity_dimension . ".frequency" . " DESC ";
 
-
+        //execute the query
         $query = $this->dbConnection->query($sql);
 
 
+        //logic for displaying celebrity rankings by extraversion
         $ranking = 0;
         while ($query_row = $query->fetch_assoc()) {
             $ranking++;
@@ -105,16 +110,20 @@ class CelebrityModel
                 break;
             }
         }
+
+        //displays N/A if there's not extraversion data avaliable
         if ($celebPersons["Extraversion"] == 0.00) {
             $celebPersons['Ranking'] = "N/A";
         } else {
             $celebPersons['Ranking'] = $ranking;
         }
 
+        //returns the array
         return $celebPersons;
 
     }
 
+    //this function lists all of our celebrities in our celebrity index view page
     public function list_celebrity()
     {
         //SQL select statement, grabs all celebs & sorts by extroversion
@@ -122,28 +131,34 @@ class CelebrityModel
 
         //execute the query
         $query = $this->dbConnection->query($sql);
+        // if the query failed, return false.
+        if (!$query)
+            return false;
 
-        if ($query && $query->num_rows > 0) {
-            //array to store all celebrities
-            $celebs = array();
+        //if the query succeeded, but no celebrity was found.
+        if ($query->num_rows == 0)
+            return 0;
 
-            //loop through all rows
-            while ($query_row = $query->fetch_assoc()) {
-                $celeb = new Celebrity(
-                    $query_row["first_name"],
-                    $query_row["last_name"],
-                    $query_row["gender"],
-                    $query_row["age"],
-                    $query_row["web_presence"],
-                    $query_row["most_active"],
-                    $query_row["post_frequency"],
-                    $query_row["images"]);
-                //push
-                $celebs[] = $celeb;
-            }
-            return $celebs;
+        //create an array to store all returned celebrities
+        $celebs = array();
+
+        //loop through all rows in the returned celebrities
+        while ($obj = $query->fetch_object()) {
+            $celeb = new Celebrity(stripslashes($obj->first_name),
+                stripslashes($obj->last_name),
+                stripslashes($obj->gender),
+                stripslashes($obj->age),
+                stripslashes($obj->web_presence),
+                stripslashes($obj->most_active),
+                stripslashes($obj->post_frequency),
+                stripslashes($obj->images));
+            //set the id for the movie
+            $celeb->setCelebId($obj->celeb_id);
+
+            //add the movie into the array
+            $celebs[] = $celeb;
         }
-        return false;
+        return $celebs;
     }
 
     /*
@@ -219,7 +234,7 @@ class CelebrityModel
     }
 
 
-    //add_celeb function
+    //add_celeb function to add new celebrities in the database
     public function add_celebs()
     {
         if (!filter_has_var(INPUT_POST, 'first_name') ||
@@ -259,6 +274,7 @@ class CelebrityModel
         echo "<div align='center'><h1 style='color:green'><b>You have successfully added a new celebrity! :)</b></h1></div>";
     }
 
+    //delete_celeb function to delete a celebrity from the database
     public function delete_celeb($celeb_id)
     {
 
@@ -275,7 +291,7 @@ class CelebrityModel
     }
 
 
-    //search the database for celebrities that match words in titles. Return an array of movies if succeed; false otherwise.
+    //search the database for celebrities that match words in titles. Return an array of celebrities if succeed; false otherwise.
     public function search_celebs($terms)
     {
         $terms = explode(" ", $terms); //explode multiple terms into an array
