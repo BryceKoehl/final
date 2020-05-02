@@ -30,8 +30,7 @@ class CelebrityDetail extends CelebrityIndexView
               }*/
         ?>
 
-        <div id="main-header"><h2 class="align-middle"><?= $first_name, " ", $last_name ?></h2>Web Presence Details
-        </div>
+        <div id="main-header"><h2 class="align-middle"><?= $first_name, " ", $last_name ?></h2>Web Presence Details</div>
         <hr>
         <div>
             <!-- display movie details in a table -->
@@ -67,7 +66,9 @@ class CelebrityDetail extends CelebrityIndexView
                                 <td><b>Post Frequency:</td>
                                 <td><?= $post_frequency ?></td>
                             </tr>
-                            <tr><td><br></td></tr>
+                            <tr>
+                                <td><br></td>
+                            </tr>
                             <tr>
                                 <td><h2>Personality Details</h2></td>
                             </tr>
@@ -86,22 +87,18 @@ class CelebrityDetail extends CelebrityIndexView
                             }
                             ?>
                             <div id="button-group">
-                                <input class="btn btn-primary" type="button" id="edit-button" value="   Edit   "
-                                       onclick="window.location.href = '<?=BASE_URL ?>/celebrity/edit/<?= $celeb_id?>'">&nbsp;
-                                <input class="btn btn-danger" type="submit" id="delete-button" value="  Delete  "
-                                       onclick="window.location.href = '<?=BASE_URL ?>/celebrity/delete/<?= $celeb_id?>'">
+                                <button class="btn btn-primary" id="edit-button"
+                                        onclick="window.location.href = '<?= BASE_URL ?>/celebrity/edit/<?= $celeb_id ?>'">Edit</button>
+                                <button class="btn btn-secondary" href="<?= BASE_URL ?>/celebrity/index">Go to celebrity list</button>
+                                <button class="btn btn-danger" id="delete-button"
+                                        onclick="window.location.href = '<?= BASE_URL ?>/celebrity/delete/<?= $celeb_id ?>'">Delete</button>
                             </div>
                         </table>
                     </div>
                 </div>
-
-                </td>
-                </tr>
             </table>
         </div>
 
-        <a class="btn btn-secondary" href="<?= BASE_URL ?>/celebrity/index" style="margin-left: 40%">Go to celebrity list</a>
-        <br> <br> <br> <br><br><br><br><br><br><br><br><br>
 
         <?php
     }
