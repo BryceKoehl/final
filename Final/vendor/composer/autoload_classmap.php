@@ -21,6 +21,7 @@ return array(
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInit2aa62ca7900cf9d7c7258cee3d36ecdf' => $vendorDir . '/composer/autoload_static.php',
     'Database' => $baseDir . '/application/database.class.php',
+    'Delete' => $baseDir . '/views/celebrity/delete/delete.class.php',
     'Dispatcher' => $baseDir . '/application/dispatcher.class.php',
     'IndexView' => $baseDir . '/views/index_view.class.php',
     'Personality' => $baseDir . '/models/personality.class.php',

@@ -22,6 +22,7 @@ class ComposerStaticInit2aa62ca7900cf9d7c7258cee3d36ecdf
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit2aa62ca7900cf9d7c7258cee3d36ecdf' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Database' => __DIR__ . '/../..' . '/application/database.class.php',
+        'Delete' => __DIR__ . '/../..' . '/views/celebrity/delete/delete.class.php',
         'Dispatcher' => __DIR__ . '/../..' . '/application/dispatcher.class.php',
         'IndexView' => __DIR__ . '/../..' . '/views/index_view.class.php',
         'Personality' => __DIR__ . '/../..' . '/models/personality.class.php',
