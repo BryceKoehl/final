@@ -8,18 +8,21 @@
  *
  */
 
-class PersonalityController {
+class PersonalityController
+{
 
     private $personality_model;
 
     //default constructor
-    public function __construct() {
+    public function __construct()
+    {
         //create an instance of the personalityModel class
         $this->personality_model = PersonalityModel::getPersonalityModel();
     }
 
     //index action that displays all personalitys
-    public function index() {
+    public function index()
+    {
         //retrieve all personalitys and store them in an array
         $personalities = $this->personality_model->list_personality();
 
@@ -36,7 +39,8 @@ class PersonalityController {
     }
 
     //show details of a personality
-    public function detail($dim_id) {
+    public function detail($dim_id)
+    {
         //retrieve the specific personality
         $personality = $this->personality_model->view_personality($dim_id);
 
@@ -54,7 +58,8 @@ class PersonalityController {
 
 
     //handle an error
-    public function error($message) {
+    public function error($message)
+    {
         //create an object of the Error class
         $error = new PersonalityError();
 
@@ -63,7 +68,8 @@ class PersonalityController {
     }
 
     //handle calling inaccessible methods
-    public function __call($name, $arguments) {
+    public function __call($name, $arguments)
+    {
         //$message = "Route does not exist.";
         // Note: value of $name is case sensitive.
         $message = "Calling method '$name' caused errors. Route does not exist.";

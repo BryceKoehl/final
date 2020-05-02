@@ -1,9 +1,9 @@
 <?php
 /**
- * Author: "Christopher Schilling"
- * Date: $(date)
- * File: $(FILE_NAME)
- * Descritption:
+ * Author: Christopher Schilling, Ashley Nguyen, Bryce Koehl
+ * Date: 5/1/2020
+ * File: delete.class.php
+ * Descritption: confirms the deletion of a celebrity
  */
 
 class Delete extends CelebrityIndexView

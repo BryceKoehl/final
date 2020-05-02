@@ -1,7 +1,7 @@
 <?php
 /*
  * Author: Christopher Schilling
- * Date: 4 20, 2020
+ * Date: 4, 20, 2020
  * Name: personality_detail.class.php
  * Description: This class defines a method "display".
  * The method accepts a Personality object and displays the details of the celebrity in a table.
@@ -22,7 +22,7 @@ class PersonalityDetail extends PersonalityIndexView
         $description = $personality->getDescription();
         $keywords = $personality->getKeywords();
 
-        if (strpos($dim_id, "http://") === false AND strpos($dim_id, "https://") === false) {
+        if (strpos($dim_id, "http://") === false and strpos($dim_id, "https://") === false) {
             $image = BASE_URL . '/' . $dim_id;
         }
         ?>

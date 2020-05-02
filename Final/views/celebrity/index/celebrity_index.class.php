@@ -1,10 +1,10 @@
 <?php
 
 /*
- * Author: Louie Zhu
- * Date: Mar 6, 2016
- * Name: movie_index.class.php
- * Description: This class defines a method called "display", which displays all movies.
+ * Author: Christopher Schilling, Ashley Nguyen, Bryce Koehl
+ * Date: 5/1/2020
+ * Name: celebrity_index.class.php
+ * Description: This class defines a method called "display", which displays all celebrities.
  */
 
 class CelebrityIndex extends CelebrityIndexView
@@ -24,20 +24,21 @@ class CelebrityIndex extends CelebrityIndexView
         <div>
             <!--create the search bar -->
             <div id="searchbar" style="align-content: center">
-                    <form style="margin-left: 40%; margin-right: 45%" method="get" action="<?= BASE_URL ?>/celebrity/search">
-                        <input type="text" class="form-control" id="searchtextbox" name="query-terms"
-                               placeholder="Search by first and last name"
-                               autocomplete="off" onkeyup="handleKeyUp(event)" style="justify-content: center">
-                        <button style="float: right; margin-top: -12% " type="submit" class="btn btn-primary">Go
-                        </button>
-                    </form>
+                <form style="margin-left: 40%; margin-right: 45%" method="get"
+                      action="<?= BASE_URL ?>/celebrity/search">
+                    <input type="text" class="form-control" id="searchtextbox" name="query-terms"
+                           placeholder="Search by first and last name"
+                           autocomplete="off" onkeyup="handleKeyUp(event)" style="justify-content: center">
+                    <button style="float: right; margin-top: -12% " type="submit" class="btn btn-primary">Go
+                    </button>
+                </form>
 
                 <div id="suggestionDiv"></div>
 
-            <div id="button-group" style="align-content: center; margin-top: 1%">
-                <input type="button" id="edit-button" value="   Add New Celebrity Profile   "
-                       onclick="window.location.href = '<?= BASE_URL ?>/celebrity/goToAdd'">&nbsp;
-            </div>
+                <div id="button-group" style="align-content: center; margin-top: 1%">
+                    <input type="button" id="edit-button" value="   Add New Celebrity Profile   "
+                           onclick="window.location.href = '<?= BASE_URL ?>/celebrity/goToAdd'">&nbsp;
+                </div>
             </div>
         </div>
         <div class="grid-container">
@@ -52,11 +53,11 @@ class CelebrityIndex extends CelebrityIndexView
                 $last_name = $celeb->getLastName();
                 $images = $celeb->getImages();
 
-                if (strpos($images, "http://") === false AND strpos($images, "https://") === false) {
+                if (strpos($images, "http://") === false and strpos($images, "https://") === false) {
                     $images = BASE_URL . "/" . CELEB_IMG . $images;
                 }
 
-                if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
+                if (strpos($celeb_id, "http://") === false and strpos($celeb_id, "https://") === false) {
                     $celeb_id = $i + 1;
                 }
 

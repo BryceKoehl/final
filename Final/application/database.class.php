@@ -1,10 +1,10 @@
 <?php
 
 /*
- * Author:
- * Date:
+ * Author: Christopher Schilling, Ashley Nguyen, Bryce Koehl
+ * Date: 5/1/2020
  * File: database,class.php
- * Description:
+ * Description: This class contains all of our database information
  *
  */
 

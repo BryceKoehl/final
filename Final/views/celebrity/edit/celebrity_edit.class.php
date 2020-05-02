@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Author: Ashley, Chris, Bryce, Maimouna
  * Date: April 19 2020
@@ -6,9 +7,12 @@
  * Description: the display method in the class displays celebrity details in a form.
  *
  */
-class CelebrityEdit extends CelebrityIndexView {
 
-    public function display($celebrity) {
+class CelebrityEdit extends CelebrityIndexView
+{
+
+    public function display($celebrity)
+    {
         //display page header
         parent::displayHeader("Edit Celebrity");
 
@@ -27,8 +31,9 @@ class CelebrityEdit extends CelebrityIndexView {
         <div id="main-header">Edit Celebrity Details</div>
 
         <!-- display movie details in a form -->
-        <form class="new-media"  action='<?= BASE_URL . "/celebrity/update/" . $celeb_id ?>' method="post" style="border: 1px solid #bbb; margin-top: 10px; padding: 10px;">
-          <input type="hidden" name="id" value="<?= $celeb_id ?>">
+        <form class="new-media" action='<?= BASE_URL . "/celebrity/update/" . $celeb_id ?>' method="post"
+              style="border: 1px solid #bbb; margin-top: 10px; padding: 10px;">
+            <input type="hidden" name="id" value="<?= $celeb_id ?>">
             </p>
             <p><strong>First Name</strong>: <br>
                 <input name="first_name" type="text" size="50" value="<?= $first_name ?>" required=""></p>
@@ -39,7 +44,7 @@ class CelebrityEdit extends CelebrityIndexView {
             <p><strong>Age</strong>: <br>
                 <input name="age" type="int" size="3" required value="<?= $age ?>"></p>
             <p><strong>Web Presence</strong>: <br>
-                <input name="web_presence" type="text" required value="<?= $web_presence?>"></p>
+                <input name="web_presence" type="text" required value="<?= $web_presence ?>"></p>
             <p><strong>Most Active</strong>: <br>
                 <input name="most_active" type="text" required value="<?= $most_active ?>"></p>
             <p><strong>Post Frequency</strong>: <br>
@@ -47,7 +52,8 @@ class CelebrityEdit extends CelebrityIndexView {
             <p><strong>Image</strong>: <br>
                 <input name="images" type="text" required value="<?= $images ?>"></p>
             <input type="submit" name="action" value="Update Celebrity">
-            <input type="button" value="Cancel" onclick='window.location.href = "<?= BASE_URL . "/celebrity/detail/" . $celeb_id ?>"'
+            <input type="button" value="Cancel"
+                   onclick='window.location.href = "<?= BASE_URL . "/celebrity/detail/" . $celeb_id ?>"'
         </form>
         <?php
     }

@@ -3,7 +3,7 @@
  * Author: "Ashley Nguyen"
  * Date: 4/23/2020
  * File: celebrity_dimension.class.php
- * Description:
+ * Description: This is the celebrity dimension class
  */
 
 class CelebrityDimension

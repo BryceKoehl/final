@@ -8,20 +8,23 @@
  *
  */
 
-class CelebrityController {
+class CelebrityController
+{
 
     private $celebrity_model;
 
     //default constructor
-    public function __construct() {
+    public function __construct()
+    {
         //create an instance of the CelebrityModel class
         $this->celebrity_model = CelebrityModel::getCelebrityModel();
     }
 
     //index action that displays all celebrities
-    public function index() {
+    public function index()
+    {
         //retrieve all celebrities and store them in an array
-        $celebs= $this->celebrity_model->list_celebrity();
+        $celebs = $this->celebrity_model->list_celebrity();
 
         if (!$celebs) {
             //display an error
@@ -36,7 +39,8 @@ class CelebrityController {
     }
 
     //show details of a celebrity
-    public function detail($celeb_id) {
+    public function detail($celeb_id)
+    {
         //retrieve the specific celebrity
         $celeb = $this->celebrity_model->view_celebrity($celeb_id);
         $celeb_dim = $this->celebrity_model->celebrity_personality($celeb_id);
@@ -50,11 +54,12 @@ class CelebrityController {
 
         //display celebrity details
         $view = new CelebrityDetail();
-        $view->display($celeb, $celeb_dim); //$pers
+        $view->display($celeb, $celeb_dim);
     }
 
     //display a celebrity in a form for editing
-    public function edit($celeb_id) {
+    public function edit($celeb_id)
+    {
         //retrieve the specific celebrity
         $celeb = $this->celebrity_model->view_celebrity($celeb_id);
 
@@ -70,7 +75,8 @@ class CelebrityController {
     }
 
     //update a celebrity in the database
-    public function update($celeb_id) {
+    public function update($celeb_id)
+    {
         //update the celebrity
         $update = $this->celebrity_model->update_celebrity($celeb_id);
         if (!$update) {
@@ -89,7 +95,8 @@ class CelebrityController {
     }
 
     //search celebrity
-    public function search() {
+    public function search()
+    {
         //retrieve query terms from search form
         $query_terms = trim($_GET['query-terms']);
 
@@ -111,8 +118,10 @@ class CelebrityController {
         $search = new CelebritySearch();
         $search->display($query_terms, $celebs);
     }
+
     //autosuggestion
-    public function suggest($terms) {
+    public function suggest($terms)
+    {
         //retrieve query terms
         $query_terms = urldecode(trim($terms));
         $celebs = $this->celebrity_model->search_celebs($query_terms);
@@ -130,36 +139,40 @@ class CelebrityController {
         exit();
     }
 
-    public function goToAdd(){
+    public function goToAdd()
+    {
         $view = new CelebrityAdd();
         $view->display();
     }
 
-    public function add(){
+    public function add()
+    {
         $celeb = $this->celebrity_model->add_celebs();
         $view = new CelebrityAdd();
         $view->display();
     }
 
-    public function delete($celeb_id){
+    public function delete($celeb_id)
+    {
         $delete = $this->celebrity_model->delete_celeb($celeb_id);
         $view = new Delete();
         $view->display($delete);
     }
 
     //handle an error
-/*    public function error($message) {
+    public function error($message)
+    {
         //create an object of the Error class
         $error = new CelebError();
 
         //display the error page
         $error->display($message);
-    }*/
+    }
 
     //handle calling inaccessible methods
-    public function __call($name, $arguments) {
-        //$message = "Route does not exist.";
-        // Note: value of $name is case sensitive.
+    public function __call($name, $arguments)
+    {
+
         $message = "Calling method '$name' caused errors. Route does not exist.";
 
         $this->error($message);

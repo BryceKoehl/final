@@ -8,7 +8,8 @@
  *
  */
 
-class PersonalityModel {
+class PersonalityModel
+{
 
     //private data members
     private $db;
@@ -16,8 +17,9 @@ class PersonalityModel {
     static private $_instance = NULL;
     private $personality_dimension;
 
-    //To use singleton pattern, this constructor is made private. To get an instance of the class, the getpersonalityModel method must be called.
-    private function __construct() {
+    //To use singleton pattern, this constructor is made private. To get an instance of the class, the get personality Model method must be called.
+    private function __construct()
+    {
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
         $this->personality_dimension = $this->db->getPersonalityDimension();
@@ -35,7 +37,8 @@ class PersonalityModel {
     }
 
     //static method to ensure there is just one personalityModel instance
-    public static function getPersonalityModel() {
+    public static function getPersonalityModel()
+    {
         if (self::$_instance == NULL) {
             self::$_instance = new PersonalityModel();
         }
@@ -43,12 +46,13 @@ class PersonalityModel {
     }
 
     /*
-     * the list_personality method retrieves all personalitys from the database and
+     * the list_personality method retrieves all personalities from the database and
      * returns an array of personality objects if successful or false if failed.
-     * personalitys should also be filtered by ratings and/or sorted by titles or rating if they are available.
+     * personalities should also be filtered by ratings and/or sorted by titles or rating if they are available.
      */
 
-    public function list_personality() {
+    public function list_personality()
+    {
         //SQL select statement
         $sql = "SELECT * FROM " . $this->db->getPersonalityDimension();
 
@@ -61,7 +65,7 @@ class PersonalityModel {
 
             //loop through all rows
             while ($query_row = $query->fetch_assoc()) {
-                $personality= new Personality(
+                $personality = new Personality(
                     $query_row["dimension"],
                     $query_row["qualities"],
                     $query_row["description"],
@@ -77,14 +81,15 @@ class PersonalityModel {
     }
 
     /*
-     * the viewpersonality method retrieves the details of the personality specified by its id
+     * the view personality method retrieves the details of the personality specified by its id
      * and returns a personality object. Return false if failed.
      */
 
-    public function view_personality($dim_id) {
+    public function view_personality($dim_id)
+    {
         //the select ssql statement
         $sql = "SELECT * FROM " . $this->db->getPersonalityDimension() .
-        " WHERE " . $this->personality_dimension . ".dim_id='$dim_id'";
+            " WHERE " . $this->personality_dimension . ".dim_id='$dim_id'";
 
         //execute the query
         $query = $this->dbConnection->query($sql);

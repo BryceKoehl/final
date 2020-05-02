@@ -6,13 +6,15 @@
  * Description: the User class models a real-world user.
  */
 
-class Personality {
+class Personality
+{
 
     //private properties of a User object
     private $dim_id, $dimension, $qualities, $description, $keywords, $image;
 
     //the constructor that initializes all properties
-    public function __construct($dimension, $qualities, $description, $keywords, $image) {
+    public function __construct($dimension, $qualities, $description, $keywords, $image)
+    {
         $this->dimension = $dimension;
         $this->qualities = $qualities;
         $this->description = $description;
@@ -21,27 +23,32 @@ class Personality {
     }
 
     //get the id of a user
-    public function getDimId() {
+    public function getDimId()
+    {
         return $this->dim_id;
     }
 
-	//get the dimension of a user
-    public function getDimension() {
+    //get the dimension of a user
+    public function getDimension()
+    {
         return $this->dimension;
     }
 
-	//get the qualities of a user
-    public function getQualities() {
+    //get the qualities of a user
+    public function getQualities()
+    {
         return $this->qualities;
     }
 
-	//get the description of a user
-    public function getDescription() {
+    //get the description of a user
+    public function getDescription()
+    {
         return $this->description;
     }
 
-	//get the keywords of a user
-    public function getKeywords() {
+    //get the keywords of a user
+    public function getKeywords()
+    {
         return $this->keywords;
     }
 
@@ -51,7 +58,8 @@ class Personality {
     }
 
     //set user id
-    public function setId($dim_id) {
+    public function setId($dim_id)
+    {
         $this->dim_id = $dim_id;
     }
 

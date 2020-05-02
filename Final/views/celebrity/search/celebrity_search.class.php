@@ -1,32 +1,30 @@
 <?php
 /*
- * Author: Louie Zhu
- * Date: Mar 6, 2016
- * Name: search.class.php
+ * Author: Christopher Schilling, Ashley Nguyen, Bryce Koehl
+ * Date: 5/1/2020
+ * Name: celebrity_search.class.php
  * Description: this script defines the SearchMovie class. The class contains a method named display, which
  *     accepts an array of Movie objects and displays them in a grid.
  */
 
-class CelebritySearch extends CelebrityIndexView {
+class CelebritySearch extends CelebrityIndexView
+{
     /*
      * the displays accepts an array of movie objects and displays
      * them in a grid.
      */
 
-     public function display($terms, $celebs) {
+    public function display($terms, $celebs)
+    {
         //display page header
         parent::displayHeader("Search Results");
         ?>
         <div id="main-header"> Search Results for <i><?= $terms ?></i></div>
         <span class="rcd-numbers">
-<!--            --><?php
-/*            echo ((!is_array($celebs)) ? "( 0 - 0 )" : "( 1 - " . count($celebs) . " )");
-            */?>
-        </span>
-        <hr>
 
-       <!-- display all records in a grid -->
-               <div class="grid-container">
+
+        <!-- display all records in a grid -->
+        <div class="grid-container">
             <?php
             if ($celebs === 0) {
                 echo "No celebrity was found.<br><br><br><br><br>";
@@ -38,13 +36,9 @@ class CelebritySearch extends CelebrityIndexView {
                     $last_name = $celeb->getLastName();
                     $images = $celeb->getImages();
 
-                    if (strpos($images, "http://") === false AND strpos($images, "https://")=== false) {
+                    if (strpos($images, "http://") === false and strpos($images, "https://") === false) {
                         $images = BASE_URL . "/" . CELEB_IMG . $images;
                     }
-
-                    /*if (strpos($celeb_id, "http://") === false AND strpos($celeb_id, "https://") === false) {
-                        $celeb_id = $i + 1;
-                    }*/
 
                     if ($i % 6 == 0) {
                         echo "<div class='row'>";
@@ -58,7 +52,7 @@ class CelebritySearch extends CelebrityIndexView {
                     }
                 }
             }
-            ?>  
+            ?>
         </div>
         <a href="<?= BASE_URL ?>/celebrity/index">Go to Celebrity list</a>
         <?php

@@ -70,7 +70,7 @@ class CelebrityModel
             }
         }
 
-        if(empty($celebPersons)) {
+        if (empty($celebPersons)) {
             return false;
         }
 
@@ -78,15 +78,15 @@ class CelebrityModel
         $dimensions = array_keys($celebPersons);
         //var_dump($dimensions);
         //exit();
-        if($dimensions[0] == "Extraversion") {
+        if ($dimensions[0] == "Extraversion") {
             array_shift($dimensions);
         }
-        if ($celebPersons["Extraversion"] == 0.00){
-            $celebPersons['Primary']  = "N/A";
-            $celebPersons['Secondary']  = "N/A";
-        }else{
-            $celebPersons['Primary']  = $dimensions[0];
-            $celebPersons['Secondary']  = $dimensions[1];
+        if ($celebPersons["Extraversion"] == 0.00) {
+            $celebPersons['Primary'] = "N/A";
+            $celebPersons['Secondary'] = "N/A";
+        } else {
+            $celebPersons['Primary'] = $dimensions[0];
+            $celebPersons['Secondary'] = $dimensions[1];
         }
 
         //Determine ranking on extraversion
@@ -96,22 +96,20 @@ class CelebrityModel
             " ORDER BY " . $this->celebrity_dimension . ".frequency" . " DESC ";
 
 
-        //exit($sql);
-
         $query = $this->dbConnection->query($sql);
 
 
         $ranking = 0;
-        while($query_row = $query->fetch_assoc()) {
+        while ($query_row = $query->fetch_assoc()) {
             $ranking++;
             //$ranking[] =[$query_row['celeb_id']=>$query_row['frequency']] ;
-            if($query_row['celeb_id'] == $celeb_id) {
+            if ($query_row['celeb_id'] == $celeb_id) {
                 break;
             }
         }
-        if ($celebPersons["Extraversion"] == 0.00){
+        if ($celebPersons["Extraversion"] == 0.00) {
             $celebPersons['Ranking'] = "N/A";
-        }else{
+        } else {
             $celebPersons['Ranking'] = $ranking;
         }
 
@@ -150,6 +148,7 @@ class CelebrityModel
         }
         return false;
     }
+
     /*
      * the viewCelebrity method retrieves the details of the movie specified by its id
      * and returns a celebrity object. Return false if failed.
@@ -198,7 +197,7 @@ class CelebrityModel
             !filter_has_var(INPUT_POST, 'age') ||
             !filter_has_var(INPUT_POST, 'web_presence') ||
             !filter_has_var(INPUT_POST, 'most_active') ||
-            !filter_has_var(INPUT_POST, 'post_frequency')){
+            !filter_has_var(INPUT_POST, 'post_frequency')) {
 
             return false;
         }
@@ -223,7 +222,8 @@ class CelebrityModel
 
 
     //add_celeb function
-    public function add_celebs(){
+    public function add_celebs()
+    {
         if (!filter_has_var(INPUT_POST, 'first_name') ||
             !filter_has_var(INPUT_POST, 'last_name') ||
             !filter_has_var(INPUT_POST, 'gender') ||
@@ -231,7 +231,7 @@ class CelebrityModel
             !filter_has_var(INPUT_POST, 'web_presence') ||
             !filter_has_var(INPUT_POST, 'most_active') ||
             !filter_has_var(INPUT_POST, 'post_frequency') ||
-            !filter_has_var(INPUT_POST, 'images')){
+            !filter_has_var(INPUT_POST, 'images')) {
 
             return false;
         }
@@ -261,14 +261,8 @@ class CelebrityModel
         echo "<div align='center'><h1 style='color:green'><b>You have successfully added a new celebrity! :)</b></h1></div>";
     }
 
-    public function delete_celeb($celeb_id){
-
-/*        if (!filter_has_var(INPUT_GET, 'celeb_id')) {
-            echo "Deletion cannot continue since there were problems retrieving celeb id";
-            die();
-        }*/
-        //this makes the variable id from the product id value and sanitizes/filters it
-        //$celeb_id = filter_input(INPUT_GET, 'celeb_id', FILTER_SANITIZE_NUMBER_INT);
+    public function delete_celeb($celeb_id)
+    {
 
         $sql = "DELETE FROM celebrity WHERE celebrity.celeb_id = $celeb_id";
 
