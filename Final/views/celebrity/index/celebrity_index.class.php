@@ -46,7 +46,7 @@ class CelebrityIndex extends CelebrityIndexView
         if ($celebs === 0) {
             echo "No celeb was found.<br><br><br><br><br>";
         } else {
-            //display movies in a grid; six movies per row
+            //display celebrities in a grid
             foreach ($celebs as $i => $celeb) {
                 $celeb_id = $celeb->getCelebId();
                 $first_name = $celeb->getFirstName();

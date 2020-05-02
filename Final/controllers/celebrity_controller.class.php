@@ -86,12 +86,12 @@ class CelebrityController
             return;
         }
 
-        //display the updateed celebrity details
-        $confirm = "The celebrity was successfully updated.";
+        //display the updated celebrity details
+        //$confirm = "The celebrity was successfully updated.";
         $celeb = $this->celebrity_model->view_celebrity($celeb_id);
 
         $view = new CelebrityDetail();
-        $view->display($celeb, $confirm);
+        $view->display($celeb); //$confirm);
     }
 
     //search celebrity

@@ -60,7 +60,7 @@ class PersonalityModel
         $query = $this->dbConnection->query($sql);
 
         if ($query && $query->num_rows > 0) {
-            //array to store all toys
+            //array to store all personalities
             $personalities = array();
 
             //loop through all rows
@@ -72,7 +72,7 @@ class PersonalityModel
                     $query_row["keywords"],
                     $query_row["image"]);
 
-                //push the toy into the array
+                //push the personalities into the array
                 $personalities[] = $personality;
             }
             return $personalities;

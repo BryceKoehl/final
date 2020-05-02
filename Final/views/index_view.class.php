@@ -30,12 +30,12 @@ class IndexView
             <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_autosuggestion.js"></script>
         </head>
         <body>
-        <!-- <div id="top"></div> -->
+
         <div id='wrapper'>
         <div id="banner">
             <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="Celebrity Web Presence Data">
                 <div align="center" style="padding-top: 25px;">
-                    <!-- <img src='<?= BASE_URL ?>/www/img/logo.png' style="width: 180px; border: none" /> -->
+
                     <span style='color: antiquewhite; font-size: 30pt; font-family: "Trebuchet MS", Helvetica, sans-serif'>
                                     🌟 Celebrity Web Data Showcase 🌟
                                 </span>
@@ -52,7 +52,6 @@ class IndexView
         <br><br><br>
         <div id="push"></div>
         </div>
-        <!-- <div id="footer"><br>I211 Final Project Spring 2020</div> -->
 
         </body>
         </html>

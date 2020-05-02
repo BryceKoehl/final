@@ -4,7 +4,7 @@
  * Date: 5/1/2020
  * Name: celebrity_index_view.class.php
  * Description: the parent class that displays a search box.
- * The javascript varaiable media specifies the media type. This variable is needed for auto suggestion.
+ * The javascript variable media specifies the media type. This variable is needed for auto suggestion.
  */
 
 class CelebrityIndexView extends IndexView

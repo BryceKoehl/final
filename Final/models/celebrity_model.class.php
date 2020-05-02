@@ -76,8 +76,7 @@ class CelebrityModel
 
         //Determine primary and secondary dimension
         $dimensions = array_keys($celebPersons);
-        //var_dump($dimensions);
-        //exit();
+
         if ($dimensions[0] == "Extraversion") {
             array_shift($dimensions);
         }
@@ -89,7 +88,7 @@ class CelebrityModel
             $celebPersons['Secondary'] = $dimensions[1];
         }
 
-        //Determine ranking on extraversion
+        //Determine ranking on extroversion
         $sql = " SELECT " . $this->celebrity_dimension . ".celeb_id, " . $this->celebrity_dimension . ".frequency " .
             " FROM " . $this->celebrity_dimension .
             " WHERE " . $this->celebrity_dimension . ".dim_id=1" .
@@ -102,7 +101,6 @@ class CelebrityModel
         $ranking = 0;
         while ($query_row = $query->fetch_assoc()) {
             $ranking++;
-            //$ranking[] =[$query_row['celeb_id']=>$query_row['frequency']] ;
             if ($query_row['celeb_id'] == $celeb_id) {
                 break;
             }
@@ -113,21 +111,20 @@ class CelebrityModel
             $celebPersons['Ranking'] = $ranking;
         }
 
-        //var_dump($celebPersons); exit;
         return $celebPersons;
 
     }
 
     public function list_celebrity()
     {
-        //SQL select statement, grabs all celebs & sorts by extraversion
+        //SQL select statement, grabs all celebs & sorts by extroversion
         $sql = "SELECT * FROM " . $this->db->getCelebrity();
 
         //execute the query
         $query = $this->dbConnection->query($sql);
 
         if ($query && $query->num_rows > 0) {
-            //array to store all toys
+            //array to store all celebrities
             $celebs = array();
 
             //loop through all rows
@@ -150,13 +147,12 @@ class CelebrityModel
     }
 
     /*
-     * the viewCelebrity method retrieves the details of the movie specified by its id
+     * the viewCelebrity method retrieves the details of the celebrity specified by its id
      * and returns a celebrity object. Return false if failed.
      */
     public function view_celebrity($celeb_id)
     {
-        //the select sql statement
-        //$sql = "SELECT * FROM " . $this->celebrity;
+
         $sql = "SELECT * FROM " . $this->celebrity .
             " WHERE " . $this->celebrity . ".celeb_id='$celeb_id'";
 
@@ -190,14 +186,15 @@ class CelebrityModel
     public function update_celebrity($celeb_id)
     {
 
-        //if the script did not received post data, display an error message and then terminite the script immediately
+        //if the script did not received post data, display an error message and then terminate the script immediately
         if (!filter_has_var(INPUT_POST, 'first_name') ||
             !filter_has_var(INPUT_POST, 'last_name') ||
             !filter_has_var(INPUT_POST, 'gender') ||
             !filter_has_var(INPUT_POST, 'age') ||
             !filter_has_var(INPUT_POST, 'web_presence') ||
             !filter_has_var(INPUT_POST, 'most_active') ||
-            !filter_has_var(INPUT_POST, 'post_frequency')) {
+            !filter_has_var(INPUT_POST, 'post_frequency') ||
+            !filter_has_var(INPUT_POST, 'images')) {
 
             return false;
         }
@@ -210,14 +207,16 @@ class CelebrityModel
         $web_presence = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'web_presence', FILTER_SANITIZE_STRING)));
         $most_active = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'most_active', FILTER_SANITIZE_STRING)));
         $post_frequency = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'post_frequency', FILTER_SANITIZE_STRING)));
+        $images = $this->dbConnection->real_escape_string(trim(filter_input(INPUT_POST, 'images', FILTER_SANITIZE_STRING)));
 
-        //COME BACK TO THIS STATEMENT!!! query string for update
         $sql = "UPDATE " . $this->celebrity .
             " SET first_name='$first_name', last_name='$last_name',  gender='$gender',  age='$age', web_presence='$web_presence', "
-            . "most_active='$most_active', post_frequency='$post_frequency' WHERE celeb_id='$celeb_id'";
+            . "most_active='$most_active', post_frequency='$post_frequency', images='$images' WHERE celeb_id='$celeb_id'";
 
         //execute the query
         return $this->dbConnection->query($sql);
+
+        echo "<div align='center'><h1 style='color:green'><b>You have successfully edit a celebrity! :)</b></h1></div>";
     }
 
 

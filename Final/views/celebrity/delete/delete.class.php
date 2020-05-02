@@ -28,12 +28,11 @@ class Delete extends CelebrityIndexView
             <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_autosuggestion.js"></script>
         </head>
     <body>
-        <!-- <div id="top"></div> -->
+
     <div id='wrapper'>
         <div id="banner">
             <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="Celebrity Web Presence Data">
                 <div align="center" style="padding-top: 25px;">
-                    <!-- <img src='<?= BASE_URL ?>/www/img/logo.png' style="width: 180px; border: none" /> -->
                     <span style='color: antiquewhite; font-size: 30pt; font-family: "Trebuchet MS", Helvetica, sans-serif'>
                                     🌟 Celebrity Web Data Showcase 🌟
                                 </span>
@@ -42,7 +41,8 @@ class Delete extends CelebrityIndexView
         </div>
 
         <br><br><br>
-        <a class="btn btn-secondary" href="<?= BASE_URL ?>/celebrity/index" style="margin-left: 40%">Go to celebrity list</a>
+        <a class="btn btn-secondary" href="<?= BASE_URL ?>/celebrity/index" style="margin-left: 40%">Go to celebrity
+            list</a>
 
         <?php
     }

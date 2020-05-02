@@ -26,7 +26,7 @@ class PersonalityIndex extends PersonalityIndexView
         if ($personalities === 0) {
             echo "No personality dimension was found.<br><br><br><br><br>";
         } else {
-            //display personalities in a grid; six personalitys per row
+            //display personalities in a grid; six personalities per row
             foreach ($personalities as $i => $personality) {
                 $dim_id = $personality->getDimId();
                 $dimension = $personality->getDimension();

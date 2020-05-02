@@ -27,7 +27,6 @@ class CelebrityAdd extends CelebrityIndexView
             <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_autosuggestion.js"></script>
         </head>
         <body>
-        <!-- <div id="top"></div> -->
         <div id='wrapper'>
             <div id="banner">
                 <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="Celebrity Web Presence Data">
@@ -40,7 +39,6 @@ class CelebrityAdd extends CelebrityIndexView
             </div>
 
             <br><br><br>
-            <!-- <div id="footer"><br>I211 Final Project Spring 2020</div> -->
 
 
             <div id="mainbody">
@@ -92,7 +90,7 @@ class CelebrityAdd extends CelebrityIndexView
                 </div>
                 <div class="staff-button">
                     <div style="align-items: center">
-                        <input  class="btn btn-success" type="submit" name="action" value="Add New Celebrity"/>
+                        <input class="btn btn-success" type="submit" name="action" value="Add New Celebrity"/>
                         <input class="btn btn-secondary" type="button" value="Back to View All Celebrities"
                                onclick='window.location.href = "<?= BASE_URL . "/celebrity/index/" ?>"'
                     </div>

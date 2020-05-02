@@ -32,8 +32,9 @@ class CelebrityEdit extends CelebrityIndexView
 
 
         <!-- display movie details in a form -->
-        <form action='<?= BASE_URL . "/celebrity/add/" ?>' method="post" class="col5"
+        <form action='<?= BASE_URL . "/celebrity/update/" ?>' method="post" class="col5"
               style="width: 50%; margin-left: 25%">
+            <input type="hidden" name="id" value="<?= $celeb_id ?>">
             <div class="form-group">
                 <label for="exampleInputEmail1">First Name:</label>
                 <input name="first_name" type="text" size="5" required class="form-control"
@@ -73,7 +74,7 @@ class CelebrityEdit extends CelebrityIndexView
             <div class="form-group">
                 <label for="exampleInputPassword1">Image:</label>
                 <input name="images" type="text" size="50" required class="form-control"
-                       id="exampleInputPassword1" placeholder="Enter an image url.">
+                       id="exampleInputPassword1" value="<?= $images ?>">
             </div>
             <div class="staff-button">
                 <div style="align-items: center">

@@ -20,10 +20,10 @@ class PersonalityController
         $this->personality_model = PersonalityModel::getPersonalityModel();
     }
 
-    //index action that displays all personalitys
+    //index action that displays all personalities
     public function index()
     {
-        //retrieve all personalitys and store them in an array
+        //retrieve all personalities and store them in an array
         $personalities = $this->personality_model->list_personality();
 
         if (!$personalities) {
@@ -33,7 +33,7 @@ class PersonalityController
             return;
         }
 
-        // display all personalitys
+        // display all personalities
         $view = new PersonalityIndex();
         $view->display($personalities);
     }
@@ -70,8 +70,6 @@ class PersonalityController
     //handle calling inaccessible methods
     public function __call($name, $arguments)
     {
-        //$message = "Route does not exist.";
-        // Note: value of $name is case sensitive.
         $message = "Calling method '$name' caused errors. Route does not exist.";
 
         $this->error($message);

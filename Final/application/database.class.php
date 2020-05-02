@@ -71,7 +71,7 @@ class Database
         return $this->param['personality_dimension'];
     }
 
-    //returns the name of the table storing cds
+    //returns the name of the table storing users
     public function getUsers()
     {
         return $this->param['users'];

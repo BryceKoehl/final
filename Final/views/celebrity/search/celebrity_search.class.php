@@ -3,8 +3,8 @@
  * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
  * Date: 5/1/2020
  * Name: celebrity_search.class.php
- * Description: this script defines the SearchMovie class. The class contains a method named display, which
- *     accepts an array of Movie objects and displays them in a grid.
+ * Description: this script defines the celebritySearch class. The class contains a method named display, which
+ *     accepts an array of Celebrity objects and displays them in a grid.
  */
 
 class CelebritySearch extends CelebrityIndexView
@@ -29,7 +29,7 @@ class CelebritySearch extends CelebrityIndexView
             if ($celebs === 0) {
                 echo "No celebrity was found.<br><br><br><br><br>";
             } else {
-                //display movies in a grid; six movies per row
+                //display celebrities in a grid
                 foreach ($celebs as $i => $celeb) {
                     $celeb_id = $celeb->getCelebId();
                     $first_name = $celeb->getFirstName();
