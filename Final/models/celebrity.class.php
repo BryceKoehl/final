@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Author: Christopher Schilling, Ashley Nguyen, Bryce Koehl
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
  * Date: 5/1/2020
  * Name: celebrity.class.php
  * Description: the celebrity class models a real-world celebrity.

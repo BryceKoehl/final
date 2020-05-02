@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Author: Christopher Schilling, Ashley Nguyen, Bryce Koehl
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
  * Date: 5/1/2020
  * File: celeb_error.class.php
  * Description: this class displays errors if the celeb id can not be retrieved

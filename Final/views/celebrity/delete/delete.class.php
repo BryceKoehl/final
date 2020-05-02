@@ -1,6 +1,6 @@
 <?php
 /**
- * Author: Christopher Schilling, Ashley Nguyen, Bryce Koehl
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
  * Date: 5/1/2020
  * File: delete.class.php
  * Descritption: confirms the deletion of a celebrity

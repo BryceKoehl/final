@@ -1,6 +1,6 @@
 <?php
 /*
- * Author: Christopher Schilling, Ashley Nguyen, Bryce Koehl
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
  * Date: 5/1/2020
  * Name: index.php
  * Description: The homepage

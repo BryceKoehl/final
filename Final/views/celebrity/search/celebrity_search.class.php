@@ -1,6 +1,6 @@
 <?php
 /*
- * Author: Christopher Schilling, Ashley Nguyen, Bryce Koehl
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
  * Date: 5/1/2020
  * Name: celebrity_search.class.php
  * Description: this script defines the SearchMovie class. The class contains a method named display, which

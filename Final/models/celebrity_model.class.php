@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Author: Chris, Ashley, Bryce, Maimouna
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
  * Date: April 19, 2020
  * File: celebrity_model.class.php
  * Description: the celebrity model

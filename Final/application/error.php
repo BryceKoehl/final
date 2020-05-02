@@ -1,6 +1,6 @@
 <?php
 /**
- * Author: Christopher Schilling, Ashley Nguyen, Bryce Koehl
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
  * Date: 5/1/2020
  * Name: error.php
  * Description: this script displays an error message. This script is globally available throughout the application.

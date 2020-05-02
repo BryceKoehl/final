@@ -1,6 +1,6 @@
 <?php
 /*
- * Author: Christopher Schilling, Ashley Nguyen, Bryce Koehl
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
  * Date: 5/1/2020
  * Name: celebrity_view.class.php
  * Description: This class defines a method "display".

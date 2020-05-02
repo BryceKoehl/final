@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author: Christopher Schilling, Ashley Nguyen, Bryce Koehl
+ * Author: Christopher Schilling, Ashley Nguyen, Maimouna Diallo, Bryce Koehl
  * Date: 5/1/2020
  * Name: dispatcher.class.php
  * Description: application dispatcher responsible for dissecting in pieces the requested URI and
