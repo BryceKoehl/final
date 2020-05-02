@@ -57,7 +57,7 @@ class PersonalityDetail extends PersonalityIndexView
         <br>
 
         <div>
-            <a href="<?= BASE_URL ?>/personality/index">Go to Personality List</a>
+            <a class="btn btn-secondary" href="<?= BASE_URL ?>/personality/index">Go to Personality List</a>
         </div>
         <?php
         //display page footer

@@ -273,7 +273,7 @@ class CelebrityModel
         $this->dbConnection->close();
 
         //display a confirmation message
-        echo "<p>You have successfully deleted the item.</p><br>";
+        echo "<div align='center'><h1 style='color:green'><b>You have successfully deleted a celebrity! :)</b></h1></div>";
     }
 
 
